@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/margin_20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/heading_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_35dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/lbl_feedback"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/button_bg"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:lbl_text="lbl_feedback" />
+
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="@dimen/margin_30dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:padding="7dp"
+                android:src="@drawable/cancel"
+                app:tint="@color/button_bg" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:orientation="vertical">
+            <!--        android:backgroundTint="#66000000"-->
+            <app.com.arresto.arresto_connect.custom_views.LinedEditText
+                android:id="@+id/rmrk_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/border_bg"
+                android:gravity="start"
+                android:hint="@string/lbl_please_enter_feedback"
+                android:inputType="text|textMultiLine"
+                android:lineSpacingExtra="10dp"
+                android:lines="5"
+                android:minHeight="100dp"
+                android:padding="8dp"
+                android:textColor="@color/app_text"
+                android:textColorHint="@color/grey"
+                android:textSize="@dimen/textsize"
+                app:bg_color="2"
+                app:bg_type="border_bg"
+                app:text_color="2" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/img_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_35dp"
+                android:layout_marginTop="10dp"
+                android:gravity="center"
+                android:text="@string/lbl_add_file"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/button_bg"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:lbl_text="lbl_add_file" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_image_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:scaleType="center"
+                android:src="@drawable/camera_img"
+                app:backgroundTint="@color/grey"
+                app:fabCustomSize="30dp"
+                app:maxImageSize="15dp" />
+
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/sbmt_btn"
+                style="@style/material_button"
+                android:layout_width="236dp"
+                android:layout_height="@dimen/margin_35dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/lbl_sbmit_st"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_10dp"
+                app:lbl_text="lbl_sbmit_st" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,168 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_background"
+    android:orientation="vertical">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/app_text"
+        android:gravity="center"
+        android:text="@string/lbl_disinfect"
+        android:textColor="@color/app_background"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:lbl_text="lbl_disinfect"
+        app:text_color="1" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_EditText
+        android:id="@+id/remark_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/round_bg_white"
+        android:gravity="top|left"
+        android:hint="@string/lbl_remark_st"
+        android:inputType="textMultiLine"
+        android:minHeight="50dp"
+        android:paddingLeft="5dp"
+        app:bg_color="2"
+        app:bg_type="border_bg"
+        app:lbl_text="lbl_remark_st"
+        app:text_color="2" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/app_text"
+        android:gravity="center"
+        android:text="@string/lbl_add_photo_st"
+        android:textColor="@color/app_background"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:lbl_text="lbl_add_photo_st"
+        app:text_color="1" />
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/capture_img"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:scaleType="center"
+        android:src="@drawable/camera_img"
+        app:backgroundTint="@color/grey"
+        app:fabCustomSize="30dp"
+        app:maxImageSize="15dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/grid_image"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="2dp" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="@dimen/margin_5dp"
+        android:background="@color/app_text"
+        android:gravity="center"
+        android:text="@string/lbl_last_disinfection"
+        android:textColor="@color/app_background"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:lbl_text="lbl_last_disinfection"
+        app:text_color="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/infection_img"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_alignParentRight="true"
+            android:layout_margin="7dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="7dp"
+            android:layout_toLeftOf="@+id/infection_img"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/email_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:autoLink="email"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/grey"
+                android:textColorLink="@color/blue1"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/date_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:textColor="@color/grey"
+                android:textSize="14dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/cancel_btn"
+            android:layout_width="150dp"
+            android:layout_height="30dp"
+            android:background="@drawable/btn_bg"
+            android:gravity="center"
+            android:text="@string/lbl_cncl_st"
+            android:textColor="@color/app_background"
+            app:bg_color="2"
+            app:bg_type="round_bg"
+            app:lbl_text="lbl_cncl_st"
+            app:text_color="1" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/submit_btn"
+            android:layout_width="120dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/btn_bg"
+            android:gravity="center"
+            android:text="@string/lbl_sbmit_st"
+            android:textColor="@color/app_background"
+            app:bg_color="2"
+            app:bg_type="round_bg"
+            app:lbl_text="lbl_sbmit_st"
+            app:text_color="1" />
+    </LinearLayout>
+</LinearLayout>

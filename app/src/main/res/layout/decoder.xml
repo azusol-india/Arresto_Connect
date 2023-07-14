@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <SurfaceView
+        android:id="@+id/preview_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <app.com.arresto.arresto_connect.third_party.custom_scan.ViewfinderView
+        android:id="@+id/viewfinder_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/transparent" />
+
+    <LinearLayout
+        android:id="@+id/progressLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/LoadingText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:gravity="center"
+            android:text="Camera initialize ..."
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/flash_btn"
+        android:layout_margin="@dimen/margin_10dp"
+        android:layout_width="@dimen/margin_30dp"
+        android:layout_gravity="right"
+        android:layout_height="@dimen/margin_30dp"
+        android:src="@drawable/flashoff"/>
+
+</FrameLayout>

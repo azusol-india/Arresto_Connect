@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_5dp"
+        android:background="@drawable/bg_btm_line"
+        app:bg_color="2"
+        app:bg_type="bottom_line_bg"
+        app:text_color="2">
+
+        <TextView
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_35dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:text="@string/lbl_delta_in_similar"
+            android:textColor="@color/button_bg"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/cancel_btn"
+            android:layout_width="@dimen/margin_30dp"
+            android:layout_height="@dimen/margin_30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="2dp"
+            android:padding="7dp"
+            android:src="@drawable/cancel"
+            app:tint="@color/button_bg" />
+
+    </app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/t_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/margin_5dp"
+        android:scrollbarStyle="outsideOverlay" />
+</LinearLayout>

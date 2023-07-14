@@ -1,0 +1,704 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 9,
+    "identityHash": "4c798d6a60501ad8ebeacba9bab0ac05",
+    "entities": [
+      {
+        "tableName": "Language_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `data` TEXT, `date` TEXT, `lang_key` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "language_data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "modified_date",
+            "columnName": "date",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lang_key",
+            "columnName": "lang_key",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Language_table_lang_key",
+            "unique": true,
+            "columnNames": [
+              "lang_key"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Language_table_lang_key` ON `${TABLE_NAME}` (`lang_key`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "pdm_inspected_steps_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `unique_id` TEXT, `asset_id` TEXT, `user_id` TEXT, `client_id` TEXT, `step_id` TEXT, `step_position` INTEGER NOT NULL, `observation` TEXT, `action_proposed` TEXT, `action_taken` TEXT, `before_images` TEXT, `after_images` TEXT, `skip_flag` TEXT, `skip_remark` TEXT, `master_id` TEXT, `start_time` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unique_id",
+            "columnName": "unique_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "asset_id",
+            "columnName": "asset_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user_id",
+            "columnName": "user_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "step_id",
+            "columnName": "step_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "step_position",
+            "columnName": "step_position",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "observation",
+            "columnName": "observation",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "action_proposed",
+            "columnName": "action_proposed",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "action_taken",
+            "columnName": "action_taken",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "before_images",
+            "columnName": "before_images",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "after_images",
+            "columnName": "after_images",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "skip_flag",
+            "columnName": "skip_flag",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "skip_remark",
+            "columnName": "skip_remark",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "master_id",
+            "columnName": "master_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "start_time",
+            "columnName": "start_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Asset_steps_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `asset_id` TEXT, `client_id` TEXT, `steps_data` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "asset_id",
+            "columnName": "asset_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "steps_data",
+            "columnName": "steps_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Asset_steps_table_asset_id",
+            "unique": true,
+            "columnNames": [
+              "asset_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Asset_steps_table_asset_id` ON `${TABLE_NAME}` (`asset_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Master_data_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `master_id` TEXT, `client_id` TEXT, `master_data` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "master_id",
+            "columnName": "master_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "master_data",
+            "columnName": "master_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Master_data_table_master_id",
+            "unique": true,
+            "columnNames": [
+              "master_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Master_data_table_master_id` ON `${TABLE_NAME}` (`master_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Sites_data_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `unique_id` TEXT, `client_id` TEXT, `site_data` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unique_id",
+            "columnName": "unique_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "site_data",
+            "columnName": "site_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Sites_data_table_unique_id",
+            "unique": true,
+            "columnNames": [
+              "unique_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Sites_data_table_unique_id` ON `${TABLE_NAME}` (`unique_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Components_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `asset_id` TEXT, `client_id` TEXT, `component_data` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "asset_id",
+            "columnName": "asset_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "component_data",
+            "columnName": "component_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Components_table_asset_id",
+            "unique": true,
+            "columnNames": [
+              "asset_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Components_table_asset_id` ON `${TABLE_NAME}` (`asset_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Step_subitem_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `unique_id` TEXT, `client_id` TEXT, `subitem_data` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unique_id",
+            "columnName": "unique_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subitem_data",
+            "columnName": "subitem_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Step_subitem_table_unique_id",
+            "unique": true,
+            "columnNames": [
+              "unique_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Step_subitem_table_unique_id` ON `${TABLE_NAME}` (`unique_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "signature_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `unique_id` TEXT, `signature_type` TEXT, `client_id` TEXT, `signature_of` TEXT, `signature_data` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "unique_id",
+            "columnName": "unique_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "signature_type",
+            "columnName": "signature_type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "signature_of",
+            "columnName": "signature_of",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "signature_data",
+            "columnName": "signature_data",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "EC_productsTable",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_id` TEXT, `client_id` TEXT, `name` TEXT, `cat_id` TEXT, `cat_name` TEXT, `url` TEXT, `type` TEXT, `price` TEXT, `hsn_code` TEXT, `tax` TEXT, `group` TEXT, `description` TEXT, `BOQ_id` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_id",
+            "columnName": "user_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cat_id",
+            "columnName": "cat_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cat_name",
+            "columnName": "cat_name",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "url",
+            "columnName": "url",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "type",
+            "columnName": "type",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "hsn_code",
+            "columnName": "hsn_code",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "tax",
+            "columnName": "tax",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "group",
+            "columnName": "group",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "description",
+            "columnName": "description",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "BOQ_id",
+            "columnName": "BOQ_id",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_EC_productsTable_cat_id_name_BOQ_id",
+            "unique": true,
+            "columnNames": [
+              "cat_id",
+              "name",
+              "BOQ_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_EC_productsTable_cat_id_name_BOQ_id` ON `${TABLE_NAME}` (`cat_id`, `name`, `BOQ_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "Category_Table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `user_id` TEXT, `client_id` TEXT, `cat_id` TEXT, `parent_cat_id` TEXT, `BOQ_id` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "user_id",
+            "columnName": "user_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "client_id",
+            "columnName": "client_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cat_id",
+            "columnName": "cat_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "parent_cat_id",
+            "columnName": "parent_cat_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "BOQ_id",
+            "columnName": "BOQ_id",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [
+          {
+            "name": "index_Category_Table_cat_id_BOQ_id",
+            "unique": true,
+            "columnNames": [
+              "cat_id",
+              "BOQ_id"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_Category_Table_cat_id_BOQ_id` ON `${TABLE_NAME}` (`cat_id`, `BOQ_id`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "project_BOQ_table",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `project_id` TEXT, `boq_id` TEXT, `user_id` TEXT, `cat_id` TEXT, `remark` TEXT, `data` TEXT, `subsite_image` TEXT, `site_id` TEXT, `revision` INTEGER NOT NULL, `geolocation` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "project_id",
+            "columnName": "project_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "boq_id",
+            "columnName": "boq_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "user_id",
+            "columnName": "user_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cat_id",
+            "columnName": "cat_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "remark",
+            "columnName": "remark",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "data",
+            "columnName": "data",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "subsite_image",
+            "columnName": "subsite_image",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "site_id",
+            "columnName": "site_id",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "revision",
+            "columnName": "revision",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "geolocation",
+            "columnName": "geolocation",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"4c798d6a60501ad8ebeacba9bab0ac05\")"
+    ]
+  }
+}

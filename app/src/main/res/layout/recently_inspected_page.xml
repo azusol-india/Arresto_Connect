@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/sites_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/margin_5dp"
+        android:scrollbarStyle="outsideOverlay" />
+
+    <app.com.arresto.arresto_connect.custom_views.MyButton
+        android:id="@+id/blank_btn"
+        style="@style/material_button"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="@dimen/margin_10dp"
+        android:paddingLeft="@dimen/margin_15dp"
+        android:textAllCaps="false"
+        android:paddingRight="@dimen/margin_15dp"
+        android:textColor="@color/white"
+        android:visibility="gone"
+        android:text="@string/lbl_inspect_new"
+        app:backgroundTint="@color/button_bg"
+        app:cornerRadius="@dimen/margin_5dp"
+        app:lbl_text="lbl_inspect_new" />
+
+</RelativeLayout>

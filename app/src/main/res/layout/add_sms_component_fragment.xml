@@ -1,0 +1,203 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="@dimen/margin_10dp"
+        android:layout_marginRight="@dimen/margin_10dp"
+        android:orientation="vertical">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="15dp"
+            android:text="@string/lbl_job_card_no"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/app_text"
+            app:lbl_text="lbl_job_card_no"
+            app:mandatory="true" />
+
+        <!--        <app.com.arresto.arresto_connect.custom_views.My_TextView-->
+        <!--            android:layout_width="wrap_content"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:layout_gravity="center_vertical"-->
+        <!--            android:text="@string/lbl_new_asset_msg"-->
+        <!--            android:textAppearance="?android:attr/textAppearanceSmall"-->
+        <!--            android:textColor="@color/app_text"-->
+        <!--            android:textSize="@dimen/margin_10dp"-->
+        <!--            app:lbl_text="lbl_new_asset_msg" />-->
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/job_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/job_edt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/round_bg1"
+                android:gravity="center_vertical"
+                android:hint="@string/lbl_job_card_no"
+                android:inputType="text"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:text="@string/lbl_sms_no"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/app_text"
+            app:lbl_text="lbl_sms_no"
+            app:mandatory="true" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/sms_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start|top"
+                android:background="@drawable/round_bg1"
+                android:hint="@string/lbl_sms_no"
+                android:inputType="textMultiLine"
+                android:minHeight="40dp"
+                android:padding="@dimen/margin_5dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:text="@string/lbl_asset_series"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/app_text"
+            app:lbl_text="lbl_asset_series"
+            app:mandatory="true" />
+
+        <TextView
+            android:id="@+id/aset_kit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@drawable/round_bg_white"
+            android:gravity="start"
+            android:hint="Enter Asset kit"
+            android:inputType="text"
+            android:minHeight="35dp"
+            android:padding="5dp"
+            android:paddingLeft="@dimen/margin_8dp"
+            android:textColor="@color/app_text" />
+
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:text="@string/lbl_number_of_lines"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/app_text"
+            app:lbl_text="lbl_number_of_lines"
+            app:mandatory="true" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/line_input"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/line_edt"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:background="@drawable/round_bg1"
+                android:digits="0123456789"
+                android:gravity="center_vertical"
+                android:text="1"
+                android:hint="@string/lbl_number_of_lines"
+                android:inputType="phone"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/heading_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_35dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/app_text"
+            android:gravity="center"
+            android:text="@string/lbl_select_multiple_asset"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:lbl_text="lbl_select_multiple_asset"
+            app:textAllCaps="true" />
+
+        <LinearLayout
+            android:id="@+id/assets_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_8dp"
+            android:orientation="vertical">
+
+        </LinearLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.MyButton
+            android:id="@+id/add_asset_btn"
+            style="@style/material_button"
+            android:layout_width="256dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin_5dp"
+            android:text="@string/lbl_add_assets"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/app_green"
+            android:visibility="gone"
+            app:cornerRadius="@dimen/margin_10dp"
+            app:lbl_text="lbl_add_assets" />
+
+        <app.com.arresto.arresto_connect.custom_views.MyButton
+            android:id="@+id/continue_btn"
+            style="@style/material_button"
+            android:layout_width="256dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin_15dp"
+            android:text="@string/lbl_cntnue_st"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/button_bg"
+            app:cornerRadius="@dimen/margin_10dp"
+            app:lbl_text="lbl_cntnue_st" />
+    </LinearLayout>
+</ScrollView>

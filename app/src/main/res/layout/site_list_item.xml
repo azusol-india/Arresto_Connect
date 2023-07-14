@@ -1,0 +1,140 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/margin_10dp"
+    android:duplicateParentState="true"
+    android:minHeight="80dp">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/inspector_tv0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/button_bg"
+        android:gravity="center"
+        android:padding="@dimen/margin_2dp"
+        android:singleLine="true"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        app:bg_color="4"
+        app:bg_type="color_bg"
+        app:text_color="1" />
+
+        <RelativeLayout
+            android:id="@+id/bg_layer"
+            android:layout_width="match_parent"
+            android:background="@drawable/bg_btm_line"
+            android:layout_below="@+id/inspector_tv0"
+            android:backgroundTint="@color/app_text"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/item_img"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="7dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_toLeftOf="@+id/right_lay"
+                android:layout_toRightOf="@+id/item_img"
+                android:orientation="vertical">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/inspector_tv1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textSize="@dimen/textsize"
+                    android:textStyle="bold"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/inspector_tv2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="@dimen/margin_3dp"
+                    android:textSize="@dimen/textsize"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:text_color="2" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_below="@+id/tp"
+                    android:gravity="bottom"
+                    android:padding="@dimen/margin_5dp">
+                    <app.com.arresto.arresto_connect.custom_views.MyButton
+                        android:id="@+id/upload_btn"
+                        style="@style/material_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginRight="@dimen/margin_5dp"
+                        android:textColor="@color/white"
+                        android:text="@string/lbl_upload"
+                        android:paddingLeft="@dimen/margin_10dp"
+                        android:textAllCaps="false"
+                        android:paddingRight="@dimen/margin_10dp"
+                        android:layout_weight="1"
+                        app:backgroundTint="@color/button_bg"
+                        app:cornerRadius="@dimen/margin_5dp"
+                        app:lbl_text="lbl_upload" />
+
+                    <app.com.arresto.arresto_connect.custom_views.MyButton
+                        android:id="@+id/inspect_btn"
+                        style="@style/material_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="36dp"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginLeft="@dimen/margin_5dp"
+                        android:textColor="@color/white"
+                        android:textAllCaps="false"
+                        android:layout_weight="1"
+                        android:text="@string/lbl_reinspect"
+                        android:paddingLeft="@dimen/margin_10dp"
+                        android:paddingRight="@dimen/margin_10dp"
+                        app:backgroundTint="@color/button_bg"
+                        app:cornerRadius="@dimen/margin_5dp"
+                        app:lbl_text="lbl_reinspect" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/right_lay"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:paddingBottom="20dp"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:id="@+id/delete_btn"
+                    android:layout_width="35dp"
+                    android:layout_height="40dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:padding="@dimen/margin_8dp"
+                    android:src="@drawable/delete_w"
+                    app:tint="@color/red" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+</RelativeLayout>

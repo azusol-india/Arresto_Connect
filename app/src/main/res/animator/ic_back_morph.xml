@@ -1,0 +1,16 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<objectAnimator
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:duration="@android:integer/config_longAnimTime"
+    android:propertyName="pathData"
+    android:valueFrom="@string/back_vector_path"
+    android:valueTo="@string/menu_vector_path"
+    android:valueType="pathType"/>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_btm_line"
+    android:orientation="horizontal"
+    android:weightSum="5">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/s_no"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.2"
+        android:layout_gravity="center_vertical"
+        android:text="@string/lbl_s_no"
+        app:lbl_text="lbl_s_no"
+        android:textColor="@color/app_text"
+        android:textSize="@dimen/margin_10dp" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/uin_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.9"
+        android:padding="@dimen/margin_3dp"
+        android:textColor="@color/app_text"
+        android:textSize="@dimen/margin_12dp" />
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/asset_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:padding="@dimen/margin_3dp"
+        android:text="@string/lbl_asset_name"
+        app:lbl_text="lbl_asset_name"
+        android:textColor="@color/app_text"
+        android:textSize="@dimen/margin_12dp" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/checkin_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.05"
+        android:gravity="center"
+        android:padding="@dimen/margin_2dp"
+        android:textColor="@color/app_text"
+        android:textSize="@dimen/margin_10dp" />
+
+    <TextView
+        android:id="@+id/checkout_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.05"
+        android:gravity="center"
+        android:padding="@dimen/margin_2dp"
+        android:textColor="@color/app_text"
+        android:textSize="@dimen/margin_10dp" />
+</LinearLayout>

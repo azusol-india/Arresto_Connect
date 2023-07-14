@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_background"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:weightSum="2">
+
+    <TextView
+        android:id="@+id/ast_txt"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight="1.9"
+        android:background="@drawable/round_bg_white"
+        android:gravity="center_vertical"
+        android:paddingLeft="5dp"
+        android:singleLine="true"
+        android:textColor="#000000"
+        android:textSize="15dp"
+        />
+
+    <app.com.arresto.arresto_connect.custom_views.My_EditText
+        android:id="@+id/quanti_edt"
+        android:layout_width="@dimen/margin_100dp"
+        android:layout_height="@dimen/margin_30dp"
+        android:layout_marginRight="10dp"
+        android:layout_weight=".1"
+        android:background="@drawable/round_bg_white"
+        android:hint="@string/lbl_qty_st"
+        app:lbl_text="lbl_qty_st"
+        android:inputType="number"
+        android:paddingLeft="5dp"
+        android:textColor="#000000"
+        android:textSize="15dp"/>
+
+</LinearLayout>

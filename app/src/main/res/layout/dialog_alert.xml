@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/margin_20dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/heading_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_35dp"
+            android:layout_margin="10dp"
+            android:gravity="center"
+            android:text="Alert"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/button_bg"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/msg_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="@dimen/margin_10dp"
+            android:lineSpacingExtra="3dp"
+            android:minLines="2"
+            android:padding="@dimen/margin_2dp"
+            android:text="Alert"
+            android:textColor="@color/button_bg"
+            android:textSize="@dimen/textsize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/margin_10dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/delete_btn"
+                style="@style/material_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/margin_30dp"
+                android:layout_gravity="center_horizontal"
+                android:paddingLeft="@dimen/margin_15dp"
+                android:paddingRight="@dimen/margin_15dp"
+                android:text="@string/lbl_delete"
+                android:layout_marginRight="15dp"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize"
+                app:backgroundTint="@color/button_bg"
+                app:lbl_text="lbl_delete" />
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/ok_btn"
+                style="@style/material_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/margin_30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="15dp"
+                android:minWidth="@dimen/margin_100dp"
+                android:textAllCaps="false"
+                android:paddingLeft="@dimen/margin_15dp"
+                android:paddingRight="@dimen/margin_15dp"
+                android:text="@string/lbl_reassign"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize"
+                android:visibility="gone"
+                app:backgroundTint="@color/button_bg"
+                app:lbl_text="lbl_ok_st" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

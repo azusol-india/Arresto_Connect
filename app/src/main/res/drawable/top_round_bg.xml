@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <stroke android:color="@android:color/darker_gray" />
+    <corners
+        android:topLeftRadius="@dimen/margin_5dp"
+        android:topRightRadius="@dimen/margin_5dp" />
+    <solid android:color="@color/button_bg" />
+
+</shape>

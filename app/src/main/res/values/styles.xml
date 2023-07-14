@@ -1,0 +1,113 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+<resources>
+
+    <!-- Base application theme. -->
+    <!--    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">-->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/app_text</item>
+        <item name="colorPrimaryDark">@color/app_text</item>
+        <item name="colorAccent">@color/app_text</item>
+        <!--<item name="android:typeface">serif</item>-->
+    </style>
+
+    <style name="BgTheme" parent="Theme.MaterialComponents.Light.Bridge">
+        <!-- Customize your theme here. -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorPrimary">@color/app_text</item>
+
+        <!--        <item name="colorControlHighlight">@color/app_green</item>-->
+        <item name="android:windowBackground">@drawable/bg_drawable</item>
+        <item name="colorPrimaryDark">@color/app_text</item>
+        <item name="colorAccent">@color/app_text</item>
+        <item name="colorControlActivated">@color/hint_color</item>
+        <!--<item name="android:typeface">serif</item>-->
+
+        <item name="colorControlNormal">@color/app_text</item>
+    </style>
+
+    <style name="Theme.AppCompat.Light.NoActionBar.FullScreen" parent="@style/Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowActionBarOverlay">true</item>
+        <item name="colorControlActivated">#999999</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="colorControlActivated">#999999</item>
+        <item name="android:background">@color/app_text</item>
+        <item name="android:textColor">@color/app_background</item>
+
+    </style>
+
+
+    <style name="SpinnerTheme" parent="android:Widget.Spinner">
+        <item name="android:background">@drawable/spinner_bg</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingTop">5dp</item>
+        <item name="android:paddingBottom">5dp</item>
+    </style>
+
+    <style name="AppSearchView" parent="Widget.AppCompat.SearchView">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="SwitchTextAppearance" parent="TextAppearance.AppCompat.Widget.Switch">
+        <item name="colorControlActivated">@color/app_text</item>
+        <item name="android:colorForeground">@color/white</item>
+        <item name="android:textSize">@dimen/textsize</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textColor">@color/button_bg</item>
+    </style>
+
+    <style name="ACPLDialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="material_button">
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">@dimen/textsize</item>
+        <!--        <item name="android:textAllCaps">false</item>-->
+    </style>
+
+    <style name="theme_dialog" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+        <item name="android:windowMinWidthMinor">90%</item>
+    </style>
+
+    <style name="theme_dialog_wrap" parent="android:style/Theme.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowMinWidthMajor">90%</item>
+    </style>
+
+</resources>

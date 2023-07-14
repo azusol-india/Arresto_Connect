@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<resources>
+    <declare-styleable name="Dynamic">
+        <attr name="bg_type" format="string" />
+        <attr name="bg_color" format="integer" />
+        <attr name="text_color" format="integer" />
+        <attr name="lbl_text" format="string" />
+        <attr name="mandatory" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="MediaView">
+        <attr name="divider_size" format="dimension" />
+        <attr name="place_holder" format="integer" />
+        <attr name="corner_radii" format="dimension" />
+        <attr name="background_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="CircleImageView">
+        <attr name="border_width" format="dimension" />
+        <attr name="border_color" format="color" />
+        <attr name="border_overlay" format="boolean" />
+        <attr name="fill_color" format="color" />
+        <attr name="circle_background_color" format="color" />
+    </declare-styleable>
+    <declare-styleable name="ToggleButton">
+        <attr name="tbBorderWidth" format="dimension" />
+        <attr name="tbOffBorderColor" format="reference|color" />
+        <attr name="tbOffColor" format="reference|color" />
+        <attr name="tbOnColor" format="reference|color" />
+        <attr name="tbSpotColor" format="reference|color" />
+        <attr name="tbAnimate" format="reference|boolean" />
+        <attr name="tbAsDefaultOn" format="reference|boolean" />
+    </declare-styleable>
+    <declare-styleable name="IconSwitch">
+        <attr name="isw_icon_left" format="reference" />
+        <attr name="isw_icon_right" format="reference" />
+        <attr name="isw_icon_size" format="dimension" />
+        <attr name="isw_background_color" format="color" />
+        <attr name="isw_thumb_color_left" format="color" />
+        <attr name="isw_thumb_color_right" format="color" />
+        <attr name="isw_inactive_tint_icon_left" format="color" />
+        <attr name="isw_inactive_tint_icon_right" format="color" />
+        <attr name="isw_active_tint_icon_left" format="color" />
+        <attr name="isw_active_tint_icon_right" format="color" />
+
+        <attr name="isw_default_selection" format="enum">
+            <enum name="left" value="0" />
+            <enum name="right" value="1" />
+        </attr>
+
+    </declare-styleable>
+
+    <bool name="isTablet">false</bool>
+    <declare-styleable name="QRCodeView">
+        <attr name="boxViewWidth" format="dimension" />
+        <attr name="boxViewHeight" format="dimension" />
+        <attr name="maskColor" format="color" />
+        <attr name="boxViewCornerColor" format="color" />
+        <attr name="boxViewBorderColor" format="color" />
+        <attr name="boxViewCornerSize" format="dimension" />
+        <attr name="boxViewCornerLength" format="dimension" />
+        <attr name="boxViewCornerOffset" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ProgBar">
+        <attr name="barType" format="reference" />
+        <attr name="text" format="string" />
+        <attr name="androidtextColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="enlarge" />
+    </declare-styleable>
+
+    <declare-styleable name="BatteryView">
+        <attr name="charging" format="boolean" />
+        <attr name="warning_level" format="integer" />
+        <attr name="battery_level" format="integer" />
+        <attr name="normal_fill_color" format="color" />
+        <attr name="warning_fill_color" format="color" />
+        <attr name="background_fill_color" format="color" />
+        <attr name="battery_head_color" format="color" />
+        <attr name="charging_color" format="color" />
+        <attr name="textcolor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="IndexFastScrollRecyclerView">
+        <attr name="setIndexTextSize" format="integer" />
+        <attr name="setIndexbarWidth" format="float" />
+        <attr name="setIndexbarMargin" format="float" />
+        <attr name="setPreviewPadding" format="integer" />
+        <attr name="setPreviewTextSize" format="integer" />
+        <attr name="setPreviewColor" format="color" />
+        <attr name="setPreviewTextColor" format="color" />
+        <attr name="setPreviewTransparentValue" format="float" />
+        <attr name="setIndexBarCornerRadius" format="integer" />
+        <attr name="setIndexBarTransparentValue" format="float" />
+        <attr name="setIndexBarColor" format="string" />
+        <attr name="setIndexBarTextColor" format="string" />
+        <attr name="setIndexBarHighlightTextColor" format="string" />
+        <attr name="setIndexBarColorRes" format="color" />
+        <attr name="setIndexBarTextColorRes" format="color" />
+        <attr name="setIndexBarHighlightTextColorRes" format="color" />
+        <attr name="setIndexBarStrokeWidth" format="integer" />
+        <attr name="setIndexBarStrokeColor" format="color" />
+    </declare-styleable>
+</resources>

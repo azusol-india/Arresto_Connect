@@ -1,0 +1,154 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingBottom="?attr/actionBarSize"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btm_lay">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/kdmngr_grid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/btm_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:padding="@dimen/margin_5dp">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/heading_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="@dimen/margin_5dp"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:background="@color/app_text"
+                android:gravity="center"
+                android:text="@string/lbl_knowledge_tree_brand"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:lbl_text="lbl_knowledge_tree_brand" />
+
+            <app.com.arresto.arresto_connect.custom_views.DialogSpinner
+                android:id="@+id/customer_spnr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_5dp"
+                android:background="@drawable/spinner_bg"
+                android:minHeight="@dimen/margin_35dp"
+                android:spinnerMode="dialog" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:background="@color/transparent"
+                android:gravity="center"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
+                android:text="To view Knowledge Tree of different brand click on choose brand."
+                android:textColor="@color/app_text"
+                android:textSize="12dp"
+                app:bg_color="0"
+                app:bg_type="color_bg"
+                app:text_color="2" />
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/hder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:elevation="0dp">
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_background"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:bg_color="1"
+            app:bg_type="trans_bg"
+            app:layout_collapseMode="parallax"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:layout_weight="1.7">
+
+
+                <AutoCompleteTextView
+                    android:id="@+id/srch_prdct"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btm_line"
+                    android:drawablePadding="-30dp"
+                    android:gravity="center"
+                    android:hint="@string/lbl_search_txt"
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
+                    android:textSize="@dimen/textsize" />
+
+                <ImageView
+                    android:id="@+id/search_btn"
+                    android:layout_width="@dimen/margin_22dp"
+                    android:layout_height="@dimen/margin_22dp"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/margin_3dp"
+                    android:src="@drawable/search_icon" />
+            </RelativeLayout>
+
+
+            <ImageView
+                android:id="@+id/boq_list"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center_vertical"
+                android:layout_margin="5dp"
+                android:layout_weight="0.3"
+                android:gravity="center"
+                android:padding="5dp"
+                android:src="@drawable/cart"
+                android:textColor="@color/app_text"
+                android:visibility="gone" />
+
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,109 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/app_background">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                app:lbl_text="lbl_ins_dtail_st"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:background="@color/button_bg"
+                android:gravity="center"
+                android:text="@string/lbl_ins_dtail_st"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/app_text"
+                android:textSize="18dp"/>
+
+            <ImageView
+                android:id="@+id/ins_img"
+                android:layout_width="240dp"
+                android:layout_height="230dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:scaleType="centerCrop"
+                android:src="@drawable/profile_pic"
+            />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    app:lbl_text="lbl_inspector_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/lbl_inspector_name"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/app_text"/>
+
+                <TextView
+                    android:id="@+id/ins_nam"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/app_text"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+            >
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    app:lbl_text="lbl_ins_phone_st"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/lbl_ins_phone_st"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/app_text"/>
+
+                <TextView
+                    android:id="@+id/insp_phn"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:textColor="@color/app_text"
+                    android:textSize="15dp"
+                />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>

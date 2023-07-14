@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    app:bg_color="1"
+    app:bg_type="color_bg">
+
+    <ImageView
+        android:id="@+id/root_layer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:visibility="gone"
+        android:adjustViewBounds="true" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="230dp"
+        android:layout_height="120dp"
+        android:layout_marginBottom="100dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:src="@drawable/logo" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        app:lbl_text="lbl_loading_str"
+        android:layout_width="wrap_content"
+        android:id="@+id/loadingText"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:visibility="gone"
+        android:text="@string/lbl_loading_str"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textColor="@color/app_text"
+        app:bg_color="0"
+        app:bg_type="trans_bg"
+        app:text_color="2" />
+
+</FrameLayout>

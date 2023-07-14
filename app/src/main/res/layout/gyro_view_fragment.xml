@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:id="@+id/device_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:layout_marginBottom="@dimen/activity_horizontal_margin">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/asset_img"
+                            android:layout_width="80dp"
+                            android:layout_height="@dimen/margin_80dp"
+                            android:adjustViewBounds="true"
+                            android:background="@drawable/round_bg_white"
+                            app:srcCompat="@drawable/harness_ic" />
+
+                        <TextView
+                            android:id="@+id/asset_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/margin_5dp"
+                            android:layout_toLeftOf="@+id/battery_view"
+                            android:layout_toRightOf="@+id/asset_img"
+                            android:paddingLeft="@dimen/margin_10dp"
+                            android:paddingRight="@dimen/margin_5dp"
+                            android:textColor="@color/app_text"
+                            android:textSize="@dimen/textsize"
+                            android:textStyle="bold" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            android:id="@+id/device_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@id/asset_name"
+                            android:layout_marginTop="@dimen/margin_5dp"
+                            android:layout_toLeftOf="@+id/battery_view"
+                            android:layout_toRightOf="@+id/asset_img"
+                            android:paddingLeft="@dimen/margin_10dp"
+                            android:paddingRight="@dimen/margin_5dp"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/textsize" />
+
+                        <app.com.arresto.arresto_connect.custom_views.BatteryView
+                            android:id="@+id/battery_view"
+                            android:layout_width="50dp"
+                            android:layout_height="30dp"
+                            android:layout_alignParentRight="true"
+                            app:battery_level="0"
+                            app:charging="false" />
+                    </RelativeLayout>
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="@dimen/margin_5dp"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/count_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="@dimen/margin_10dp"
+                            android:paddingRight="@dimen/margin_5dp"
+                            android:layout_gravity="center_vertical"
+                            android:textColor="@color/app_text"
+                            android:text="Count: 0"
+                            android:textSize="@dimen/textsize"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/dwn_excl_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/margin_30dp"
+                            android:layout_gravity="right"
+                            android:layout_margin="@dimen/margin_5dp"
+                            android:layout_marginTop="@dimen/margin_10dp"
+                            android:drawableLeft="@drawable/dwnload_ic"
+                            android:drawablePadding="7dp"
+                            android:drawableTint="@color/app_text"
+                            android:gravity="center"
+                            android:text="Download all data Excel"
+                            android:textColor="@color/app_text"
+                            android:textSize="@dimen/margin_14dp"
+                            android:visibility="gone" />
+                    </FrameLayout>
+
+
+                    <HorizontalScrollView
+                        android:id="@+id/horizontalView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_15dp"
+                        android:fillViewport="true"
+                        android:scrollbars="none">
+
+                        <TableLayout
+                            android:id="@+id/table_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="5dip"
+                            android:showDividers="middle"
+                            android:stretchColumns="1,2" />
+                    </HorizontalScrollView>
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/progress_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_horizontal_margin"
+        android:visibility="gone"
+        tools:visibility="gone">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:indeterminate="true" />
+    </LinearLayout>
+
+</RelativeLayout>

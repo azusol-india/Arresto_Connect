@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@android:color/black"
+    android:singleLine="false"
+    android:background="@drawable/bg_btm_line"
+    android:textSize="@dimen/textsize"
+    android:paddingLeft="5dp"
+    android:paddingRight="15dp"
+    android:paddingTop="7dp"
+    android:paddingBottom="7dp"
+    android:textIsSelectable="false"
+    />

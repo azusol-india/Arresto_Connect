@@ -1,0 +1,79 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<app.com.arresto.arresto_connect.custom_views.My_RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bg_layer"
+    android:layout_width="160dp"
+    android:layout_height="115dp"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="@dimen/margin_5dp"
+    android:background="@drawable/edittext_bg"
+    android:minHeight="80dp"
+    app:bg_color="2"
+    app:bg_type="border_bg">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/inspector_tv0"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_text"
+        android:paddingLeft="@dimen/margin_3dp"
+        android:paddingRight="@dimen/margin_3dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="@dimen/margin_12dp"
+        android:lines="2"
+        app:bg_color="4"
+        app:bg_type="color_bg"
+        app:text_color="1" />
+
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/inspector_tv1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inspector_tv0"
+        android:layout_above="@+id/type_tv"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="2dp"
+        android:lines="3"
+        android:textSize="@dimen/margin_12dp"
+        app:bg_color="0"
+        app:bg_type="trans_bg"
+        app:text_color="2" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/type_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:layout_marginLeft="@dimen/margin_5dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="10dp"
+        app:bg_color="0"
+        app:bg_type="trans_bg"
+        app:text_color="2" />
+
+
+    <ImageView
+        android:id="@+id/ok_btn"
+        android:layout_width="30dp"
+        android:layout_height="34dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="5dp"
+        android:padding="5dp"
+        android:src="@drawable/right_ok"
+        android:visibility="gone" />
+
+</app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>

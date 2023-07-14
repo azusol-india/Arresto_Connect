@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/map_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/round_bg"
+        android:backgroundTint="@color/white"
+        android:visibility="gone"
+        android:layout_weight="1.7">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/search_tv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:drawablePadding="-30dp"
+            android:gravity="center"
+            android:text="@string/lbl_search_location"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="@dimen/textsize"
+            app:lbl_text="lbl_search_location" />
+
+        <ImageView
+            android:id="@+id/search_btn"
+            android:layout_width="@dimen/margin_22dp"
+            android:layout_height="@dimen/margin_22dp"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/margin_8dp"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/margin_1dp"
+            android:src="@drawable/search_icon" />
+    </RelativeLayout>
+
+    <app.com.arresto.arresto_connect.custom_views.MyButton
+        android:id="@+id/ok_btn"
+        style="@style/material_button"
+        android:layout_width="150dp"
+        android:layout_height="36dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="@dimen/margin_20dp"
+        android:gravity="center"
+        android:text="@string/lbl_done"
+        android:textAllCaps="false"
+        android:visibility="gone"
+        android:textColor="@color/white"
+        app:backgroundTint="@color/button_bg"
+        app:cornerRadius="@dimen/margin_10dp"
+        app:lbl_text="lbl_done" />
+</RelativeLayout>

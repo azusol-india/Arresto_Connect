@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:elevation="8dp"
+        android:layout_margin="10dp"
+        app:cardBackgroundColor="@android:color/transparent"
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="false">
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_bg1"
+            android:orientation="horizontal"
+            android:minHeight="40dp"
+            android:layout_margin="0dp"
+            app:bg_color="2"
+            app:bg_type="border_bg">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/submenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:layout_weight="0.3"
+                android:paddingBottom="5dp"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/button_bg"
+                android:textSize="15sp"
+                app:bg_color="1"
+                app:bg_type="color_bg"
+                app:text_color="2" />
+
+            <ImageView
+                android:id="@+id/iconimage"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="1.7"
+                android:tint="@color/app_text"
+                android:rotation="180"
+                app:srcCompat="@drawable/ic_back" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+    </androidx.cardview.widget.CardView>

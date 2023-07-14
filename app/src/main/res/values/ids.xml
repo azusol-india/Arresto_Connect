@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="auto_focus" />
+    <item type="id" name="decode" />
+    <item type="id" name="decode_failed" />
+    <item type="id" name="decode_succeeded" />
+    <item type="id" name="quit" />
+    <item type="id" name="restart_preview" />
+    <item type="id" name="return_scan_result" />
+    <item type="id" name="replaced" />
+    <item type="id" name="pending" />
+    <item type="id" name="approved" />
+    <item type="id" name="rejected" />
+    <item type="id" name="inspection_item" />
+    <item type="id" name="scheduler_item" />
+
+    <item type="id" name="loadingText" />
+</resources>

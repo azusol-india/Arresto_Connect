@@ -1,0 +1,284 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:gravity="right"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+
+            <LinearLayout
+                android:id="@+id/fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_prdct_img_st"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_prdct_img_st"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/product_ic"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fab0"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_video"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_video"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/video"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fab1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:orientation="horizontal"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_user_manul_st"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_user_manul_st"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/tcncl_spc_ic"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fab2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_technical_data_sheet"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_technical_data_sheet"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/technicldata_ic"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fab3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_test_report"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_test_report"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/certifict_ic"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fab4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_presentation"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_presentation"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/prsentasn_ic"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fab5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:visibility="invisible">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/round_bg_white"
+                    android:gravity="center"
+                    android:minHeight="25dp"
+                    android:padding="5dp"
+                    android:text="@string/lbl_dec_of_conformity"
+                    app:bg_color="0"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_dec_of_conformity"
+                    app:text_color="2" />
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="bottom|end"
+                    android:layout_marginRight="@dimen/fab_margin"
+                    android:src="@drawable/other_ic"
+                    android:tint="@color/app_background"
+                    app:backgroundTint="@color/app_text"
+                    app:elevation="0dp"
+                    app:fabCustomSize="@dimen/margin_35dp"
+                    app:pressedTranslationZ="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/md_layer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="right"
+                android:orientation="vertical"/>
+        </LinearLayout>
+    </RelativeLayout>
+</ScrollView>

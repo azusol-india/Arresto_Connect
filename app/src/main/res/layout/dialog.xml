@@ -1,0 +1,71 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#ffffffff"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/a"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="#404042"
+        android:gravity="center"
+        android:padding="15dp"
+        android:scaleType="fitCenter"
+        android:src="@drawable/logo"/>
+
+    <TextView
+        android:id="@+id/text_dialog"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/a"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center_horizontal"
+        android:textColor="#ff000000"
+        android:textSize="18sp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/text_dialog"
+        android:gravity="center"
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            app:lbl_text="lbl_rscan_st"
+            android:id="@+id/resc_btn"
+            android:layout_width="@dimen/margin_100dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:background="@drawable/round_bg"
+            android:text="@string/lbl_rscan_st"
+            android:textColor="#ffffff"/>
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            app:lbl_text="lbl_ok_st"
+            android:id="@+id/btn_dialog"
+            android:layout_width="80dp"
+            android:padding="5dp"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/round_bg"
+            android:text="@string/lbl_ok_st"
+            android:textColor="#ffffff"/>
+    </LinearLayout>
+</RelativeLayout>

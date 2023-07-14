@@ -1,0 +1,108 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<app.com.arresto.arresto_connect.custom_views.My_LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/prnt_layr"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/margin_5dp"
+    android:padding="@dimen/margin_5dp"
+    android:background="@drawable/round_border"
+    android:orientation="vertical"
+    app:bg_color="2"
+    app:bg_type="border_bg">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/batch_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ast_image"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:paddingTop="3dp"
+                android:paddingBottom="0dp"
+                android:text="@string/lbl_batch_no_st"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/margin_14dp"
+                app:bg_color="0"
+                app:bg_type="color_bg"
+                app:text_color="2" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/uin_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ast_image"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:paddingTop="3dp"
+                android:paddingBottom="0dp"
+                android:text="@string/lbl_manual_entry"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/margin_14dp"
+                app:bg_color="0"
+                app:lbl_text="lbl_manual_entry"
+                app:bg_type="color_bg"
+                app:text_color="2" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/barcode_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ast_image"
+                android:layout_weight="1"
+                android:gravity="left"
+                android:paddingTop="3dp"
+                android:paddingBottom="0dp"
+                android:text="@string/lbl_qrcode_st"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/margin_14dp"
+                app:bg_color="0"
+                app:bg_type="color_bg"
+                app:text_color="2" />
+
+        </LinearLayout>
+
+
+    <ImageView
+        android:id="@+id/delete_btn"
+        android:layout_width="@dimen/margin_25dp"
+        android:layout_height="@dimen/margin_25dp"
+        android:src="@drawable/delete"
+        android:layout_gravity="right"
+        android:visibility="gone"
+        android:layout_marginTop="-3dp"
+        android:layout_marginRight="@dimen/margin_3dp"
+        android:layout_marginBottom="@dimen/margin_3dp"
+        android:padding="@dimen/margin_3dp"/>
+
+</app.com.arresto.arresto_connect.custom_views.My_LinearLayout>

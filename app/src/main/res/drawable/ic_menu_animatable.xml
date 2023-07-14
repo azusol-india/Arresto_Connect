@@ -1,0 +1,19 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/menu_ic1">
+    <target
+        android:name="menu"
+        android:animation="@animator/ic_menu_morph"/>
+    <target
+        android:name="rotation"
+        android:animation="@animator/clockwise_rotation"/>
+</animated-vector>

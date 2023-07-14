@@ -1,0 +1,30 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="170dp"
+    android:layout_marginLeft="1dp"
+    android:layout_marginTop="1dp"
+    android:layout_marginBottom="1dp"
+    android:background="#d9d7d7">
+
+    <!--<ProgressBar-->
+    <!--android:id="@+id/pager_progress_bar"-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:indeterminateTint="@android:color/white"-->
+    <!--android:indeterminateTintMode="src_in"-->
+    <!--android:layout_gravity="center"-->
+    <!--/>-->
+    <ImageView
+        android:id="@+id/rimg"
+        android:layout_width="wrap_content"
+        android:layout_height="170dp" />
+</FrameLayout>

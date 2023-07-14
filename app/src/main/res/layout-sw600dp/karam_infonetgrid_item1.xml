@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<app.com.arresto.arresto_connect.custom_views.My_RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="5dp"
+    android:layout_marginBottom="5dp"
+    android:background="@drawable/border_bg"
+    android:orientation="vertical"
+    app:bg_color="4"
+    app:bg_type="border_stroke">
+
+    <ImageView
+        android:id="@+id/ctgry_img"
+        android:layout_width="185dp"
+        android:layout_height="215dp"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/ctgry_txt"
+        android:layout_width="189dp"
+        android:layout_height="40dp"
+        android:layout_below="@+id/ctgry_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="3dp"
+        android:background="@color/button_bg"
+        android:maxLines="2"
+        android:paddingLeft="2dp"
+        android:paddingRight="2dp"
+        android:textColor="@color/app_text"
+        android:textSize="13dp"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:text_color="1" />
+
+</app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>

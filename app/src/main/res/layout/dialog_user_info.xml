@@ -1,0 +1,116 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<app.com.arresto.arresto_connect.custom_views.My_LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_background"
+    android:orientation="vertical"
+    app:bg_color="1"
+    app:bg_type="color_bg">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/app_text"
+        android:gravity="center"
+        android:text="@string/lbl_user_info"
+        android:textColor="@color/app_background"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:lbl_text="lbl_user_info"
+        app:text_color="1" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/profil_pic"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_margin="7dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:id="@+id/txt_lay"
+            android:layout_toRightOf="@+id/profil_pic"
+            android:orientation="vertical">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/name_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="14dp"
+                app:bg_color="0"
+                android:textColor="@color/app_text"
+                app:bg_type="trans_bg"
+                app:text_color="2" />
+
+            <TextView
+                android:id="@+id/email_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="14sp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:autoLink="email"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1" />
+
+            <TextView
+                android:id="@+id/phone_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="14dp"
+                android:autoLink="phone"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1"/>
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/emp_id_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="5dp"
+                android:textSize="14dp"
+                android:textColor="@color/app_text"
+                app:bg_color="0"
+                app:bg_type="trans_bg"
+                app:text_color="2" />
+
+        </LinearLayout>
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/ok_btn"
+            android:layout_width="120dp"
+            android:layout_height="35dp"
+            android:background="@drawable/btn_bg"
+            android:gravity="center"
+            android:text="@string/lbl_ok_st"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/txt_lay"
+            android:textColor="@color/app_background"
+            app:bg_color="2"
+            app:bg_type="round_bg"
+            app:lbl_text="lbl_ok_st"
+            app:text_color="1" />
+    </RelativeLayout>
+
+</app.com.arresto.arresto_connect.custom_views.My_LinearLayout>

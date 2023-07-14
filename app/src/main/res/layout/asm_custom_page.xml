@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/dynamic_root"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"/>
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/continue_btn"
+                android:layout_width="150dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin_10dp"
+                android:layout_weight="1"
+                android:background="@drawable/round_bg"
+                android:gravity="center"
+                android:text="@string/lbl_cntnue_st"
+                app:bg_color="2"
+                app:bg_type="round_bg"
+                app:lbl_text="lbl_cntnue_st"
+                app:text_color="1" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

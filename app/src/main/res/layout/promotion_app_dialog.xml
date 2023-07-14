@@ -1,0 +1,103 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/margin_15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/app_background"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_text"
+            android:padding="@dimen/margin_2dp">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/heading_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="@string/lbl_attention"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                app:lbl_text="lbl_attention" />
+
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="@dimen/margin_30dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:padding="9dp"
+                android:src="@drawable/cancel"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:background="@color/app_background"
+            android:gravity="center"
+            android:padding="5dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/logo" />
+
+        <ImageView
+            android:id="@+id/asset_img"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:adjustViewBounds="true"
+            android:gravity="center"
+            android:padding="5dp"
+            android:scaleType="fitCenter" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/asset_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_2dp"
+            android:layout_marginBottom="7dp"
+            android:gravity="center"
+            android:padding="5dp"
+            android:textColor="@color/button_bg"
+            android:textSize="15sp"
+            app:bg_color="0"
+            app:bg_type="color"
+            app:text_color="2" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/msg_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:background="@color/light_gray1"
+            android:gravity="center_horizontal|top"
+            android:minHeight="@dimen/margin_60dp"
+            android:padding="15dp"
+            android:textColor="@color/button_bg"
+            android:textSize="14dp"
+            app:text_color="2" />
+
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/dwnlod_btn"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="@dimen/margin_15dp"
+            android:background="@color/app_text"
+            android:gravity="center"
+            android:text="Download Application"
+            android:textColor="@color/app_background"
+            app:text_color="1" />
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,36 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/toast_root"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/app_text"
+    android:layout_marginTop="@dimen/margin_50dp"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="@dimen/margin_50dp"
+        android:layout_height="@dimen/margin_50dp"
+        android:layout_toLeftOf="@+id/toast_error"
+        android:src="@drawable/error" />
+
+    <TextView
+        android:id="@+id/toast_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:drawablePadding="10dp"
+        android:gravity="center_vertical"
+        android:padding="5dp"
+        android:textColor="@color/app_background"
+        android:textSize="15sp" />
+
+</RelativeLayout>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<app.com.arresto.arresto_connect.custom_views.My_LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical"
+    app:bg_color="1"
+    app:bg_type="color_bg">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/search_view"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btm_line"
+            android:drawablePadding="-30dp"
+            android:gravity="center"
+            android:hint="@string/lbl_search_uin"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:textSize="@dimen/textsize" />
+
+        <ImageView
+            android:id="@+id/search_btn"
+            android:layout_width="@dimen/margin_22dp"
+            android:layout_height="@dimen/margin_22dp"
+            android:layout_alignParentRight="true"
+            android:padding="@dimen/margin_3dp"
+            android:src="@drawable/search_icon" />
+    </RelativeLayout>
+    <!--    <androidx.appcompat.widget.SearchView-->
+    <!--        android:id="@+id/search_view"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="30dp"-->
+    <!--        android:layout_marginLeft="10dp"-->
+    <!--        android:layout_marginRight="10dp"-->
+    <!--        android:background="@drawable/bg_btm_line"-->
+    <!--        android:focusable="false"-->
+    <!--        android:imeOptions="actionNext"-->
+    <!--        app:iconifiedByDefault="false"-->
+    <!--        app:queryBackground="@android:color/transparent"-->
+    <!--        app:queryHint="@string/lbl_search_st"-->
+    <!--        app:theme="@style/AppSearchView" />-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/app_background"
+        android:weightSum="2">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/ttl_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_30dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:background="@color/app_text"
+            android:gravity="center"
+            android:text="@string/lbl_total"
+            android:textColor="@color/app_background"
+            android:textSize="@dimen/textsize"
+            app:bg_color="2"
+            app:bg_type="color_bg"
+            app:lbl_text="lbl_total"
+            app:text_color="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="2dp"
+            android:layout_weight="1"
+            android:background="@color/app_text"
+            android:gravity="center"
+            android:visibility="gone">
+
+            <TextView
+                android:id="@+id/dwn_excl_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/margin_30dp"
+                android:drawableLeft="@drawable/dwnload_ic"
+                android:drawablePadding="7dp"
+                android:drawableTint="@color/app_background"
+                android:gravity="center"
+                android:text="@string/lbl_download_excl_st"
+                android:textColor="@color/app_background"
+                android:textSize="@dimen/margin_14dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/groups_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_10dp"
+        android:clipToPadding="false"
+        android:scrollbarSize="@dimen/margin_5dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="horizontal" />
+
+    <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/app_text"
+        android:orientation="vertical"
+        app:bg_color="2"
+        app:bg_type="color_bg" />
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_5dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/blank_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/lbl_asset_not_registered"
+                app:lbl_text="lbl_asset_not_registered"
+                android:textSize="17dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/data_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/margin_10dp"
+                android:clipToPadding="false"
+                android:paddingTop="@dimen/margin_5dp"
+                android:scrollbarStyle="outsideOverlay" />
+        </RelativeLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</app.com.arresto.arresto_connect.custom_views.My_LinearLayout>

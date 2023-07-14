@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_margin="5dp"
+    android:layout_height="match_parent">
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/submenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="5dp"
+        android:layout_marginLeft="40dp"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/button_bg"
+        android:background="@drawable/bg_btm_line"
+        android:textSize="14sp"
+        app:bg_color="2"
+        android:drawableRight="@drawable/technicldata_ic"
+        app:bg_type="bottom_line_bg"
+        app:text_color="2" />
+
+
+</LinearLayout>

@@ -1,0 +1,19 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<animated-vector
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_back_vector">
+    <target
+        android:name="back"
+        android:animation="@animator/ic_back_morph"/>
+    <target
+        android:name="rotation"
+        android:animation="@animator/counter_clockwise_rotation"/>
+</animated-vector>

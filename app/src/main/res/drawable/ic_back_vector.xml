@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportHeight="100"
+    android:viewportWidth="100">
+    <group
+        android:name="rotation"
+        android:pivotX="50"
+        android:pivotY="50">
+        <path
+            android:name="back"
+            android:pathData="@string/back_vector_path"
+            android:strokeColor="@android:color/white"
+            android:strokeLineCap="round"
+            android:strokeWidth="6"/>
+    </group>
+</vector>
+    <!--android:pathData="@string/back_vector_path"-->

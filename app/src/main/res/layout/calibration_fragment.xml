@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/tp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:orientation="horizontal">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/device_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.7"
+            android:textColor="@color/black" />
+
+        <app.com.arresto.arresto_connect.custom_views.BatteryView
+            android:id="@+id/battery_view"
+            android:layout_width="50dp"
+            android:layout_height="30dp"
+            android:layout_gravity="right"
+            app:battery_level="20"
+            app:charging="false" />
+    </LinearLayout>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/tv_summary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tp"
+        android:paddingStart="@dimen/activity_horizontal_margin"
+        android:paddingEnd="@dimen/activity_horizontal_margin"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/mean_tv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btm"
+        android:layout_below="@+id/tv_summary"
+        android:scrollbars="vertical"
+        android:textColor="@color/black" />
+
+    <LinearLayout
+        android:id="@+id/btm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/stop_btn"
+                style="@style/material_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:text="Stop Calibration"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_8dp"
+                app:elevation="0dp" />
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/peak_btn"
+                style="@style/material_button"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_gravity="right"
+                android:layout_marginLeft="30dp"
+                android:text="Peak"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_8dp"
+                app:elevation="0dp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/dwn_excl_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/margin_30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin_5dp"
+            android:drawableLeft="@drawable/dwnload_ic"
+            android:drawablePadding="7dp"
+            android:drawableTint="@color/app_text"
+            android:gravity="center"
+            android:text="Download all data Excel"
+            android:textColor="@color/app_text"
+            android:textSize="@dimen/margin_14dp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/mean_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/mean_tv"
+        android:visibility="gone"
+        tools:listitem="@layout/mean_item" />
+</RelativeLayout>

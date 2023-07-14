@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_flashlight"
+        android:icon="@drawable/flashoff"
+        android:orderInCategory="1"
+        app:showAsAction="always|withText"
+        android:title="menu_flashlight" />
+    <item
+        android:id="@+id/menu_image"
+        android:icon="@android:drawable/ic_menu_gallery"
+        android:orderInCategory="8"
+        android:title="menu_image"
+        app:showAsAction="always|withText" />
+    <item
+        android:id="@+id/menu_history"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:orderInCategory="12"
+        app:showAsAction="always|withText"
+        android:title="menu_history" />
+    <item
+        android:id="@+id/menu_icon"
+        android:icon="@drawable/menu_ic1"
+        android:orderInCategory="0"
+        app:showAsAction="always|withText"
+        android:title="" />
+    <item
+        android:id="@+id/menu_help"
+        android:icon="@android:drawable/ic_menu_info_details"
+        android:orderInCategory="10"
+        app:showAsAction="always|withText"
+        android:title="menu_help" />
+</menu>

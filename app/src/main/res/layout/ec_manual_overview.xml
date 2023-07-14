@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fillViewport="true"
+            android:scrollbarStyle="outsideInset"
+            android:visibility="visible"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontalView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fillViewport="true"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TableLayout
+                            android:id="@+id/table_1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:showDividers="middle"
+                            android:stretchColumns="1,2,3,4,5,6,7,8" />
+
+                        <RelativeLayout
+                            android:id="@+id/ppe_layer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone">
+
+                            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                                android:id="@+id/ppe_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/margin_10dp"
+                                android:paddingRight="50dp"
+                                android:text="@string/lbl_ppe_st"
+                                android:textColor="@color/app_text"
+                                android:textSize="17dp"
+                                app:bg_color="0"
+                                app:bg_type="trans_bg"
+                                app:lbl_text="lbl_ppe_st"
+                                app:text_color="2" />
+
+                            <RadioGroup
+                                android:id="@+id/ppe_rg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/margin_20dp"
+                                android:layout_toRightOf="@+id/ppe_tv"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="4dp"
+                                    android:button="@drawable/button_selector"
+                                    android:paddingLeft="6dp"
+                                    android:tag="yes"
+                                    android:text="@string/lbl_yes"
+                                    android:textColor="@color/app_text"
+                                    app:lbl_text="lbl_yes"
+                                    app:text_color="2" />
+
+                                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="4dp"
+                                    android:button="@drawable/button_selector"
+                                    android:paddingLeft="6dp"
+                                    android:tag="no"
+                                    android:text="@string/lbl_no"
+                                    android:textColor="@color/app_text"
+                                    app:lbl_text="lbl_no"
+                                    app:text_color="2" />
+
+                            </RadioGroup>
+
+                        </RelativeLayout>
+
+                        <TableLayout
+                            android:id="@+id/ppe_table"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:visibility="gone" />
+
+                        <RelativeLayout
+                            android:id="@+id/service_layer"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:visibility="gone">
+
+                            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                                android:id="@+id/service_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="@dimen/margin_10dp"
+                                android:paddingRight="50dp"
+                                android:text="@string/lbl_services_details"
+                                android:textColor="@color/app_text"
+                                android:textSize="17dp"
+                                app:bg_color="0"
+                                app:bg_type="trans_bg"
+                                app:lbl_text="lbl_services_details"
+                                app:text_color="2" />
+
+                            <RadioGroup
+                                android:id="@+id/service_rg"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="@dimen/margin_20dp"
+                                android:layout_toRightOf="@+id/service_tv"
+                                android:orientation="horizontal"
+                                android:weightSum="2">
+
+                                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="4dp"
+                                    android:button="@drawable/button_selector"
+                                    android:paddingLeft="6dp"
+                                    android:tag="yes"
+                                    android:text="@string/lbl_yes"
+                                    android:textColor="@color/app_text"
+                                    app:lbl_text="lbl_yes"
+                                    app:text_color="2" />
+
+                                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="30dp"
+                                    android:layout_marginRight="4dp"
+                                    android:button="@drawable/button_selector"
+                                    android:paddingLeft="6dp"
+                                    android:tag="no"
+                                    android:text="@string/lbl_no"
+                                    android:textColor="@color/app_text"
+                                    app:lbl_text="lbl_no"
+                                    app:text_color="2" />
+
+                            </RadioGroup>
+
+
+                            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/service_tv"
+                                android:layout_marginBottom="10dp"
+                                android:paddingLeft="@dimen/margin_10dp"
+                                android:text="@string/lbl_price_msg"
+                                android:textColor="@color/app_text"
+                                android:textSize="12dp"
+                                app:bg_color="0"
+                                app:bg_type="trans_bg"
+                                app:lbl_text="lbl_price_msg"
+                                app:text_color="2" />
+                        </RelativeLayout>
+
+                        <TableLayout
+                            android:id="@+id/service_table"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            android:visibility="gone" />
+                    </LinearLayout>
+                </HorizontalScrollView>
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/finish_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="15dp"
+                    android:background="@drawable/round_bg"
+                    android:gravity="center"
+                    android:text="@string/lbl_finish"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:bg_color="2"
+                    app:bg_type="round_bg"
+                    app:lbl_text="lbl_finish"
+                    app:text_color="1" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            app:elevation="0dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/discount_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="right"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="30dp"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingRight="@dimen/margin_10dp"
+                    android:text="@string/lbl_add_discount"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:lbl_text="lbl_add_discount"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/head_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="20dp"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:paddingRight="@dimen/margin_5dp"
+                    android:text="@string/lbl_currency"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:lbl_text="lbl_currency"
+                    app:text_color="2" />
+
+                <Spinner
+                    android:id="@+id/currency_spinr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/margin_35dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/head_tv"
+                    android:background="@drawable/btm_line_spinr"
+                    android:minWidth="120dp"
+                    android:minHeight="@dimen/margin_35dp"
+                    android:spinnerMode="dialog" />
+                <!--            android:entries="@array/discount_arr"-->
+            </RelativeLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</LinearLayout>

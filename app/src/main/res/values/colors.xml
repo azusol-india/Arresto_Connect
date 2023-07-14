@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <color name="transparent">#00000000</color>
+
+    <color name="app_text_trans">#81000000</color>
+    <color name="app_background">#ffffff</color>
+    <color name="app_text">#464445</color>
+    <color name="button_txt">#ffffff</color>
+    <color name="button_bg">#3d3c3c</color>
+    <color name="light_gray">#F2F2F0</color>
+    <color name="light_gray1">#C7C7C7</color>
+    <color name="hint_color">#5b5b5b</color>
+    <color name="grey">#818181</color>
+
+
+    <color name="app_error">#dd1f1f</color>
+    <color name="app_green">#22b730</color>
+    <color name="dark_green">#447a49</color>
+    <color name="yellow_bg">#eec84d</color>
+    <color name="app_btn_bg">#66fdd65d</color>
+
+    <color name="isw_defaultBg">#302F31</color>
+
+    <color name="qr_code_view_mask">#60000000</color>
+    <color name="qr_code_view_corner">#FF2A7C3B</color>
+    <color name="qr_code_view_border">#ffffffff</color>
+
+
+    <color name="possible_result_points">#c07fff00</color>
+    <color name="red">#E9301E</color>
+    <color name="blue">#0C65B7</color>
+    <color name="blue1">#2F75EA</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="viewfinder_laser">#ff7fff00</color>
+    <color name="viewfinder_frame">#ff0000c4</color>
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#c0000000</color>
+</resources>

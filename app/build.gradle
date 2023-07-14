@@ -1,0 +1,330 @@
+/*
+ *  Copyright (c)
+ *  @website: http://arresto.in/
+ *  @author: Arresto Solutions Pvt. Ltd.
+ *  @license: http://arresto.in/
+ *
+ *  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+ */
+
+apply plugin: 'com.android.application'
+
+android {
+    def minSdk = 21
+    def targetSdk = 33
+
+    compileSdkVersion 33
+    buildToolsVersion "32.0.0"
+    defaultConfig {
+        applicationId "app.com.arresto.Arresto_Connect"
+        minSdkVersion minSdk
+        targetSdkVersion targetSdk
+        multiDexEnabled true
+        resConfigs "en"
+        vectorDrawables.useSupportLibrary = true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
+            }
+        }
+        ndk.abiFilters 'armeabi-v7a'
+    }
+//'arm64-v8a','x86_64',
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    signingConfigs {
+        release {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/ArrestoConnect_KeyStore.jks")
+            storePassword "FOM2010i"
+            keyAlias "ArrestoConnect"
+            keyPassword "FOM2010i"
+        }
+        release1 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/kare_keystore_file.jks")
+            storePassword "FOM2010i"
+            keyAlias "KARE"
+            keyPassword "FOM2010i"
+        }
+        release2 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/Maxsafe_Key.jks")
+            storePassword "FOM2010i"
+            keyAlias "Maxsafe"
+            keyPassword "FOM2010i"
+        }
+        release3 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/Kratos_Key.jks")
+            storePassword "FOM2010i"
+            keyAlias "Kratos"
+            keyPassword "FOM2010i"
+        }
+        release4 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/Austlift_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "Austlift"
+            keyPassword "FOM2010i"
+        }
+        release5 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/karamDmcc_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "Karam Dmcc"
+            keyPassword "FOM2010i"
+        }
+        release6 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/BlackDecker_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "BlackDecker"
+            keyPassword "FOM2010i"
+        }
+        release7 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/KStrong_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "KStrong"
+            keyPassword "FOM2010i"
+        }
+        release8 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/SteelPro_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "STEELPRO"
+            keyPassword "FOM2010i"
+        }
+        release9 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/Connect+_KeyStore.jks")
+            storePassword "FOM2010i"
+            keyAlias "Connect+"
+            keyPassword "FOM2010i"
+        }
+        release10 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/Karam_Africa_KeyStore.jks")
+            storePassword "FOM2010i"
+            keyAlias "Karam Africa"
+            keyPassword "FOM2010i"
+        }
+        release11 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/i4t_KeyStore.jks")
+            storePassword "FOM2010i"
+            keyAlias "i4t"
+            keyPassword "FOM2010i"
+        }
+        release12 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/konnect_peru_KeyStore.jks")
+            storePassword "FOM2010i"
+            keyAlias "Konnect Pro Peru"
+            keyPassword "FOM2010i"
+        }
+        release13 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/snn_KeyStore.jks")
+            storePassword "FOM2010i"
+            keyAlias "SNN"
+            keyPassword "FOM2010i"
+        }
+        release14 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/KStrongAsia_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "KStrongAsia"
+            keyPassword "FOM2010i"
+        }
+        release15 {
+            storeFile file("/Users/azusol-imac-01/development/All keystore/Dewalt_key.jks")
+            storePassword "FOM2010i"
+            keyAlias "Dewalt"
+            keyPassword "FOM2010i"
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+    flavorDimensions "default"
+
+    productFlavors {
+        Arresto_Connect {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.arresto.Arresto_Connect'
+            versionCode 53
+            versionName '1.5.3'
+        }
+        karam {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.karam'
+            versionCode 57
+            versionName '2.4.6'
+            signingConfig signingConfigs.release1
+        }
+        maxsafe {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.Maxsafe'
+            versionCode 13
+            versionName '1.3.1'
+            signingConfig signingConfigs.release2
+        }
+        kratos {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.Kratos'
+            versionCode 10
+            versionName '1.0.9'
+            signingConfig signingConfigs.release3
+        }
+        austlift {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.Austlift'
+            versionCode 10
+            versionName '1.0.9'
+            signingConfig signingConfigs.release4
+        }
+        KaramDmcc {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.KaramDmcc'
+            versionCode 10
+            versionName '1.0.9'
+            signingConfig signingConfigs.release5
+        }
+        BlackDecker {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.BlackDecker'
+            versionCode 4
+            versionName '1.0.3'
+            signingConfig signingConfigs.release6
+        }
+        KStrong {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.KStrong'
+            versionCode 26
+            versionName '1.3.5'
+            signingConfig signingConfigs.release7
+        }
+        SteelPro {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.SteelPro'
+            versionCode 15
+            versionName '1.1.4'
+            signingConfig signingConfigs.release8
+        }
+        ACT {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.ACT'
+            versionCode 15
+            versionName '1.1.4'
+            signingConfig signingConfigs.release9
+        }
+        Karam_Africa {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.Karam_Africa'
+            versionCode 7
+            versionName '1.0.6'
+            signingConfig signingConfigs.release10
+        }
+        i4t {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.i4t'
+            versionCode 5
+            versionName '0.0.5'
+            signingConfig signingConfigs.release11
+        }
+        konnect_pro_peru {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.konnect_pro_peru'
+            versionCode 3
+            versionName '0.0.3'
+            signingConfig signingConfigs.release12
+        }
+        snn {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.snn'
+            versionCode 1
+            versionName '0.0.1'
+            signingConfig signingConfigs.release13
+        }
+        KStrong_Asia {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.KStrong_Asia'
+            versionCode 13
+            versionName '0.1.3'
+            signingConfig signingConfigs.release14
+        }
+        Dewalt {
+            minSdkVersion minSdk
+            targetSdkVersion targetSdk
+            applicationId 'app.com.dewalt'
+            versionCode 1
+            versionName '0.0.1'
+            signingConfig signingConfigs.release15
+        }
+    }
+}
+dependencies {
+    def google_version = "17.0.0"
+    def room_version = "1.1.1"
+//    implementation fileTree(dir: "libs", include: ["*.jar", "*.aar"])
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'org.jsoup:jsoup:1.13.1'
+    implementation 'com.android.support:multidex:1.0.3'
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    implementation "com.google.android.gms:play-services-maps:$google_version"
+    implementation "com.google.android.gms:play-services-location:$google_version"
+    implementation "com.google.android.gms:play-services-auth:$google_version"
+    implementation "com.google.android.gms:play-services-plus:$google_version"
+    implementation 'com.google.android.libraries.places:places:2.6.0'
+    implementation 'com.facebook.android:facebook-android-sdk:7.1.0'
+    implementation 'com.facebook.rebound:rebound:0.3.8'
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    implementation 'com.github.lsjwzh.RecyclerViewPager:lib:v1.1.1'
+
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
+    implementation 'com.google.firebase:firebase-core:18.0.2'
+
+//    implementation 'com.google.firebase:firebase-messaging:23.0.3'
+//    implementation 'com.google.firebase:firebase-core:20.1.2'
+
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+    implementation "android.arch.persistence.room:runtime:$room_version"
+    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
+    implementation 'io.reactivex.rxjava2:rxandroid:2.0.2'
+    implementation 'com.google.zxing:core:3.3.3'
+    implementation 'com.hbb20:ccp:2.3.8'
+    implementation 'com.chauthai.swipereveallayout:swipe-reveal-layout:1.4.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.jakewharton:butterknife:10.2.3'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
+    implementation 'no.nordicsemi.android:dfu:2.2.2'
+    implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
+    implementation 'androidx.work:work-runtime:2.7.1'
+
+    implementation files('libs/acra.jar')
+    implementation files('libs/jxl-2.6.12.jar')
+    implementation files('libs/ModuleAPI_J.jar')
+    implementation files('libs/uhfr_v1.8.jar')
+    implementation files('libs/androidsdk-release.aar')
+    implementation files('libs/thermalsdk-release.aar')
+}
+apply plugin: 'com.google.gms.google-services'

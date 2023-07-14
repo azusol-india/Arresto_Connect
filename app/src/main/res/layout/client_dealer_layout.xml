@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/current_header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_40dp"
+        android:background="@color/app_text"
+        android:gravity="center"
+        android:text="@string/lbl_current_location"
+        android:textColor="@color/app_background"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:lbl_text="lbl_current_location"
+        app:text_color="1" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/name_tv"
+        android:layout_margin="@dimen/margin_8dp"
+        android:layout_toLeftOf="@+id/map_lay"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginRight="@dimen/margin_5dp"
+            android:src="@drawable/road"
+            android:visibility="visible" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/current_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/button_bg"
+            android:paddingLeft="@dimen/margin_2dp"
+            android:textSize="@dimen/text_size_14sp"
+            app:bg_color="0"
+            app:bg_type="trans_bg"
+            app:text_color="2" />
+    </LinearLayout>
+
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/margin_40dp"
+        android:background="@color/app_text"
+        android:gravity="center"
+        android:text="@string/lbl_nearby_dealer"
+        android:textColor="@color/app_background"
+        app:bg_color="2"
+        app:bg_type="color_bg"
+        app:lbl_text="lbl_nearby_dealer"
+        app:text_color="1" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dealer_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/margin_5dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:paddingBottom="@dimen/margin_10dp"/>
+
+</LinearLayout>

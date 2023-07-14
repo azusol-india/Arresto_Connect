@@ -1,0 +1,767 @@
+{
+  "project_info": {
+    "project_number": "122615206318",
+    "firebase_url": "https://arresto-210610.firebaseio.com",
+    "project_id": "arresto-210610",
+    "storage_bucket": "arresto-210610.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:5b78fa674ca5c16ff8383f",
+        "android_client_info": {
+          "package_name": "app.com.ACT"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-1g1gr1uvauci5r4ganu92pbkvgndqhl7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.ACT",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        },
+        {
+          "client_id": "122615206318-a4074r2l3cnb2gd9s33ciqq9b170qj2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.ACT",
+            "certificate_hash": "6b5772f60d6ab78af29194ea725496bd7b34d197"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:f84097efa3aa207f",
+        "android_client_info": {
+          "package_name": "app.com.Austlift"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:ab63131f7db00b41f8383f",
+        "android_client_info": {
+          "package_name": "app.com.BlackDecker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-bir8ihdjj51fh5omkp21g4mfhs2esisn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.BlackDecker",
+            "certificate_hash": "54b4dde6e1aeaa7798f96cf8dad941c55a4ae788"
+          }
+        },
+        {
+          "client_id": "122615206318-jpif66q2fjtkntm98l9v8ia2bdelng9k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.BlackDecker",
+            "certificate_hash": "b208331fade69463848c1067be5bf663f0b95523"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:22544efb7ec59593f8383f",
+        "android_client_info": {
+          "package_name": "app.com.KStrong"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-149nmiomo9p6d6kd41as3js2tkqq4t7o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.KStrong",
+            "certificate_hash": "85dc1c9479211dd6bd592f1a8a5365445730a6ae"
+          }
+        },
+        {
+          "client_id": "122615206318-4qi9kdbo7ci0q39hjsskiar4osfm8oj9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.KStrong",
+            "certificate_hash": "54b4dde6e1aeaa7798f96cf8dad941c55a4ae788"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:eae07ecfc35f4956f8383f",
+        "android_client_info": {
+          "package_name": "app.com.KStrong_Asia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-c45h2tc1v9j21bb6v1gvgq2ckdhor0rv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.KStrong_Asia",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        },
+        {
+          "client_id": "122615206318-mccbrj82ttkkqcud130cnj5s3lknb9v7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.KStrong_Asia",
+            "certificate_hash": "0a25102af2ee19e66cac9080a80c6ecec1f55269"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:3bed47170dae93fdf8383f",
+        "android_client_info": {
+          "package_name": "app.com.KaramDmcc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-b0opkbdc3saauh39kq6jrvfn7ukft6pg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.KaramDmcc",
+            "certificate_hash": "54b4dde6e1aeaa7798f96cf8dad941c55a4ae788"
+          }
+        },
+        {
+          "client_id": "122615206318-l5b31h4bjn9ch21nep1l6ki0dj99b9mg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.KaramDmcc",
+            "certificate_hash": "2e37a6543280efc202ae13016e07d2495084a77c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:f6e162b9b5822e2ff8383f",
+        "android_client_info": {
+          "package_name": "app.com.Karam_Africa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-61gm8sqn4oet9ia4ntmcqm3himl6ojk3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.Karam_Africa",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        },
+        {
+          "client_id": "122615206318-eb9v7dnb2kvklek41bqqfuac1r4st58m.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.Karam_Africa",
+            "certificate_hash": "2447e1769be5a23e33fb61299b589d67bbb67d8d"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:ef7f887893039d3f",
+        "android_client_info": {
+          "package_name": "app.com.Kratos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:b7d40e196c6cda72",
+        "android_client_info": {
+          "package_name": "app.com.Maxsafe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:03a67c0a2347c110f8383f",
+        "android_client_info": {
+          "package_name": "app.com.SteelPro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-d1rk92sr2ahi74gce271psrhhcenb3a7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.SteelPro",
+            "certificate_hash": "5121c5210654d7a16e87206a6094965c716ba318"
+          }
+        },
+        {
+          "client_id": "122615206318-sncek7ud3qs1umimaa168ruiv45ndfpk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.SteelPro",
+            "certificate_hash": "54b4dde6e1aeaa7798f96cf8dad941c55a4ae788"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:a988ee660bac60dc",
+        "android_client_info": {
+          "package_name": "app.com.arresto.Arresto_Connect"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-f9ojc7lglj8togdotjvrkubueapvkfps.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.arresto.Arresto_Connect",
+            "certificate_hash": "4b8a1072ee557eb3c9672f06e2539eb9f3c81abb"
+          }
+        },
+        {
+          "client_id": "122615206318-o9lc7hc37rq7fqjvukikuscs6uhqn6sp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.arresto.Arresto_Connect",
+            "certificate_hash": "9be2a7b0bc71f678a69063cb9201798cfec1b902"
+          }
+        },
+        {
+          "client_id": "122615206318-puk3eg80tuoogaqf49q6mg4kf3e6oimd.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.arresto.Arresto_Connect",
+            "certificate_hash": "54b4dde6e1aeaa7798f96cf8dad941c55a4ae788"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:87c363dd74a585a9f8383f",
+        "android_client_info": {
+          "package_name": "app.com.dewalt"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-ac51j4rrtfcln6j4epkr9k12lmcj6ih9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.dewalt",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:9cf7fc47733dd7b3f8383f",
+        "android_client_info": {
+          "package_name": "app.com.i4t"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-kdke2itpqjpf6u4p4sfcp6pflbnc41d2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.i4t",
+            "certificate_hash": "d8efc56c152eec5826e41f4b4938b3a06ded4e8e"
+          }
+        },
+        {
+          "client_id": "122615206318-tgbnnku2im1aqbga7onrgq00pgvm4df8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.i4t",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:564f30b616a110ae",
+        "android_client_info": {
+          "package_name": "app.com.karam"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-34lvcne7lf1mpb8jjjd8u2a9d5htbnjr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.karam",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        },
+        {
+          "client_id": "122615206318-cbcjqscubpd7mkce81grvfa37us4lkh3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.karam",
+            "certificate_hash": "b49f477c69247b07e349651bcf146f6a4c8ee943"
+          }
+        },
+        {
+          "client_id": "122615206318-nad7ug2iqljfi2bmev7cd2gclb1pgemt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.karam",
+            "certificate_hash": "54b4dde6e1aeaa7798f96cf8dad941c55a4ae788"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:9bf22d4384dac117f8383f",
+        "android_client_info": {
+          "package_name": "app.com.konnect_pro_peru"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "122615206318-859n8v89vabc2hlhu8jht73jtrhjquc2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.konnect_pro_peru",
+            "certificate_hash": "687d62ed052f6579a73e8dabb6f55e8c706b45ca"
+          }
+        },
+        {
+          "client_id": "122615206318-qghvod48geedbs2iseiqrvp8ra50lagf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "app.com.konnect_pro_peru",
+            "certificate_hash": "96e663961dd672022f7bd9fa186ee9974b69eb2e"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:122615206318:android:a61ff395ac0db4a6f8383f",
+        "android_client_info": {
+          "package_name": "app.com.snn"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs"
+        },
+        {
+          "current_key": "AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "122615206318-quoea52afh484rj3fd5ll6at8519o3bt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "122615206318-18q2aai120jsmrtesk9h704c62pf3olc.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.arrestotest"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

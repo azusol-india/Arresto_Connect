@@ -1,0 +1,32 @@
+/*
+ *  Copyright (c)
+ *  @website: http://arresto.in/
+ *  @author: Arresto Solutions Pvt. Ltd.
+ *  @license: http://arresto.in/
+ *
+ *  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+ */
+
+buildscript {
+
+    repositories {
+        google()
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:7.1.0'
+        classpath 'com.google.gms:google-services:4.3.14'
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

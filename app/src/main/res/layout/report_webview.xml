@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header_lay"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/app_text"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/back_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:padding="@dimen/margin_2dp"
+            app:srcCompat="@drawable/ic_back" />
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/registerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btm_layer"
+        android:layout_below="@+id/header_lay"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="20dp" />
+
+    <ImageView
+        android:id="@+id/share_btn"
+        android:layout_width="@dimen/margin_30dp"
+        android:layout_height="@dimen/margin_30dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:src="@drawable/share"
+        android:visibility="gone"
+        app:tint="@color/button_bg" />
+
+    <LinearLayout
+        android:id="@+id/btm_layer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white">
+
+        <app.com.arresto.arresto_connect.custom_views.MyButton
+            android:id="@+id/replace_btn"
+            style="@style/material_button"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="@dimen/margin_8dp"
+            android:layout_weight="2"
+            android:text="@string/lbl_assign"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:visibility="gone"
+            app:backgroundTint="@color/button_bg"
+            app:cornerRadius="@dimen/margin_5dp"
+            app:lbl_text="lbl_assign" />
+
+        <LinearLayout
+            android:id="@+id/btn_section"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:visibility="gone">
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/approve_btn"
+                style="@style/material_button"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/app_green"
+                android:text="@string/lbl_aprov_st"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:cornerRadius="@dimen/margin_5dp"
+                app:lbl_text="lbl_aprov_st" />
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/reject_btn"
+                style="@style/material_button"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin_8dp"
+                android:layout_weight="1"
+                android:text="@string/lbl_reject_st"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/app_error"
+                app:cornerRadius="@dimen/margin_5dp"
+                app:lbl_text="lbl_reject_st" />
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

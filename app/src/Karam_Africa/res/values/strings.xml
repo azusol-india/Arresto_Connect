@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<resources>
+    <string name="app_name">Karam Africa KARE</string>
+    <string name="link_prefix">/connectkare/karamafrica</string>
+    <!--    <string name="lbl_uin">UIN</string>-->
+</resources>

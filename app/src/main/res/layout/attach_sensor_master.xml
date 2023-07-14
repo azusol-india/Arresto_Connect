@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+<app.com.arresto.arresto_connect.custom_views.My_RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    android:orientation="vertical"
+    app:bg_color="1"
+    app:bg_type="color_bg">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        android:id="@+id/blank_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:gravity="center"
+        android:text="Add sensors"
+        android:textSize="17dp"
+        app:lbl_text="lbl_noreg_dta_msg" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/product_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/btm"
+        android:clipToPadding="false"
+        android:paddingTop="@dimen/margin_5dp"
+        android:paddingBottom="200dp"
+        android:scrollbarStyle="outsideOverlay" />
+
+
+    <LinearLayout
+        android:id="@+id/btm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/margin_15dp"
+        android:orientation="horizontal">
+    <app.com.arresto.arresto_connect.custom_views.MyButton
+        android:id="@+id/submit_btn"
+        style="@style/material_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/margin_30dp"
+        android:minWidth="@dimen/margin_100dp"
+        android:paddingLeft="@dimen/margin_15dp"
+        android:paddingRight="@dimen/margin_15dp"
+        android:text="@string/lbl_sbmit_st"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize"
+        app:backgroundTint="@color/button_bg"
+        app:lbl_text="lbl_sbmit_st" />
+    <app.com.arresto.arresto_connect.custom_views.MyButton
+        android:id="@+id/add_btn"
+        style="@style/material_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/margin_30dp"
+        android:minWidth="@dimen/margin_100dp"
+        android:paddingLeft="@dimen/margin_15dp"
+        android:paddingRight="@dimen/margin_15dp"
+        android:layout_marginLeft="@dimen/margin_30dp"
+        android:text="@string/lbl_add_new"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="@dimen/textsize"
+        app:backgroundTint="@color/button_bg"
+        app:lbl_text="lbl_add_new" />
+    </LinearLayout>
+</app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>

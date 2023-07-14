@@ -1,0 +1,119 @@
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardBackgroundColor="@color/white"
+    app:cardCornerRadius="@dimen/margin_20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/app_text"
+            android:padding="@dimen/margin_2dp">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/heading_tv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/margin_35dp"
+                android:layout_centerVertical="true"
+                android:gravity="center"
+                android:text="@string/lbl_enter_jobno"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                app:lbl_text="lbl_enter_jobno" />
+
+            <ImageView
+                android:id="@+id/close_btn"
+                android:layout_width="@dimen/margin_30dp"
+                android:layout_height="@dimen/margin_30dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="12dp"
+                android:padding="9dp"
+                android:src="@drawable/cancel"
+                app:tint="@color/white" />
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_10dp"
+            android:layout_marginRight="@dimen/margin_10dp"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:orientation="vertical">
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_margin="5dp"
+                android:gravity="bottom"
+                android:text="@string/lbl_select_jobno"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize"
+                app:bg_color="0"
+                app:bg_type="trans_bg"
+                app:lbl_text="lbl_select_jobno"
+                app:text_color="2" />
+
+            <app.com.arresto.arresto_connect.custom_views.DialogSpinner
+                android:id="@+id/jobcard_spnr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/margin_5dp"
+                android:background="@drawable/spinner_bg"
+                android:minHeight="@dimen/margin_35dp"
+                android:spinnerMode="dialog" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:singleLine="false"
+                android:text="@string/lbl_or"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/app_text"
+                app:lbl_text="lbl_or" />
+
+            <EditText
+                android:id="@+id/job_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_10dp"
+                android:background="@drawable/round_bg1"
+                android:entries="@array/calibration_arr"
+                android:hint="@string/lbl_enter_jobno"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/textsize"
+                android:minHeight="@dimen/margin_35dp"
+                android:paddingLeft="@dimen/margin_5dp"
+                android:textColor="@color/app_text" />
+
+
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/submit_btn"
+                style="@style/material_button"
+                android:layout_width="236dp"
+                android:layout_height="@dimen/margin_35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_20dp"
+                android:layout_marginBottom="20dp"
+                android:text="@string/lbl_sbmit_st"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_10dp" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Compass KS</string>
+    <string name="link_prefix">/connect/kstrong</string>
+    <string name="lbl_barcode_st">Scan Barcode/QR Code</string>
+</resources>

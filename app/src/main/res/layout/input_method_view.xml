@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="inputType"
+            type="app.com.arresto.arresto_connect.data.models.Input_TypeModel" />
+    </data>
+
+    <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_1dp"
+        android:background="@color/app_background"
+        android:orientation="vertical"
+        app:bg_color="1"
+        app:bg_type="color_bg">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/inpt_hdr"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_30dp"
+            android:background="@color/button_bg"
+            android:gravity="center"
+            android:text="@string/lbl_inpt_typ_st"
+            android:textColor="@color/app_text"
+            app:bg_color="4"
+            app:bg_type="color_bg"
+            app:lbl_text="lbl_inpt_typ_st"
+            app:text_color="1" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="10dp">
+
+            <RadioGroup
+                android:id="@+id/rg1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="left"
+                android:onCheckedChanged="@{inputType::onCheckChanged}"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="40dp">
+
+                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                    android:id="@+id/qrcode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/button_selector"
+                    android:gravity="center"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="@dimen/margin_5dp"
+                    android:tag="Barcode"
+                    android:text="@string/lbl_qrcode_st"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:lbl_text="lbl_qrcode_st"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                    android:id="@+id/rfid"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:button="@drawable/button_selector"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="10dp"
+                    android:paddingBottom="@dimen/margin_2dp"
+                    android:tag="RFID"
+                    android:text="@string/lbl_rfid_st"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:lbl_text="lbl_rfid_st"
+                    app:text_color="2" />
+                <!--                <RadioButton-->
+                <!--                    android:id="@+id/barcode"-->
+                <!--                    android:layout_width="wrap_content"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:paddingLeft="6dp"-->
+                <!--                    android:tag="Barcode"-->
+                <!--                    android:buttonTint="@color/app_text"-->
+                <!--                    android:layout_marginTop="@dimen/margin_5dp"-->
+                <!--                    android:text="@string/lbl_barcode_st"-->
+                <!--                    android:textColor="@color/app_text" />-->
+
+
+            </RadioGroup>
+
+            <RadioGroup
+                android:id="@+id/rg2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:gravity="left"
+                android:onCheckedChanged="@{inputType::onCheckChanged}"
+                android:orientation="vertical">
+
+                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                    android:id="@+id/ocr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:button="@drawable/button_selector"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="@dimen/margin_5dp"
+                    android:tag="ocr"
+                    android:text="@string/lbl_scan_label"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:lbl_text="lbl_scan_label"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_RadioButton
+                    android:id="@+id/uin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:button="@drawable/button_selector"
+                    android:gravity="start"
+                    android:paddingBottom="@dimen/margin_2dp"
+                    android:paddingLeft="@dimen/margin_5dp"
+                    android:paddingRight="@dimen/margin_5dp"
+                    android:tag="UIN"
+                    android:text="@string/lbl_manual_entry"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:lbl_text="lbl_manual_entry"
+                    app:text_color="2" />
+                <!--android:button="@drawable/button_selector"-->
+                <!--app:text_color="2"-->
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/rfid_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{inputType.getInput_type.equals(`RFID`) ? View.VISIBLE : View.GONE,default=gone}">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <app.com.arresto.arresto_connect.custom_views.My_EditText
+                    android:id="@+id/rfid_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="80dp"
+                    android:background="@drawable/round_bg_white"
+                    android:onTextChanged="@{(text, start, before, count) -> inputType.onTextChanged(text)}"
+                    android:paddingLeft="5dp"
+                    android:text="@{inputType.getInput_type.equals(`RFID`) &amp;&amp; !inputType.getInput_value .equals(``) ? inputType.getInput_value : ``}"
+                    android:textSize="15dp"
+                    app:bg_color="2"
+                    app:bg_type="border_bg"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/rfid_btn"
+                    android:layout_width="@dimen/margin_70dp"
+                    android:layout_height="@dimen/margin_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginRight="@dimen/margin_5dp"
+                    android:background="@color/app_text"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> inputType.OnClick(v)}"
+                    android:text="@string/lbl_scan"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/button_bg"
+                    android:textStyle="bold"
+                    app:bg_color="2"
+                    app:bg_type="color_bg"
+                    app:text_color="1" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/uin_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{inputType.getInput_type.equals(`UIN`) ? View.VISIBLE : View.GONE,default=gone}">
+
+            <app.com.arresto.arresto_connect.custom_views.My_EditText
+                android:id="@+id/uin_edt"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/round_bg_white"
+                android:onTextChanged="@{(text, start, before, count) -> inputType.onTextChanged(text)}"
+                android:paddingLeft="5dp"
+                android:textSize="15dp"
+                app:bg_color="2"
+                app:bg_type="border_bg"
+                app:text_color="2" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/barcode_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="@{inputType.getInput_type.equals(`Barcode`) ? View.VISIBLE : View.GONE,default=gone}">
+
+            <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:text="Barcode/QR code"-->
+            <!--android:textAppearance="?android:attr/textAppearanceSmall"-->
+            <!--android:textColor="@color/header_color" />-->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <app.com.arresto.arresto_connect.custom_views.My_EditText
+                    android:id="@+id/barcode_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="80dp"
+                    android:background="@drawable/round_bg_white"
+                    android:onTextChanged="@{(text, start, before, count) -> inputType.onTextChanged(text)}"
+                    android:paddingLeft="5dp"
+                    android:text="@{inputType.getInput_type.equals(`Barcode`) &amp;&amp; !inputType.getInput_value.equals(``) ? inputType.getInput_value : ``}"
+                    android:textSize="15dp"
+                    app:bg_color="2"
+                    app:bg_type="border_bg"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/barcode_btn"
+                    android:layout_width="@dimen/margin_70dp"
+                    android:layout_height="@dimen/margin_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginRight="@dimen/margin_5dp"
+                    android:background="@color/app_text"
+                    android:gravity="center"
+                    android:onClick="@{(v) -> inputType.OnClick(v)}"
+                    android:text="@string/lbl_scan"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/button_bg"
+                    android:textStyle="bold"
+                    app:bg_color="2"
+                    app:bg_type="color_bg"
+                    app:text_color="1" />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/delete_btn"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="-2dp"
+            android:layout_marginRight="20dp"
+            android:padding="7dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/delete"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/line_ylow"
+            android:layout_width="match_parent"
+            android:layout_height="0.7dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/button_bg"
+            android:visibility="gone" />
+    </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+</layout>

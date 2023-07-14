@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/round_bg_white"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_height="210dp">
+
+        <LinearLayout
+            android:id="@+id/sign_here"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_margin="3dp"
+            android:background="@color/white"
+            android:orientation="vertical"/>
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            app:lbl_text="lbl_clr_st"
+            android:id="@+id/clear_sign"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="10dp"
+            android:background="@color/app_text"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="@string/lbl_clr_st"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/button_bg"
+            android:textStyle="bold"
+            app:bg_color="2"
+            app:bg_type="color_bg"
+            app:text_color="1" />
+    </FrameLayout>
+</LinearLayout>

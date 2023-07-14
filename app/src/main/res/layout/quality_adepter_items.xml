@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginLeft="3dp"
+    android:layout_marginTop="6dp"
+    android:layout_marginRight="3dp"
+    android:layout_height="125dp">
+
+    <ImageView
+        android:id="@+id/rimg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:minWidth="100dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/noimage" />
+
+    <ImageView
+        android:id="@+id/rmv_img"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/remv_btn" />
+</FrameLayout>

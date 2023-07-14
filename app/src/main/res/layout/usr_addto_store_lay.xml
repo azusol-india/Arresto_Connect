@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        app:lbl_text="lbl_select_project"
+        android:id="@+id/title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="@dimen/margin_10dp"
+        android:text="@string/lbl_select_project"
+        android:textSize="20dp" />
+
+    <Spinner
+        android:id="@+id/prjct_spnr"
+        style="@style/SpinnerTheme"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:dropDownWidth="fill_parent" />
+
+    <LinearLayout
+        android:id="@+id/remark_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:orientation="vertical">
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            app:lbl_text="lbl_remark_st"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/margin_5dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:text="@string/lbl_remark_st" />
+
+        <EditText
+            android:id="@+id/remark_edt"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/margin_5dp"
+            android:background="@drawable/edittext_bg1"
+            android:inputType="textEmailAddress"
+            android:paddingLeft="@dimen/margin_8dp"
+            android:singleLine="true"
+            android:textSize="@dimen/margin_15dp" />
+    </LinearLayout>
+
+    <app.com.arresto.arresto_connect.custom_views.My_TextView
+        app:lbl_text="lbl_add_to_project"
+        android:id="@+id/add_btn"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="@dimen/margin_30dp"
+        android:layout_marginLeft="@dimen/margin_40dp"
+        android:gravity="center"
+        android:layout_marginRight="@dimen/margin_40dp"
+        android:layout_marginTop="@dimen/margin_30dp"
+        android:background="@color/app_text"
+        android:text="@string/lbl_add_to_project"
+        android:textAllCaps="false"
+        android:textColor="#f7f7f7"
+        android:textSize="@dimen/textsize" />
+
+</LinearLayout>

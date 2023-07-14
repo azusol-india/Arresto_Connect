@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+
+
+    <app.com.arresto.arresto_connect.third_party.Scan_lib.AutoFitTextureView
+        android:id="@+id/texture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+
+       />
+
+    <FrameLayout
+        android:id="@+id/control"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#818181">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_result"
+            android:gravity="left"
+            android:layout_gravity="bottom"
+            android:layout_margin="10dp"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"/>
+
+
+    </FrameLayout>
+    <app.com.arresto.arresto_connect.third_party.Scan_lib.QRCodeView
+        android:id="@+id/qr_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </app.com.arresto.arresto_connect.third_party.Scan_lib.QRCodeView>
+
+</RelativeLayout>

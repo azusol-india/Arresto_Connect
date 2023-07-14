@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:id="@+id/add_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+
+            android:orientation="vertical"
+            android:padding="@dimen/margin_10dp">
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:text="@string/lbl_scan_asset_label"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize"
+                app:lbl_text="lbl_scan_asset_label" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <app.com.arresto.arresto_connect.custom_views.My_EditText
+                    android:id="@+id/asset_lbl_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toLeftOf="@+id/asset_lbl_btn"
+                    android:background="@drawable/round_bg1"
+                    android:paddingLeft="5dp"
+                    android:textSize="15dp"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.MyButton
+                    android:id="@+id/asset_lbl_btn"
+                    style="@style/material_button"
+                    android:layout_width="@dimen/margin_80dp"
+                    android:layout_height="@dimen/margin_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/lbl_scan"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_bg"
+                    android:textSize="@dimen/textsize"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/button_bg"
+                    app:bg_color="2"
+                    app:bg_type="color_bg"
+                    app:cornerRadius="@dimen/margin_5dp"
+                    app:text_color="1" />
+            </RelativeLayout>
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:text="@string/lbl_scan_sensor_qrcode"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize"
+                app:lbl_text="lbl_scan_sensor_qrcode" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <app.com.arresto.arresto_connect.custom_views.My_EditText
+                    android:id="@+id/sensor_lbl_edt"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="@dimen/margin_10dp"
+                    android:layout_toLeftOf="@+id/sensor_lbl_btn"
+                    android:background="@drawable/round_bg1"
+                    android:paddingLeft="5dp"
+                    android:textSize="15dp"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.MyButton
+                    android:id="@+id/sensor_lbl_btn"
+                    style="@style/material_button"
+                    android:layout_width="@dimen/margin_80dp"
+                    android:layout_height="@dimen/margin_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginTop="@dimen/margin_5dp"
+                    android:layout_marginRight="4dp"
+                    android:layout_marginBottom="2dp"
+                    android:text="@string/lbl_scan"
+                    android:textAllCaps="false"
+                    android:textColor="@color/button_bg"
+                    android:textSize="@dimen/textsize"
+                    android:textStyle="bold"
+                    app:backgroundTint="@color/button_bg"
+                    app:bg_color="2"
+                    app:bg_type="color_bg"
+                    app:cornerRadius="@dimen/margin_5dp"
+                    app:text_color="1" />
+            </RelativeLayout>
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="bottom"
+                android:text="@string/lbl_calibration_name"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize"
+                app:bg_color="0"
+                app:bg_type="trans_bg"
+                app:lbl_text="lbl_calibration_name"
+                app:text_color="2" />
+
+            <app.com.arresto.arresto_connect.custom_views.DialogSpinner
+                android:id="@+id/calibration_spinr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@drawable/spinner_bg"
+                android:entries="@array/calibration_array"
+                android:minHeight="@dimen/margin_35dp"
+                android:spinnerMode="dialog" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:text="Calibration Alias"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textColor="@color/app_text"
+                android:textSize="@dimen/textsize" />
+
+            <EditText
+                android:id="@+id/alias_edt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_5dp"
+                android:background="@drawable/round_bg1"
+                android:entries="@array/calibration_arr"
+                android:gravity="center_vertical"
+                android:minHeight="@dimen/margin_35dp"
+                android:paddingLeft="@dimen/margin_5dp"
+                android:textColor="@color/app_text" />
+
+
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/find_btn"
+                style="@style/material_button"
+                android:layout_width="256dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:text="@string/lbl_find_device"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_10dp"
+                app:lbl_text="lbl_find_device" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_15dp"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="20dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="5dp"
+                    android:gravity="bottom"
+                    android:text="Device Ready to Calibrate"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/textsize"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:text_color="2" />
+                <!--            app:lbl_text="lbl_model"-->
+
+                <app.com.arresto.arresto_connect.custom_views.MyButton
+                    android:id="@+id/start_btn"
+                    style="@style/material_button"
+                    android:layout_width="256dp"
+                    android:layout_height="36dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_margin="@dimen/margin_10dp"
+                    android:text="@string/lbl_set_calibration"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:backgroundTint="@color/button_bg"
+                    app:cornerRadius="@dimen/margin_10dp"
+                    app:lbl_text="lbl_set_calibration" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <include
+        android:id="@+id/bluetooth_off"
+        layout="@layout/info_no_bluetooth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+
+    <include
+        android:id="@+id/no_location_permission"
+        layout="@layout/info_no_permission"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone" />
+</RelativeLayout>

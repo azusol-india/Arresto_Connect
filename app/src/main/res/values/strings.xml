@@ -1,0 +1,970 @@
+<!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+
+<resources>
+    <string name="dfu_feature_title">DFU</string>
+    <string name="dfu_file_init_title">Init packet</string>
+    <string name="dfu_file_init_message">Do you want to select the Init packet file?\n
+		The Init packet file (*.dat) should contain the device type and revision, application version, list of supported Soft Devices and the firmware CRC
+		in binary format or, with old versions of the DFU bootloader, only the CRC (CRC-CCITT-16).
+		With the new version of the bootloader the extended Init packet is <b>required</b>.</string>
+    <string name="dfu_uploading_percentage">%d%%</string>
+
+    <string name="app_name">Arresto Connect</string>
+    <string name="lbl_action_settings">Settings</string>
+    <string name="link_host">arresto.in</string>
+    <string name="lbl_google_maps_key">AIzaSyBX-PKcuo78niwnvEKdjj3Te8KulgHqi90</string>
+    <!--<string name="lbl_google_maps_key">AIzaSyBBzCtd3VNjnP6n08u5t_eYKXTOKn-UTnU</string>-->
+    <!--<string name="lbl_google_maps_key">AIzaSyAnlx2psh1iTrkogIkONMb7vGzJweV9oPs</string>-->
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <!--<string name="app_id">464071850989819</string>-->
+    <string name="app_id">474420249834895</string>
+
+    <item name="glide_tag" type="id" />
+    <string name="menu_vector_path">M15 25,L85 25,M15 50,L85 50,M15 75,L85 75</string>
+    <string name="back_vector_path">M25 25,L75 75,M25 75,L75 25,M25 75,L75 25</string>
+    <string name="file_provider_authority">app.com.arresto.Arresto_Connect</string>
+    <string name="lbl_text_warning_nfc_is_off">NFC is currently turned off!</string>
+    <string name="lbl_text_turn_on_nfc">This functionality can\'t be used without NFC enabled. Please turn on NFC in the Settings and then use the back button to return to this app.</string>
+    <string name="lbl_text_update_settings">Update Settings</string>
+    <!--<string name="chng_ime_strng">If you have change your mobile <font size="16" color="#5050d0">Click Here</font> to make a request to change your IMEI number and then contact to Admin.</string>-->
+    <string name="lbl_chng_ime_strng"><font color="@color/header_color" size="14"> If you have change your mobile <font color="#5050d0" size="16">Click Here</font>  to make a request to change your IMEI number and then contact to Admin.</font></string>
+    <string name="lbl_disclaimer"><b>Inspection Disclaimer </b> – If any non-conformities are found during pre-use inspection, remove equipment immediately and contact your Company’s designated fall protection Competent Person for further guidance.</string>
+
+    // login page text
+    <string name="lbl_loading_str">Loading…</string>
+    <string name="lbl_login">Login</string>
+    <string name="lbl_logout">Logout</string>
+    <string name="lbl_username">Username/ Email</string>
+    <string name="lbl_email">Email</string>
+    <string name="lbl_password">Password</string>
+    <string name="lbl_forgot_password">Forgot Password?</string>
+    <string name="lbl_register">Register</string>
+    <string name="lbl_remember">Remember Me</string>
+    <string name="lbl_email_alert">Please Enter Username/Email</string>
+    <string name="lbl_network_alert">Please check your network connection</string>
+    <string name="lbl_reset_txt">Reset Password</string>
+    <string name="lbl_back">Back</string>
+    <string name="lbl_add_more_field">Add</string>
+
+    // home page and fragments text
+    <string name="lbl_welcm_txt">Welcome</string>
+    <string name="lbl_welcome_to_kare">Welcome</string>
+    <string name="lbl_scan_qr_code">Scan QRCode</string>
+
+    <string name="lbl_dashbrd_txt">Dashboard</string>
+    <string name="lbl_mystr_txt">My Store</string>
+    <string name="lbl_ast_inuse_txt">Assets in use</string>
+    <string name="lbl_ast_regected_txt">Rejected Assets</string>
+    <string name="lbl_rgistr_nw_txt">Register New Assets</string>
+    <string name="lbl_scan_txt">Scan Asset</string>
+    <string name="lbl_mnag_sit_txt">Manage Sites</string>
+    <string name="lbl_my_asst_txt">My Registered Assets</string>
+    <string name="lbl_preiodic_txt">Preventive Maintenance</string>
+    <string name="lbl_knowledge_tree">Knowledge Tree</string>
+    <string name="lbl_scheduler_txt">Scheduler</string>
+    <string name="lbl_safety_txt">Safety Digitisation</string>
+    <string name="lbl_inspection">Inspection</string>
+    <string name="lbl_inspctndue_txt">Inspection Due</string>
+    <string name="lbl_add_assets">Add Assets</string>
+    <string name="lbl_add_master_data">Add Master Data</string>
+    <string name="lbl_reports">Reports</string>
+    <string name="lbl_inspection_report">Inspection Report</string>
+    <string name="lbl_rams_report">Rams Reports</string>
+    <string name="lbl_safety_reports">Safety Reports</string>
+    <string name="lbl_safety_management_report">Safety Management Report</string>
+    <string name="lbl_maintenance_report">Maintenance Report</string>
+    <string name="lbl_projects_txt">Projects</string>
+
+    <string name="lbl_rams">RAMS</string>
+    <string name="lbl_asst_prodct_txt">Asset Products</string>
+    <string name="lbl_ex_excl_txt">Export Excel</string>
+    <string name="lbl_manul_ins_txt">Manually Insert</string>
+    <string name="lbl_view_asst_prodct_txt">View Asset Products</string>
+    <string name="lbl_asst_issu_txt">Asset Issue</string>
+    <string name="lbl_inpt_asst_txt">Input of Asset</string>
+
+    <string name="lbl_profile_txt">My Profile</string>
+    <string name="lbl_message_txt">Alerts</string>
+
+    <string name="lbl_auth_issu_txt">Authentication issue!</string>
+    <!--    <string name="lbl_auth_issu_msg">You are not authorized for this service, please contact the administrator!</string>-->
+    <string name="lbl_auth_issu_msg">This feature is not available for your login, please contact you company\'s designated fall protection competent person for further guidance .</string>
+
+
+    // Dialog Strings
+
+    <string name="lbl_wait_st">Please Wait…</string>
+    <string name="lbl_add_photo_st">Add Photo</string>
+    <string name="lbl_cpture_st">Take Photo</string>
+    <string name="lbl_choose_photo_st">Choose from Gallery</string>
+    <string name="lbl_cncl_st">Cancel</string>
+    <string name="lbl_reject_st">Reject</string>
+    <string name="lbl_aprov_st">Approve</string>
+
+    <string name="lbl_slct_date_st">Select Date</string>
+    <string name="lbl_entr_uin_st">Enter Batch and Serial Number</string>
+
+    <string name="lbl_inpt_typ_st">Select Input Type</string>
+    <!--    <string name="lbl_uin">UIN (Batch no:Serial no)\nex:111111:1111</string>-->
+    <string name="lbl_uin">UIN</string>
+    <string name="lbl_manual_entry">Manual Entry</string>
+    <string name="lbl_rfid_st">RFID</string>
+    <string name="lbl_barcode_st">Barcode/QR Code</string>
+    <string name="lbl_scan_label">Scan Label</string>
+    <string name="lbl_qrcode_st">QR Code</string>
+    <string name="lbl_total">Total</string>
+
+
+    // Message strings
+    <string name="lbl_ac_creat_st">Account Created</string>
+    <string name="lbl_alrdy_lst_msg">This data is already in list</string>
+    <string name="lbl_slct_inpt_msg">Please select an input method</string>
+    <string name="lbl_noreg_dta_msg">No registered data found</string>
+    <string name="lbl_nodue_dta_msg">No data for inspection due</string>
+    <string name="lbl_nostr_dta_msg">Data not found in store</string>
+    <string name="lbl_nouse_dta_msg">No data for used asset_id</string>
+    <string name="lbl_noregected_dta_msg">Rejected data not found</string>
+    <string name="lbl_noOvrdue_dta_msg">No data for Inspection Overdue</string>
+
+    <string name="lbl_entr_crct_astsris_msg">Please enter a correct assets series</string>
+    <string name="lbl_entr_crct_ast_msg">Please enter a correct asset_id</string>
+    <string name="lbl_entr_clint_msg">Please enter client name</string>
+    <string name="lbl_entr_clintAdd_msg">Please enter client address</string>
+    <string name="lbl_entr_clintPh_msg">Please enter client phone number</string>
+    <string name="lbl_entr_clintEmail_msg">Please enter client email.</string>
+    <string name="lbl_add_ast_msg">Please add at least one assets or assets series.</string>
+    <string name="lbl_srch_pram_msg">Please enter at least one searching parameter.</string>
+    <string name="lbl_crct_pram_msg">Please enter correct searching parameters.</string>
+    <string name="lbl_no_data_found">No data found</string>
+    <string name="lbl_slct_dis_msg">Select a district</string>
+    <string name="lbl_slct_crcl_msg">Select a circle</string>
+    <string name="lbl_upldng_data_msg">Uploading data</string>
+    <string name="lbl_signatr_msg">Please draw a signature</string>
+    <string name="lbl_blank_name_msg">Name should not be blank</string>
+    <string name="lbl_rmrk_name_msg">Remark should not be blank</string>
+    <string name="lbl_desig_name_msg">Designation should not be blank</string>
+    <string name="lbl_ofline_dtaSav_msg">You are offline, data can not upload, but saved in database</string>
+    <string name="lbl_pl_slct_msg">Please select</string>
+    <string name="lbl_fil_obsrvtn_msg">Please fill last added observation first</string>
+    <string name="mlbl_isng_dta_msg">Please contact to administration for missing data</string>
+    <string name="lbl_cptr_aftrImg_msg">Please capture after image.</string>
+    <string name="lbl_blank_obsrv_msg">You have blank credentials for any observation please fill or delete it.</string>
+    <string name="lbl_fix_loc_msg">This location fixed for this site.</string>
+    <string name="lbl_scn_rfid_msg">Please scan RFID tag</string>
+    <string name="lbl_scn_barcode_msg">Please scan barcode</string>
+    <string name="lbl_entr_uin_msg">Please enter UIN</string>
+    <string name="lbl_inspect_msg">Please inspect all elements first</string>
+    <string name="lbl_try_again_msg">Try again</string>
+    <string name="lbl_no_subcat_msg">No subcategory for this parent</string>
+    <string name="lbl_entr_qty_msg">Please enter quantity for all assets series</string>
+    <string name="lbl_entr_qtyast_msg">Please enter quantity for all assets.</string>
+    <string name="lbl_srch_msg">Search client ,assets series ,assets etc.</string>
+    <string name="lbl_savd_msg">Sheet saved successfully</string>
+    <string name="lbl_pls_takePicture">Please take picture</string>
+
+    <string name="lbl_close_titl">App closing</string>
+    <string name="lbl_close_app_msg">Do you want to close the app?</string>
+
+
+    // Button strings
+    <string name="lbl_creat_ac_st">Create Account</string>
+    <string name="lbl_sbmit_st">Submit</string>
+    <string name="lbl_update">Update</string>
+    <string name="lbl_cntnue_st">Continue</string>
+    <string name="lbl_search">Search</string>
+    <string name="lbl_ok_st">OK</string>
+    <string name="lbl_yes">Yes</string>
+    <string name="lbl_no">No</string>
+    <string name="lbl_rscan_st">Rescan</string>
+    <string name="lbl_clr_st">Clear</string>
+    <string name="lbl_ad_schdulr_st">Add to Scheduler</string>
+    <string name="lbl_cntinue_ins_st">Continue Inspection</string>
+    <string name="lbl_strt_periodic_st">Start preventive maintenance</string>
+    <string name="lbl_ad_tocart_st">Website</string>
+    <string name="lbl_share_st">Share</string>
+    <string name="lbl_view_rep_st">View Report</string>
+    <string name="lbl_download_excl_st">Download Excel</string>
+    <string name="lbl_view_detail_st">History</string>
+    <string name="lbl_checkin_st">Check In</string>
+
+    <string name="lbl_checkout_st">Check Out</string>
+    <string name="lbl_image">Image</string>
+    <string name="lbl_doc_st">Document</string>
+    <string name="lbl_media_st">Media</string>
+
+    <string name="lbl_prdct_speci_st"> Product Resources and Specifications</string>
+    <string name="lbl_prdct_stats_st"> Product Status</string>
+    <string name="lbl_scan">Scan</string>
+
+
+    // fragments strings
+
+    <string name="lbl_profile">PROFILE</string>
+    <string name="lbl_name">Name</string>
+    <string name="lbl_dsigntn_st">Designation</string>
+    <string name="lbl_adrs_st">Address</string>
+    <string name="lbl_dob_st">Date of Birth</string>
+    <string name="lbl_mobile_st">Mobile</string>
+    <string name="lbl_cmpny_name_st">*Company Name</string>
+    <string name="lbl_cmpny_adrs_st">Company Address</string>
+    <string name="lbl_first_name">*First Name</string>
+    <string name="lbl_last_name">*Last Name</string>
+    <string name="lbl_cnfpass_st">Confirm Password</string>
+    <string name="lbl_trms_st">I agree to all the <a href='http://arresto.in/'> Terms and Conditions</a></string>
+    <string name="lbl_valid_email">Please enter a valid email address</string>
+    <string name="lbl_valid_pass">Password must be at least 6 characters</string>
+    <string name="lbl_please_enter_valid_mobile_number">Please enter valid mobile number</string>
+    <string name="lbl_match_pass">Password does not match</string>
+    <string name="lbl_field_mndtry">All field are mandatory</string>
+    <string name="lbl_term_chek">Please Check Term &amp; Conditions</string>
+
+    <string name="lbl_batch_no_st">Batch No.</string>
+    <string name="lbl_serial_no_st">Serial No.</string>
+    <string name="lbl_report_no.">Report No.</string>
+    <string name="lbl_date">Date</string>
+    <string name="lbl_site_id">Site Id</string>
+    <string name="lbl_po_number">PO No.</string>
+    <string name="lbl_inpctd_by_st">Inspected By</string>
+    <string name="lbl_job_card_no">Job Card No.</string>
+    <string name="lbl_sms_no">SMS No.</string>
+    <string name="lbl_lattitude">Latitude</string>
+    <string name="lbl_longitude">Longitude</string>
+    <string name="lbl_fix_loc_st">Fix Location</string>
+
+
+    <string name="lbl_asset_series">Asset Series</string>
+    <string name="lbl_asset">Asset</string>
+    <string name="lbl_sub_asset">Sub Assets</string>
+    <string name="lbl_qty_st">Quantity</string>
+
+    <string name="lbl_add_asset_data">Add Asset Data</string>
+
+    <string name="lbl_ins_dtail_st">Inspector Detail</string>
+    <string name="lbl_inspector_name">Inspector Name</string>
+    <string name="lbl_ins_phone_st">Inspector Phone No.</string>
+
+    <string name="lbl_srch_his_st">Search History</string>
+    <string name="lbl_frm_dt_st">From Date</string>
+    <string name="lbl_to_dt_st">To Date</string>
+    <string name="lbl_client">Client</string>
+    <string name="lbl_district">Region</string>
+    <string name="lbl_circle">Circle</string>
+    <string name="lbl_city">City</string>
+    <string name="lbl_province_state">Province/ State</string>
+    <string name="lbl_country">Country</string>
+    <string name="lbl_invoice_st">Invoice No.</string>
+    <string name="lbl_due_forIns_st">Due for Inspection</string>
+    <string name="lbl_schd_forIns_st">Scheduled for Inspection</string>
+    <string name="lbl_brows_st">Browse</string>
+
+    <string name="lbl_slctd_file_st">Selected file</string>
+    <string name="lbl_no_file_st">No file has been selected</string>
+
+    <string name="lbl_prdct_img_st">Gallery Image</string>
+    <string name="lbl_technical_data_sheet">Technical Data Sheet</string>
+    <string name="lbl_user_manul_st">User Manual</string>
+    <string name="lbl_presentation">Dos &amp; Don\'ts</string>
+    <string name="lbl_othr_st">Other</string>
+    <string name="lbl_dec_of_conformity">Dec. Of Conformity</string>
+
+    <string name="lbl_engineering_calculations">Engineering Calculations</string>
+    <string name="lbl_ins_histry_st">Inspection History</string>
+    <string name="lbl_main_histry_st">Maintenance History</string>
+    <string name="lbl_ins_params_st">Pre Use Inspection Guidelines</string>
+
+
+    <string name="lbl_strt_frm_st">Start From</string>
+
+    <string name="lbl_load_more_st">Load more…</string>
+    <string name="lbl_asset_code">Asset Code</string>
+    <string name="lbl_ast_des_st">Asset Description</string>
+    <string name="lbl_mnufctrr_st">Manufacturer</string>
+    <string name="lbl_store_stok_st">Store Stock</string>
+    <string name="lbl_store_mol_st">Store MOL</string>
+    <string name="lbl_store_eoq_st">Store EOQ</string>
+    <string name="lbl_end_life_st">End of Life</string>
+    <string name="lbl_date_ofenterd_st">Date of Entered in store</string>
+
+
+    <string name="lbl_signtur_st">Signature</string>
+    <string name="lbl_remark_st">Remark</string>
+    <string name="lbl_type">Type</string>
+
+
+    <string name="lbl_add_file">Add File</string>
+    <string name="lbl_ad_imgbfor_st">Add / Skip images before inspection of component</string>
+    <string name="lbl_ad_imgaftr_st">Add / Skip images after inspection of component</string>
+    <string name="lbl_expected_result">Expected Result</string>
+    <string name="lbl_observation">Observation</string>
+    <string name="lbl_action_proposed">Action Proposed</string>
+    <string name="lbl_actn_takn_st">Action Taken</string>
+    <string name="lbl_type_of_inspection">Type of Inspection</string>
+
+    <string name="lbl_site_st">Site</string>
+    <string name="lbl_uom">UOM</string>
+
+    <string name="lbl_scan_st">Scan product</string>
+    <string name="lbl_skip">Skip</string>
+    <string name="lbl_rgstr_prdct_st">Registered</string>
+    <string name="lbl_scdule_prdct_st">Scheduled Products</string>
+    <string name="lbl_ins_due_st">Inspection Due</string>
+    <string name="lbl_ins_ovrdue_st">Inspection Overdue</string>
+    <string name="lbl_main_due_st">Maintenance Due</string>
+    <string name="lbl_main_ovdue_st">Maintenance Overdue</string>
+
+    <string name="lbl_inspctd_st">Inspected</string>
+    <string name="lbl_date_of_first_use">First use</string>
+    <string name="lbl_due_date_st">Next Inspection Date</string>
+
+    <string name="lbl_category">Category</string>
+    <string name="lbl_products">Products</string>
+    <string name="lbl_loctn_st">Location</string>
+    <string name="lbl_camera_msg_st">Touch Surface Screen to make focus</string>
+
+    <string name="lbl_s_no">S.No.</string>
+    <string name="lbl_client_name">Client Name</string>
+    <string name="lbl_status">Status</string>
+
+    <string name="lbl_detail_st">Detail</string>
+    <string name="lbl_site_address">Site address</string>
+
+    <string name="lbl_work_permit">Work Permit</string>
+    <string name="lbl_work_prmitno_st">Work Permit No.</string>
+    <string name="lbl_prmit_date_st">Permit Date From</string>
+    <string name="lbl_prmit_upto_st">Permit Valid Up to</string>
+    <string name="lbl_ppe_st">PPE</string>
+    <string name="lbl_right_ppe_st">Are workers wearing right PPE and PPE inspected and good to use?</string>
+    <string name="lbl_harnes_st">Harness with lanyard</string>
+    <string name="lbl_helmet_st">Helmet</string>
+    <string name="lbl_safety_shoe_st">Safety Shoes</string>
+    <string name="lbl_gloves_st">Gloves</string>
+    <string name="lbl_sfty_gogle_st">Safety Goggle</string>
+    <string name="lbl_wrk_positn_st">Work Positioning</string>
+
+    <string name="lbl_training">TRAINING</string>
+
+    <string name="lbl_wrkr_train_st">ARE the worker trained to work safely for work at height job?</string>
+
+
+    <string name="lbl_stution_st">SITUATIONS</string>
+
+    <string name="lbl_weathr_good_st">Is weather good to work with enough light and site accessible and unguarded edges?</string>
+
+    <string name="lbl_equipment_st">EQUIPMENT</string>
+
+    <string name="lbl_wrkng_cndtion_st">Is the equipment inspected, calibrated and in good working condition?</string>
+
+    <string name="lbl_mdicl_st">MEDICAL CONDITION</string>
+    <string name="lbl_mdicl1_st">Are the worker physically/ medically/ mentally fit to work at height and are insured under mediclaim and carrying first AID?</string>
+    <string name="lbl_mdicl2_st">Are the worker under the influence of alcohol?</string>
+
+    <string name="lbl_mislinc_st">MISCELLANCES</string>
+
+    <string name="lbl_mislinc1_st">Are the pre requisite documentation with client done and have client approval requisite documentation for the job?</string>
+
+    // Java Code Strings
+
+    <string name="lbl_prdct_dlet_msg">Product deleted successfully</string>
+    <string name="lbl_alrdy_ins_msg">This assets already inspected</string>
+    <string name="lbl_subalrdy_ins_msg">This subasset already inspected</string>
+    <string name="lbl_sitealrdy_ins_msg">Site already inspected</string>
+
+    <string name="lbl_product_name">Product Name</string>
+    <string name="lbl_dlet_entry">Delete Entry</string>
+    <string name="lbl_dlet_cnf_msg">Are you sure you want to delete?</string>
+    <string name="lbl_nodata_admin_msg">No data is present in master data, please contact to admin</string>
+
+    <string name="lbl_prdct_str">Products of </string>
+
+    <string name="lbl_chng_lang">Change Language</string>
+    <string name="lbl_slct_lang">Select Language</string>
+    <string name="lbl_language">Language</string>
+
+    <string name="lbl_en">English</string>
+    <string name="lbl_fr">French</string>
+    <string name="lbl_hi">हिंदी</string>
+    <string-array name="languages" translatable="false">
+        <item>English</item>
+        <item>French</item>
+        <item>हिंदी</item>
+    </string-array>
+    <string name="lbl_rope_rep_txt">Rope Report</string>
+    <string name="lbl_ast_log_txt">Asset Log</string>
+
+    <string name="lbl_cmplt_rep_txt">Complete Report</string>
+    <string name="lbl_assets">Assets</string>
+    <string name="lbl_created_date">Created date</string>
+    <string name="lbl_finish_project">Finish Project</string>
+    <string name="lbl_add_msg">You can not add more product, Please refresh product list first.</string>
+    <string name="lbl_rope_dwn_msg">Please rope down first!</string>
+    <string name="lbl_fill_form_msg">Please fill all forms!</string>
+    <string name="lbl_chk_out_msg">Please check out from all components!</string>
+    <string name="lbl_suprvisr_msg">Supervisor Remark</string>
+    <string name="lbl_rop_dwn_st">Rope Down</string>
+    <string name="lbl_rop_up_st">Rope Up</string>
+
+
+    <string name="lbl_asset_details">Asset details</string>
+    <string name="lbl_create_project">Create Project</string>
+    <string name="lbl_customer">Customer</string>
+    <string name="lbl_project_name">Project Name</string>
+
+    <string name="lbl_customer_address">Customer Address</string>
+    <string name="lbl_site">Site</string>
+    <string name="lbl_sub_site">Sub Site</string>
+    <string name="lbl_work_type">Work Type</string>
+    <string name="lbl_are_you_sure_delete">Are you sure want to delete this project !</string>
+    <string name="lbl_add_to_store">Add to Store</string>
+    <string name="lbl_add_to_project">Add to Project</string>
+    <string name="lbl_prds_no_avle_mystore">Products Not Available in MyStore</string>
+    <string name="lbl_not_use_any_asset">Not Use Any Asset</string>
+    <string name="lbl_pls_selc_proj">Please Select Project</string>
+    <string name="lbl_gallery">Gallery</string>
+    <string name="lbl_video">Video</string>
+    <string name="lbl_save">Save</string>
+    <string name="lbl_scan_rfid">Scan RFID</string>
+    <string name="lbl_add_observation">Add Observation</string>
+    <string name="lbl_insp_details">Inspector Details</string>
+    <string name="lbl_asset_history">Asset History</string>
+    <string name="lbl_finish">Finish</string>
+    <string name="lbl_select_project">Select Project</string>
+
+
+    <string name="lbl_cart">Bill Of Quantity</string>
+    <string name="lbl_delete">Delete</string>
+    <string name="lbl_edit">Edit</string>
+    <string name="lbl_client_address">Client Address</string>
+    <string name="lbl_preview">Preview</string>
+    <string name="lbl_ec_reports">Ec Reports</string>
+    <string name="lbl_ec_project">Ec Projects</string>
+    <string name="lbl_ec_calculation">EC Calculation</string>
+    <string name="lbl_metric">Metric</string>
+    <string name="lbl_imperial">Imperial</string>
+    <string name="lbl_training_st">Training</string>
+    <string name="lbl_pm_dashboard">Maintenance Dashboard</string>
+    <string name="lbl_competent">Inspection - Competent Person</string>
+    <string name="lbl_dealer_info">Dealer Info</string>
+    <string name="lbl_dealer_locator">Dealer Locator</string>
+    <string name="lbl_common_observation">Most common Observations</string>
+    <string name="lbl_nearby_dealer">Nearby Dealers</string>
+    <string name="lbl_call">Call</string>
+    <string name="lbl_click_msg">Click to view Dealer Info</string>
+    <string name="lbl_direction">Get Directions</string>
+    <string name="lbl_phone">Phone</string>
+    <string name="lbl_contact">Contact</string>
+    <string name="lbl_website">Website</string>
+    <string name="lbl_weblink">Web Link</string>
+    <string name="lbl_support">Support</string>
+    <string name="lbl_call_dealer">Call Dealer</string>
+    <string name="lbl_entr_no">Enter No.</string>
+    <string name="lbl_repair">Repair</string>
+    <string name="lbl_geo_fencing">Geo Fencing</string>
+    <string name="lbl_inspection_frequency_month">Frequency of Inspection (in Months)</string>
+    <string name="lbl_inspection_frequency_hour">Frequency of Inspection (in Hours)</string>
+    <string name="lbl_life_span_month">Life Span of Product(in Months)</string>
+    <string name="lbl_life_span_hour">Life Span of Product(in Hours)</string>
+    <string name="lbl_inspection_frequency_day">Frequency of Preventive Maintenance (in Days)</string>
+    <string name="lbl_knowledgetree_status">Knowledgetree Status</string>
+    <string name="lbl_standards">Standards</string>
+    <string name="lbl_ec_type_certificate">EC Type Certificate</string>
+    <string name="lbl_notified_body_certificate">Notified Body Certificate</string>
+    <string name="lbl_notified_body_articale">Notified BodyArticle 11B</string>
+    <string name="lbl_invoice_data">Material Invoice Date</string>
+    <string name="lbl_contact_us">Contact Us</string>
+    <string name="lbl_group_email">Your Company’s Designated Email</string>
+    <string name="lbl_search_txt">Enter SKU/Barcode/UIN</string>
+    <string name="lbl_account_setting">Account Settings</string>
+    <string name="lbl_change_password">Change Password</string>
+    <string name="lbl_skip_the_step">You may skip the above steps(With permission from inspection competent person of your organisation), select pass or fail and move to the next
+    component. Please enter a reason for your decision in the remark box below (Optional).</string>
+    <string name="lbl_pass_all">Pass All</string>
+    <string name="lbl_fail_all">Fail All</string>
+    <string name="lbl_feedback">Feedback</string>
+    <string name="lbl_app_updates">Check Update</string>
+    <string name="lbl_current_location">Current Location</string>
+    <string name="lbl_click_here_to_go_back">Click here to go back</string>
+    <string name="lbl_certificate">Dec. of Conformity</string>
+    <string name="lbl_test_report">Test Report</string>
+    <string name="lbl_emp_id">Employee id</string>
+    <string name="lbl_back_root">Back to Main</string>
+    <string name="lbl_feedback_image">Add feedback image</string>
+    <string name="lbl_user_info">User Info</string>
+    <string name="lbl_date_format">Date Format</string>
+    <string name="lbl_inspect_subasset">OR Inspect each sub asset individually by tapping on the corresponding bar below</string>
+    <string name="lbl_disinfect">Disinfected</string>
+    <string name="lbl_last_disinfection">Last Disinfection</string>
+    <string name="lbl_disinfection_images">Disinfection images</string>
+    <string name="lbl_next">Next</string>
+    <string name="lbl_confirm">I Confirm</string>
+    <string name="lbl_not_ok">Not OK</string>
+    <string name="lbl_confirm_msg">Before use. I have inspected the asset according to the Pre Use Inspection Guideline</string>
+    <string name="lbl_remark_msg">If not ok then please leave a remark</string>
+    <string name="lbl_confirm_report">I confirm reports</string>
+    <string name="lbl_view_history">View History</string>
+    <string name="lbl_select_batch">Select Batch No.</string>
+    <string name="lbl_select_serial">Select Serial No.</string>
+    <string name="lbl_add_sub_assets">Add Sub Assets</string>
+    <string name="lbl_add_component">Add Component</string>
+    <string name="lbl_create_safety">Create Safety Form</string>
+    <string name="lbl_eod">End of day</string>
+    <string name="lbl_up_all">Rope Up All</string>
+    <string name="lbl_down_all">Rope Down All</string>
+    <string name="lbl_checkin_all">Check In All</string>
+    <string name="lbl_checkout_all">Check Out All</string>
+    <string name="lbl_ec_quote">Quick Calculation</string>
+    <string name="lbl_project_products">Project Products</string>
+    <string name="lbl_drone">Drone Inspection</string>
+    <string name="lbl_sensor">Sensors</string>
+    <string name="lbl_pass">Pass</string>
+    <string name="lbl_fail">Fail</string>
+    <string name="lbl_product_details">Product Details</string>
+
+    <!--    getResString("")-->
+    // done
+    <string name="lbl_login_with_facebook">Login with Facebook</string>
+    <string name="lbl_login_with_google">Login with Google</string>
+    <string name="lbl_click_here_to_sign_up">Click here to Sign up</string>
+    <string name="lbl_login_email_password">Click here to Login with email and password</string>
+    <string name="lbl_nexttime">Check to save login details for next time</string>
+    <string name="lbl_click_to_change_language">Click to change language</string>
+    <string name="lbl_competent_person_email">Please enter the email address of the person your company has designated as the manager or competent person of the Asset Management Program.</string>
+    <string name="lbl_knowledgetree_ppe">Click Knowledge tree for information on PPE and their industrial applications</string>
+    <string name="lbl_click_dashboard_to_start">Click Dashboard to start</string>
+    <string name="lbl_register_for_inspection_updates">If you have purchased new PPE, please click on register new assets to scan the label of your product, to receive inspection updates</string>
+    <string name="lbl_assets_status_ppe">Click My Assets to view Inspection status of your registered PPE</string>
+    <string name="lbl_click_on_alerts_to_view_updates">Click on Alerts to view updates</string>
+    <string name="lbl_click_to_open_your_profile_details">Click to open your profile details</string>
+    <string name="lbl_click_here_to_logout">Click here to logout</string>
+    <string name="lbl_search_by_manual_entry">Search by Manual Entry</string>
+    <string name="lbl_search_by_qr_code">Search by QR Code</string>
+    <string name="lbl_search_by_rfid_tag">Search by RFID tag</string>
+    <string name="lbl_search_by_scan_label">Search by Scan Label</string>
+    <string name="lbl_scan_and_search_product">Scan and search product</string>
+    <string name="lbl_your_scheduled_products">Your scheduled products</string>
+    <string name="lbl_scheduled_due_products">Scheduled due products</string>
+    <string name="lbl_scheduled_overdue_products">Scheduled overdue products</string>
+    <string name="lbl_total_number_of_assets_registered">Total number of Assets registered</string>
+    <string name="lbl_asset_inspection_due">Number of Assets for which inspection is due</string>
+    <string name="lbl_asset_inspection_overdue">Number of Assets for which inspection is over due</string>
+    <string name="lbl_create_site_measurement_sheet_project">Create Site Measurement Sheet Project</string>
+    <string name="lbl_featured_image_for_repair">The featured image, guides the inspector to take a decision to pass /fail the component or suggest repair</string>
+    <string name="lbl_check_points">Reminds inspector of check points</string>
+    <string name="lbl_observation_actionproposed_actiontaken">Observations - Lists most common observations of non-conformity. Please click Ok if the sub asset is good to go\n\nAction Proposed - Propose corrective action suitable for the observation selected\n\nAction Taken - Records compliance of action proposed</string>
+    <string name="lbl_swipe_right_reschedule">Swipe right to use delete and reschedule functionality\nAlready inspected asset/asset kit cannot be deleted.</string>
+    <string name="lbl_pending_report">Click on Pending tab to view reports waiting for approval.</string>
+    <string name="lbl_approved_report">Click on Approved tab to view approved reports.</string>
+    <string name="lbl_rejected_report">Click on Rejected tab to view rejected reports.</string>
+    <string name="lbl_please_enter_feedback">Please Enter Feedback</string>
+    <string name="lbl_no_update_available">No Update Available</string>
+    <string name="lbl_do_not_show_this_page_again">Do not show this page again</string>
+    <string name="lbl_please_complete_your_profile">Please complete your profile</string>
+    <string name="lbl_are_you_sure_to_exit_user_">Are you sure you wants to remove assigned user?</string>
+    <string name="lbl_no_video_available">No video available</string>
+    <string name="lbl_not_applicable">Not applicable</string>
+    <string name="lbl_please_add_a_picture">Please add a picture</string>
+    <string name="lbl_please_enter_batch_no">Please enter Batch No.</string>
+    <string name="lbl_confirmation">Confirmation!</string>
+    <string name="lbl_confirmation_date">Confirmation Date</string>
+    <string name="lbl_allpass_allfail">For Experienced Inspectors we have created the Pass All/Fail All buttons.
+        \nEvery Sub Asset would be selected and marked by a Green dot if you select Pass All and Red dot if you select Fail All. If you wish to manually inspect one or more components after clicking pass/fail, you may do so by hitting the Sub Asset bar. After you complete inspection of the sub asset, you will find a yellow dot indicating that the sub asset has been inspected following the complete inspection process.</string>
+    <string name="lbl_caution">Caution</string>
+    <string name="lbl_asset_na">Asset not available for periodic maintenance.</string>
+    <string name="lbl_iconfirm">I confirm feature is not functional as traffic light of asset is red due to inspection. Please ask your competent person to inspect for further use.</string>
+    <string name="lbl_trafficlight_inspector">The traffic light will turn red. You should send the asset to the designated inspector for further inspection and repairs. Do you wish to continue.</string>
+    <string name="lbl_designated_email">Your email should not be similar for Company’s designated email</string>
+    <string name="lbl_want_to_update_app">Want to update app?</string>
+    <string name="lbl_updated_app_available">Updated app available!</string>
+    <string name="lbl_please_select_form">Please select form</string>
+    <string name="lbl_ropedown">Please Rope down all users then try again!</string>
+    <string name="lbl_member_present">Team member is not present right now. Do you wish to make him present?</string>
+    <string name="lbl_language_login">Language not available please login first</string>
+    <string name="lbl_masterdata_add">Do you wish to Add master data for this Asset?</string>
+    <string name="lbl_new_subasset">Do you wish to add New Sub Asset?</string>
+    <string name="lbl_add_newasset">Do you wish to add New Asset?</string>
+    <string name="lbl_or_connect_with">OR CONNECT WITH</string>
+    <string name="lbl_unauthorized_login_please_try_again">Unauthorized login! Please try again</string>
+    <string name="lbl_ec_project_sites">EC Project Sites</string>
+    <string name="lbl_sub_sites">Sub Sites</string>
+    <string name="lbl_life_line_details">Life Line Details</string>
+    <string name="lbl_line_overview">Line Overview</string>
+    <string name="lbl_enter_project_parameters">Enter Project Parameters</string>
+    <string name="lbl_do_you_wish_to_add_more_sub_site_or_conclude_the_project">Do you wish to add more Sub Site or conclude the Project?</string>
+    <string name="lbl_add_remark">Add Remark</string>
+    <string name="lbl_sites_on_map">Sites on Map</string>
+    <string name="lbl_select_file">Select File</string>
+    <string name="lbl_replacement">Replacement</string>
+    <string name="lbl_no_action_taken">No Action Taken</string>
+    <string name="lbl_add_signature">Add Signature</string>
+    <string name="lbl_supervisor">Supervisor</string>
+    <string name="lbl_last_pm_execution_date">Last PM Execution Date</string>
+    <string name="lbl_time">Time</string>
+    <string name="lbl_terms_and_privacy_policy">Terms and Privacy Policy</string>
+    <string name="lbl_agree">Agree</string>
+    <string name="lbl_start_date">Start date</string>
+    <string name="lbl_end_date">End date</string>
+    <string name="lbl_team_users">Team Users</string>
+    <string name="lbl_days_report">Days Report</string>
+    <string name="lbl_days_form">Days Form</string>
+    <string name="lbl_rope_status">Rope Status</string>
+    <string name="lbl_repeat">Repeat</string>
+    <string name="lbl_asset_name">Asset Name</string>
+    <string name="lbl_attendance">Attendance</string>
+    <string name="lbl_present">Present</string>
+    <string name="lbl_update_time">Update Time</string>
+    <string name="lbl_total_time">Total Time : </string>
+    <string name="lbl_product_life">Product life</string>
+    <string name="lbl_balance">Balance</string>
+    <string name="lbl_used">Used</string>
+    <string name="lbl_visual">Visual</string>
+    <string name="lbl_add_standards_certificates">Add Standards &amp; Certificates</string>
+    <string name="lbl_Result">Result :</string>
+    <string name="lbl_todays_preventive_mnaitenance">Today\'s PM</string>
+    <string name="lbl_current_password">Current Password</string>
+    <string name="lbl_new_password">New Password</string>
+    <string name="lbl_confirm_new_password">Confirm New Password</string>
+    <string name="lbl_return_store">Return to store</string>
+    <string name="lbl_segment_1">Segment 1</string>
+    <string name="lbl_segment_2">Segment 2</string>
+    <string name="lbl_segment_3">Segment 3</string>
+    <string name="lbl_deflection">Deflection:</string>
+    <string name="lbl_create_webinar">Create Webinar</string>
+
+
+    // new keys
+    <string name="lbl_breakdown_machine">Breakdown Machine</string>
+    <string name="lbl_breakdown_type">Breakdown Type</string>
+    <string name="lbl_breakdown_user">Select user for Breakdown Alert</string>
+    <string name="lbl_click_forgot_password">Click if you forgot your password</string>
+    <string name="lbl_product_in_store">Product in Store</string>
+    <string name="lbl_product_in_use">Product in use</string>
+    <string name="lbl_Rejected_products">Rejected products"</string>
+    <string name="lbl_incomplete_profile">Incomplete Profile!</string>
+    <string name="lbl_serial_from">Serial From</string>
+    <string name="lbl_serial_to">Serial To</string>
+    <string name="lbl_delete_this_data">Are You Sure you want to delete this data!</string>
+    <string name="lbl_inspection_date">Inspection Date</string>
+    <string name="lbl_manual">Manual</string>
+    <string name="lbl_select_form">Select Form</string>
+    <string name="lbl_something_wrong">Something went wrong, Please try again!</string>
+    <string name="lbl_duplicate">Duplicate</string>
+    <string name="lbl_add_asset_kit">Add Asset Kit</string>
+    <string name="lbl_add_asset_details">Add Asset Details</string>
+    <string name="lbl_add_asset_kit_details">Add Asset Kit Details</string>
+    <string name="lbl_add_asset_kit_parameters">Add Asset Kit Parameters</string>
+    <string name="lbl_add_asset_parameters">Add Asset Parameters</string>
+    <string name="lbl_add_frequency">Add frequency of Inspection</string>
+    <string name="lbl_add_new_masterdata">Do you wish to add New Master Data?</string>
+    <string name="lbl_term_conditions">Term &amp; Conditions</string>
+    <string name="lbl_close">Close</string>
+    <string name="lbl_view">View</string>
+    <string name="lbl_click_to_open_menu">Click to open menu</string>
+    <string name="lbl_contact_to_admin">Please contact to admin</string>
+    <string name="lbl_start_scan">Start Scan</string>
+    <string name="lbl_stop_scan">Stop Scan</string>
+    <string name="lbl_application">Application</string>
+    <string name="lbl_add_sub_site_image">Add Sub Site image</string>
+    <string name="lbl_add_sub_site">Add Sub site</string>
+    <string name="lbl_upload_site_image">Upload Site Image</string>
+    <string name="lbl_select_project_users">Select project users</string>
+    <string name="lbl_select_closed_project">Select Closed Project (Optional)(Select project to fetch project\'s products)</string>
+    <string name="lbl_assets_details">Assets Details</string>
+    <string name="lbl_project_image">Project image</string>
+    <string name="lbl_add_sub_sites">Add Sub sites</string>
+    <string name="lbl_services_details">Services Details</string>
+    <string name="lbl_price_msg">The unit price of engineering cost, mobilisation cost, cost of access is by default 1.\nPlease edit the qty depending on the qty depending on the cost expected in your project</string>
+    <string name="lbl_add_discount">Add Discount</string>
+    <string name="lbl_shock_absorber">Shock Absorber</string>
+    <string name="lbl_cable_termination">Cable Termination</string>
+    <string name="lbl_tensioner">Tensioner</string>
+    <string name="lbl_intermediate">Intermediate</string>
+    <string name="lbl_extremity_post">Extremity Post</string>
+    <string name="lbl_intermediate_post">Intermediate Post</string>
+    <string name="lbl_corner">Corner</string>
+    <string name="lbl_harness">Harness</string>
+    <string name="lbl_connecting_elements">Connecting Elements</string>
+    <string name="lbl_carriage_body">Carriage Body</string>
+    <string name="lbl_bottom_cable_termination">Bottom Cable termination</string>
+    <string name="lbl_top_cable_termination">Top Cable termination</string>
+    <string name="lbl_mounting_brackets">Mounting Brackets</string>
+    <string name="lbl_rope_grab_fall_arrestor">Rope Grab fall arrestor</string>
+    <string name="lbl_extension_arm">Extension arm</string>
+    <string name="lbl_alu_rail_extremity">Alu Rail Extremity</string>
+    <string name="lbl_alu_rail_intermediate">Alu Rail Intermediate</string>
+    <string name="lbl_alu_rail_extension">Alu Rail Extension</string>
+    <string name="lbl_junction">Junction</string>
+    <string name="lbl_mounting_nut">Mounting nut</string>
+    <string name="lbl_mounting_bracket_and_post">Mounting Bracket and Post</string>
+    <string name="lbl_trolley">Trolley</string>
+    <string name="lbl_view_edit_form">View &amp; Edit Form</string>
+    <string name="lbl_from_serial">From Serial</string>
+    <string name="lbl_to_serial">To Serial</string>
+    <string name="lbl_input_type">Input type</string>
+    <string name="lbl_dimensions">Dimensions</string>
+    <string name="lbl_diameter_of_wire">Diameter of Wire</string>
+
+    <string name="lbl_no_of_corner">No. of Corner</string>
+    <string name="lbl_no_of_users">No. of Users</string>
+    <string name="lbl_no_of_shock_absorber">No. of Shock Absorber</string>
+    <string name="lbl_enter_maximum_load">Enter Maximum Load</string>
+    <string name="lbl_type_of_structure">Type Of Structure</string>
+    <string name="lbl_foundation_material">Foundation Material</string>
+    <string name="lbl_number_of_lines">Number of lines</string>
+    <string name="lbl_system_parameters">System Parameters</string>
+    <string name="lbl_construction_of_wire">Construction of wire</string>
+    <string name="lbl_enter_pretension">Enter Pretension</string>
+    <string name="lbl_calculate">Calculate</string>
+    <string name="lbl_before_images">Before Images</string>
+    <string name="lbl_after_images">After Images</string>
+    <string name="lbl_or">OR</string>
+    <string name="lbl_no_msg">No message to display</string>
+    <string name="lbl_tension">Tension:</string>
+    <string name="lbl_angle">Angle:</string>
+    <string name="lbl_cusp_sag">Cusp sag:</string>
+    <string name="lbl_server_maintenance">Server is under maintenance</string>
+    <string name="lbl_e_learning">E-LEARNING</string>
+    <string name="lbl_activity">ACTIVITY</string>
+    <string name="lbl_hours">Hours</string>
+    <string name="lbl_require_extension">Do you require an Extension arm/Alu rail Extension</string>
+    <string name="lbl_section_rung">Section of rung</string>
+    <string name="lbl_dimension_rung">Dimension of  Rung (mm)</string>
+    <string name="lbl_distance_rung">Distance Between two rung(mm)</string>
+    <string name="lbl_side_section">Side section of ladder(fill if bracket needs to be installed on it)</string>
+    <string name="lbl_size_side_section">Size of Side Section (Fill if Bracket needs to be installed on it)(mm)</string>
+    <string name="lbl_approved">Approved</string>
+    <string name="lbl_pending">Pending</string>
+    <string name="lbl_rejected">Rejected</string>
+    <string name="lbl_swipe_for_next">Swipe for next</string>
+
+
+    <string name="lbl_segment_should_greter">Segment should be greater or equal to spam</string>
+    <string name="lbl_blank_segment_msg">Please enter at least one segment data!</string>
+    <string name="lbl_scan_barcode">Scan Barcode</string>
+    <string name="lbl_click_anywhere">Click any where to continue</string>
+    <string name="lbl_scan_label_msg">Click to scan label. Please ensure that the label is upright and the batch number is in the center of the screen.</string>
+    <string name="lbl_remove_and_replace">Remove And Replace</string>
+    <string name="lbl_remove_and_repair">Remove &amp; Repair</string>
+    <string name="lbl_done">Done</string>
+    <string name="lbl_pass_image">Pass Image</string>
+    <string name="lbl_fail_image">Fail Image</string>
+    <string name="lbl_repair_image">Repair Image</string>
+    <string name="lbl_inspector_remark">Inspector Remark</string>
+    <string name="lbl_client_remark">Client Remark</string>
+    <string name="lbl_remark1">Test Remark 1</string>
+    <string name="lbl_remark2">Test Remark 2</string>
+    <string name="lbl_remark3">Test Remark 3</string>
+    <string name="lbl_remark4">Test Remark 4</string>
+    <string name="lbl_remark5">Test Remark 5</string>
+    <string name="lbl_remark6">Test Remark 6</string>
+    <string name="lbl_remark7">Test Remark 7</string>
+    <string name="lbl_remark8">Test Remark 8</string>
+    <string name="lbl_remark9">Test Remark 9</string>
+    <string name="lbl_remark10">Test Remark 10</string>
+    <string name="lbl_edit_master_data">Edit Master Data</string>
+
+    <string name="lbl_inspcted_dta_msg">No inspected data found</string>
+    <string name="lbl_my_sites">My Sites</string>
+    <string name="lbl_select_spares">Select Spares</string>
+    <string name="lbl_edit_spares">Edit Spares Quantities</string>
+    <string name="lbl_add_before_image">Add Before Image</string>
+    <string name="lbl_add_after_image">Add After Image</string>
+    <string name="lbl_skip_before_image">Skip Before Image</string>
+    <string name="lbl_skip_after_image">Skip After Image</string>
+    <string name="lbl_cptr_before_image">Please capture before image.</string>
+    <string name="lbl_new_on">New on </string>
+    <string name="lbl_currency">Currency</string>
+    <string name="lbl_mandatory_field">Mandatory Field</string>
+    <string name="lbl_i_confirm">I confirm that I have been deemed a Competent Person by my company and am qualified to perform this inspection.</string>
+    <string name="lbl_asset_passed">Asset Passed</string>
+    <string name="lbl_asset_failed">Asset Failed</string>
+    <string name="lbl_asset_not_registered">Asset Not Registered to user</string>
+    <string name="lbl_reassign">Re-Assign</string>
+    <string name="lbl_select_user">Select User</string>
+    <string name="lbl_user">User</string>
+    <string name="lbl_click_to_capture">Click to capture image</string>
+    <string name="lbl_before_skip_msg">You have chosen to skip before images</string>
+    <string name="lbl_after_skip_msg">You have chosen to skip after images</string>
+    <string name="lbl_add_site_name">Add Site Name</string>
+    <string name="lbl_type_of_system">Type Of System</string>
+    <string name="lbl_top_bracket_connection">Top Bracket Connection</string>
+
+
+    <string name="lbl_require_chemical_fasteners">Do you require chemical fasteners to install the mounting bracket</string>
+    <string name="lbl_require_a_post">Do you require a post to install the mounting bracket</string>
+    <string name="lbl_need_half_rungs">Do you need half rungs</string>
+    <string name="lbl_need_folding_aluminum">Do you need folding aluminum rail</string>
+    <string name="lbl_folding_aluminum_rail">Folding aluminum rail</string>
+    <string name="lbl_rung_clamp">Rung Clamp</string>
+    <string name="lbl_mounting_bracket">Mounting Bracket</string>
+    <string name="lbl_mounting_post">Mounting Post</string>
+    <string name="lbl_chemical_fasteners">Chemical fasteners</string>
+    <string name="lbl_left_rungs">Left Rungs</string>
+    <string name="lbl_right_rungs">Right Rungs</string>
+    <string name="lbl_full_rungs">Full Rungs</string>
+    <string name="lbl_reinspect">Reinspect</string>
+    <string name="lbl_upload">Upload</string>
+    <string name="lbl_recently_inspected">Recently Inspected</string>
+    <string name="lbl_recently_maintained">Recently Maintained</string>
+    <string name="lbl_inspect_new">Inspect new Site or Asset</string>
+    <string name="lbl_upload_asset_image">Upload an asset image</string>
+    <string name="lbl_upload_asset_kit_image">Upload an asset kit image</string>
+
+    <string name="lbl_manufacturing_date">Manufacturing Date</string>
+    <string name="lbl_date_of_periodic_maintenance">Date of Periodic Maintenance</string>
+
+    <string name="lbl_select_asset_template">Select asset Template</string>
+    <string name="lbl_select_asset_kit_template">Select Asset Kit Template</string>
+    <string name="lbl_enter_asset">Enter Asset</string>
+    <string name="lbl_enter_asset_kit">Enter Asset Kit</string>
+    <string name="lbl_description">Description</string>
+    <string name="lbl_new_template">Or if your template is not in list add new template</string>
+
+
+    <string name="lbl_mdata_make">Master data make</string>
+    <string name="lbl_mdata_swl">Master data SWL</string>
+    <string name="lbl_form11_remark">Form11 remark</string>
+    <string name="lbl_form13_maker_address">Form13 maker address</string>
+    <string name="lbl_form13_process">Form13 process</string>
+    <string name="lbl_form13_thickness">Form13 thickness</string>
+    <string name="lbl_form13_safe_pressure">Form13 safe pressure</string>
+
+    <string name="lbl_start">Start</string>
+    <string name="lbl_stop">Stop</string>
+    <string name="lbl_nc_assigned">NC Assigned</string>
+    <string name="lbl_company_id">Company ID</string>
+    <string name="lbl_scan_write_rfid">Scan &amp; Write RFID</string>
+    <string name="lbl_visits">Visits</string>
+    <string name="lbl_attach_sensor">Attach Sensor</string>
+    <string name="lbl_sensor_name">Sensor Name</string>
+    <string name="lbl_add_sms_component">Add SMS Component</string>
+    <string name="lbl_edit_sms_component">Edit SMS Component</string>
+    <string name="lbl_select_multiple_asset">Select Multiple Asset</string>
+    <string name="lbl_site_location">Site Location</string>
+    <string name="lbl_client_contact_person_name">Client Contact Person Name</string>
+    <string name="lbl_client_contact_person_number">Client Contact Person Number</string>
+    <string name="lbl_client_contact_person_email">Client Contact Person Email</string>
+    <string name="lbl_add_site_id_data">Add Site ID Data</string>
+    <string name="lbl_add_site">Add Site</string>
+    <string name="lbl_select_location">Select Location</string>
+    <string name="lbl_search_location">Search Location</string>
+    <string name="lbl_siteid">Site ID</string>
+    <string name="lbl_registered_users">Registered Users</string>
+    <string name="lbl_client_work_permit_no">Client Work Permit No.</string>
+    <string name="lbl_scan_asset_label">Scan Asset Label</string>
+    <string name="lbl_scan_sensor_qrcode">Scan Sensor QR Code</string>
+    <string name="lbl_calibration_name">Calibration Name</string>
+    <string name="lbl_add_sensor">Add Sensor</string>
+    <string name="lbl_model">Model</string>
+    <string name="lbl_find_device">Find Device</string>
+    <string name="lbl_sensor_discovery">Sensor Discovery</string>
+    <string name="lbl_gyroscope_accelerometer">Gyroscope &amp; Accelerometer</string>
+    <string name="lbl_update_calibration">Update Calibration</string>
+    <string name="lbl_set_calibration">Set Calibration</string>
+    <string name="lbl_attention">Attention!</string>
+    <string name="lbl_knowledge_tree_brand">KNOWLEDGE TREE BRAND</string>
+    <string name="lbl_choose_brand">Choose Brand</string>
+    <string name="lbl_asset_na_inspection">This asset is not eligible for inspection.</string>
+    <string name="lbl_new_asset_msg">(Enter new Asset code as it cannot be duplicate)</string>
+    <string name="lbl_new_asset_kit_msg">(Enter new Asset kit code as it cannot be duplicate)</string>
+    <string name="lbl_asset_msg">(Choose new Asset or use selected Assets)</string>
+    <string name="lbl_sub_asset_msg">(Choose new Sub Asset or use selected Sub Assets)</string>
+    <string name="lbl_date_of_first_msg">(Enter date of First Use if known otherwise current date)</string>
+    <string name="lbl_date_of_manufacturing_msg">(Enter date of manufacturing if known otherwise current date)</string>
+    <string name="lbl_date_of_periodic_maintenance_msg">(Enter date of Periodic Maintenance if known otherwise current date)</string>
+    <string name="lbl_manual_entry_scan">Manual Entry/Scan Label</string>
+    <string name="lbl_asset_inspected">Number of inspected Assets</string>
+    <string name="lbl_constant_force_post">Constant Force Post</string>
+
+    <string name="location_permission_title">LOCATION PERMISSION REQUIRED</string>
+    <string name="location_permission_info">From Android 6.0 Marshmallow onwards the application requires Location permission in order to scan for Bluetooth Low Energy devices.
+      \n\nThis is because Bluetooth LE beacons, for example iBeacons or Eddystone, may be used to determine the phone\'s and user\'s location. <b>nRF Ble</b> will not use this information in any way.</string>
+    <string name="location_permission_action">Grant permission</string>
+    <string name="location_permission_settings">Settings</string>
+
+
+    <string name="bluetooth_disabled_title">BLUETOOTH DISABLED</string>
+    <string name="bluetooth_disabled_info">The Bluetooth adapter is turned off. Click the button below to enable it.</string>
+    <string name="bluetooth_disabled_action">Enable</string>
+
+    <string name="guide_title">Can\'t see your BLE device?</string>
+    <string name="guide_info">1. Make sure the DK is <b>turned on</b> and is connected to a power source using a micro USB cable or a coin cell is plugged in.
+        \n\n2. Make sure the <b>ble</b> firmware and SoftDevice are flashed.</string>
+    <string name="guide_location_info">3. Location is turned off. Some Android phones require it enabled in order to scan for Bluetooth LE devices.
+		If you are sure your BlE is advertising and it doesn\'t show up here, click the button below to enable Location.</string>
+    <string name="guide_location_action">Enable</string>
+
+    <string name="unknown_device">Unknown Device</string>
+    <string name="not_register_label"><![CDATA[ Don\'t have an account? <font color="#000000">Sign up</font>]]></string>
+
+
+    // garbedge
+    <string name="lbl_know_your_ppe">Know your PPE</string>
+    <string name="lbl_know_your_ppe_msg">Do you know everything about the PPE you use?......Register your product by scanning the product label and view technical data sheet, user manual, pre-use check points and usage videos.</string>
+
+
+    <string name="lbl_clock_count">Clockwise Count = %1$s</string>
+    <string name="lbl_anticlock_count">Anticlockwise Count = %1$s</string>
+    <string name="lbl_reset_count">Reset Count</string>
+
+
+    <string name="lbl_search_uin">Search UIN</string>
+    <string name="lbl_and">And</string>
+    <string name="lbl_total_assets">Total Assets</string>
+    <string name="lbl_remaining">Remaining</string>
+    <string name="lbl_issued_assets">Issued Assets</string>
+    <string name="lbl_retired_assets">Retired Assets</string>
+
+    <string name="lbl_issued_to">Issued to</string>
+    <string name="lbl_issued_by">Issued by</string>
+    <string name="lbl_select_status">Select Status</string>
+    <string name="lbl_assign_user">Assign user</string>
+
+    <string name="lbl_no_retired_data">No retired data found</string>
+    <string name="lbl_no_issued_data">No issued data found</string>
+    <string name="lbl_no_remaining_data">No remaining data found</string>
+    <string name="lbl_no_data_warehouse">Data not found in warehouse </string>
+    <string name="lbl_warehouse">Warehouse</string>
+    <string name="lbl_warehouse_report">Warehouse Reports</string>
+    <string name="lbl_assign_users">Issue to User</string>
+    <string name="lbl_assign_job_no">Assign to Job No.</string>
+    <string name="lbl_return_warehouse">Return to Warehouse</string>
+    <string name="lbl_enter_jobno">Enter Job No.</string>
+    <string name="lbl_select_jobno">Select Job No.</string>
+    <string name="lbl_waiting_for_replace">Waiting for\nReplacement</string>
+    <string name="lbl_replace">Replace</string>
+    <string name="lbl_assign">Assign</string>
+    <string name="lbl_replace_report">Click on Replace tab to view reports waiting for Replacement.</string>
+    <string name="lbl_add_new">Add New</string>
+    <string name="lbl_thermography">Thermography</string>
+    <string name="lbl_edit_thermography">Edit Thermography</string>
+    <string name="spot_value_text">%1$s =%2$s %3$s</string>
+    <string name="lbl_emissivity">Emissivity = %1$s</string>
+    <string name="lbl_temperature">Temperature</string>
+    <string name="lbl_select_ambient_temperature">Select Ambient Temperature</string>
+    <string name="lbl_set_sub_assets">Set Sub Assets</string>
+    <string name="lbl_severity">Severity</string>
+    <string name="lbl_celsius">Celsius</string>
+    <string name="lbl_fahrenheit">Fahrenheit</string>
+    <string name="lbl_delta_in_ambient">∆T between Ambient temperature and Components</string>
+    <string name="lbl_delta_in_similar">∆T between similar Components</string>
+    <string name="lbl_delta_t">∆T</string>
+
+    <string name="lbl_sub_asset1">Sub Assets 1</string>
+    <string name="lbl_sub_asset2">Sub Assets 2</string>
+    <string name="lbl_temperature1">Temperature 1</string>
+    <string name="lbl_temperature2">Temperature 2</string>
+
+    <string name="lbl_group_id">Group id</string>
+    <string name="lbl_group_name">Group Name</string>
+    <string name="lbl_create_new_designated_email">Create New Designated Email</string>
+
+
+</resources>

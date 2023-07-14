@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/logo_img"
+            android:layout_width="150dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center"
+            android:src="@drawable/logo"
+            android:visibility="gone" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/name_tv"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/margin_50dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/bg_btm_line"
+            android:gravity="center_horizontal"
+            android:textColor="@color/button_bg"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg"
+            app:text_color="2" />
+
+        <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout
+            android:id="@+id/lay1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_15dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:background="@drawable/bg_btm_line"
+            android:orientation="horizontal"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+            <ImageView
+                android:id="@+id/img0"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:padding="@dimen/margin_2dp"
+                android:src="@drawable/factory"
+                app:tint="@color/button_bg"
+                android:visibility="visible" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/address_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/margin_5dp"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:layout_toLeftOf="@+id/direction_btn"
+                android:layout_toRightOf="@+id/img0"
+                android:textColor="@color/button_bg"
+                android:textSize="@dimen/text_size_14sp"
+                app:bg_color="0"
+                app:bg_type="trans_bg"
+                app:text_color="2" />
+
+            <LinearLayout
+                android:id="@+id/direction_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:src="@drawable/map_ic"
+                    android:visibility="visible" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:text="@string/lbl_direction"
+                    android:textColor="@color/app_text"
+                    android:textSize="@dimen/margin_12dp"
+                    app:lbl_text="lbl_direction"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/distance_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/button_bg"
+                    android:textSize="@dimen/margin_14dp" />
+            </LinearLayout>
+
+
+        </app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:background="@drawable/bg_btm_line"
+            android:gravity="center_vertical"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/phone"
+                android:padding="@dimen/margin_2dp"
+                android:visibility="visible"
+                app:tint="@color/button_bg" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/phone_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoLink="phone"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1"
+                android:textSize="@dimen/text_size_14sp" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_btm_line"
+            android:gravity="center_vertical"
+            android:minHeight="40dp"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:padding="@dimen/margin_2dp"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:src="@drawable/mail"
+                android:visibility="visible"
+                app:tint="@color/button_bg" />
+
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/email_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:autoLink="email"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1"
+                android:textSize="@dimen/text_size_14sp" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:id="@+id/sport_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_btm_line"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp"
+            android:visibility="gone"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/customer_care"
+                android:visibility="visible"
+                app:tint="@color/button_bg" />
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/support_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:autoLink="web"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1"
+                android:textSize="@dimen/text_size_14sp" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_btm_line"
+            android:gravity="center_vertical"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:padding="@dimen/margin_5dp"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/website"
+                android:visibility="visible"
+                android:padding="@dimen/margin_2dp"
+                app:tint="@color/button_bg" />
+
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/web_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:autoLink="web"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1"
+                android:textSize="@dimen/text_size_14sp" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:id="@+id/contact_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_btm_line"
+            android:gravity="center_vertical"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/customer_care"
+                android:visibility="visible"
+                app:tint="@color/button_bg" />
+
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/contact_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:textColor="@color/blue1"
+                android:textSize="@dimen/text_size_14sp" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+
+        <app.com.arresto.arresto_connect.custom_views.My_LinearLayout
+            android:id="@+id/web_link_lay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/bg_btm_line"
+            android:layout_marginTop="@dimen/margin_10dp"
+            android:layout_marginBottom="@dimen/margin_5dp"
+            android:gravity="center_vertical"
+            android:minHeight="40dp"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_5dp"
+            android:visibility="gone"
+            app:bg_color="2"
+            app:bg_type="bottom_line_bg">
+
+            <ImageView
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_marginRight="7dp"
+                android:src="@drawable/link"
+                android:visibility="visible"
+                android:padding="@dimen/margin_2dp"
+                app:tint="@color/button_bg" />
+
+
+            <app.com.arresto.arresto_connect.custom_views.My_TextView
+                android:id="@+id/web_link_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/margin_2dp"
+                android:textColor="@color/blue1"
+                android:textColorLink="@color/blue1"
+                android:autoLink="web"
+                android:textSize="@dimen/text_size_14sp" />
+        </app.com.arresto.arresto_connect.custom_views.My_LinearLayout>
+
+
+        <app.com.arresto.arresto_connect.custom_views.MyButton
+            android:id="@+id/call_btn"
+            style="@style/material_button"
+            android:layout_width="256dp"
+            android:layout_height="36dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="20dp"
+            android:text="@string/lbl_call_dealer"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="@dimen/textsize"
+            app:backgroundTint="@color/button_bg"
+            app:cornerRadius="@dimen/margin_10dp"
+            app:lbl_text="lbl_call_dealer" />
+
+    </LinearLayout>
+</ScrollView>

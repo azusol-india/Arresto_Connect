@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?><!--
+  ~  Copyright (c)
+  ~  @website: http://arresto.in/
+  ~  @author: Arresto Solutions Pvt. Ltd.
+  ~  @license: http://arresto.in/
+  ~
+  ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
+  -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_alignParentLeft="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/margin_10dp"
+        android:orientation="vertical">
+
+        <include layout="@layout/horizontal_prev_layout" />
+
+        <include layout="@layout/vertical_prev_layout" />
+
+        <HorizontalScrollView
+            android:id="@+id/hscrl1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_10dp">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TableLayout
+                    android:id="@+id/table_main"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/ppe_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingLeft="@dimen/margin_40dp"
+                    android:text="@string/lbl_ppe_st"
+                    android:textColor="@color/app_text"
+                    android:textSize="17dp"
+                    android:visibility="gone"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:lbl_text="lbl_ppe_st"
+                    app:text_color="2" />
+
+                <TableLayout
+                    android:id="@+id/ppe_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/service_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="0dp"
+                    android:paddingLeft="@dimen/margin_40dp"
+                    android:text="@string/lbl_services_details"
+                    android:textColor="@color/app_text"
+                    android:textSize="17dp"
+                    android:visibility="gone"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:lbl_text="lbl_services_details"
+                    app:text_color="2" />
+
+                <app.com.arresto.arresto_connect.custom_views.My_TextView
+                    android:id="@+id/srvc_note_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:paddingLeft="@dimen/margin_40dp"
+                    android:text="@string/lbl_price_msg"
+                    android:textColor="@color/app_text"
+                    android:textSize="12dp"
+                    android:visibility="gone"
+                    app:bg_color="0"
+                    app:bg_type="trans_bg"
+                    app:lbl_text="lbl_price_msg"
+                    app:text_color="2" />
+
+                <TableLayout
+                    android:id="@+id/service_table"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone" />
+            </LinearLayout>
+        </HorizontalScrollView>
+
+        <app.com.arresto.arresto_connect.custom_views.My_TextView
+            android:id="@+id/edit_btn"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="15dp"
+            android:background="@drawable/round_bg"
+            android:gravity="center"
+            android:text="@string/lbl_edit"
+            android:textColor="@color/app_text"
+            android:textSize="@dimen/textsize"
+            app:bg_color="2"
+            app:bg_type="round_bg"
+            app:lbl_text="lbl_edit"
+            app:text_color="1" />
+    </LinearLayout>
+</ScrollView>
