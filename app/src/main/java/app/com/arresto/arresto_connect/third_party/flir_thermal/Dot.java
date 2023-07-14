@@ -3,7 +3,7 @@ package app.com.arresto.arresto_connect.third_party.flir_thermal;
 public class Dot {
     public float x, bitmapX;
     public float y, bitmapY;
-    public float radius=20;
+    public float radius=30;
     public String dotName = "";
 
     public Dot(float x, float y, float radius) {

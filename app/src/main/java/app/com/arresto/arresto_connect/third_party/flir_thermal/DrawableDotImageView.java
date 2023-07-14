@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.util.AttributeSet;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -31,7 +33,7 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
     public final ArrayList<Dot> dots = new ArrayList<>();
     public Paint strokePaint, tvPaint, stkPaint;
     public Dot touchedDot;
-    public int spotRadius = 10;// old public int spotRadius = 30;
+    public int spotRadius = 30;
     boolean isAllSpotChange;
 
     public DrawableDotImageView(@NonNull Context context) {
@@ -190,13 +192,15 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
                         touchedDot = null;
                     } else {
                         //todo dot added
-//                    float[] points = getPointOfTouchedCordinate((ImageView) v, event);
+                    float[] points = getPointOfTouchedCordinate((ImageView) v, event);
                         if (isInside(v, event)) {
                             if (dots.size() > 7) {
                                 Toast.makeText(getContext(), "You can't create more thermal spot!", Toast.LENGTH_LONG).show();
                             } else {
+//                                dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio));
                                 dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio));
                                 invalidate();
+                                Log.w("Dot created ", "points"+points);
                                 Log.w("Dot created ", "calculated X: " + event.getX() * xRatio + "  Y: " + event.getY() * xRatio);
                                 Log.w("ImageView", "Dot created X: " + event.getX() + " Y: " + event.getY());
                             }
@@ -223,14 +227,14 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
     }
 
 
-//    final float[] getPointOfTouchedCordinate(ImageView view, MotionEvent e) {
-//        final int index = e.getActionIndex();
-//        final float[] coords = new float[]{e.getX(index), e.getY(index)};
-//        Matrix m = new Matrix();
-//        view.getImageMatrix().invert(m);
-//        m.postTranslate(view.getScrollX(), view.getScrollY());
-//        m.mapPoints(coords);
-//        return coords;
-//    }
+    final float[] getPointOfTouchedCordinate(ImageView view, MotionEvent e) {
+        final int index = e.getActionIndex();
+        final float[] coords = new float[]{e.getX(index), e.getY(index)};
+        Matrix m = new Matrix();
+        view.getImageMatrix().invert(m);
+        m.postTranslate(view.getScrollX(), view.getScrollY());
+        m.mapPoints(coords);
+        return coords;
+    }
 
 }

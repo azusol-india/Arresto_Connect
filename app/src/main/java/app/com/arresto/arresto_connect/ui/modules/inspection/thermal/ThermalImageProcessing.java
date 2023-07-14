@@ -594,8 +594,22 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
            if (points != null && points.size() > 0) {
                for (Dot dot : points) {
                    int radius = (int) (xRatio * dot.getRadius());
-                   thermalImageFile.getMeasurements().addCircle(dot.getIntX(),dot.getIntY(), radius);
-//                   thermalImageFile.getMeasurements().addCircle(thermalImageFile.getWidth() / 2, thermalImageFile.getHeight() / 2, radius);
+                   Log.d(TAG, "image width:"+thermalImageFile.getWidth());
+                   Log.d(TAG, "image height:"+thermalImageFile.getHeight());
+                   Log.d(TAG, "image x/2:"+thermalImageFile.getWidth()/2);
+                   Log.d(TAG, "image y/2:"+thermalImageFile.getHeight()/2);
+                   Log.d(TAG, "image x/3:"+thermalImageFile.getWidth()/3);
+                   Log.d(TAG, "image y/3:"+thermalImageFile.getHeight()/3);
+                   Log.d(TAG, "image x/4:"+thermalImageFile.getWidth()/4);
+                   Log.d(TAG, "image y/4:"+thermalImageFile.getHeight()/4);
+                   Log.d(TAG, "image x/100:"+thermalImageFile.getWidth()/100);
+                   Log.d(TAG, "image y/100:"+thermalImageFile.getHeight()/100);
+                   Log.d(TAG, "dot x:"+dot.getIntX());
+                   Log.d(TAG, "dot y:"+dot.getIntY());
+                   Log.d(TAG, "dotbmp x:"+dot.getIntBitmapX());
+                   Log.d(TAG, "dotbmp y:"+dot.getIntBitmapY());
+//                   thermalImageFile.getMeasurements().addCircle(dot.getIntX(),dot.getIntY(), radius);
+                   thermalImageFile.getMeasurements().addCircle(thermalImageFile.getWidth() / 2, thermalImageFile.getHeight() / 2, radius);
 //                   thermalImageFile.getMeasurements().addCircle(thermalImageFile.getWidth() / 2, thermalImageFile.getHeight() / 2, radius);
                }
            }
