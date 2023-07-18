@@ -6,12 +6,12 @@
   ~
   ~  The below module/code/specifications belong to Arresto Solutions Pvt. Ltd. solely.
   -->
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+
 
     <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout
         android:layout_width="match_parent"
@@ -50,59 +50,74 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/margin_10dp"
         android:adjustViewBounds="true"
         android:scaleType="fitXY" />
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_marginLeft="25dp"
-    android:layout_marginRight="20dp"
-    android:layout_marginTop="10dp"
-    android:layout_marginBottom="@dimen/margin_10dp"
-    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/spot_heading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_centerVertical="true"
-        android:text="Spot size"
-        android:textColor="@color/button_bg"
-        android:textSize="13dp"
-        android:textStyle="bold" />
-
-    <CheckBox
-        android:id="@+id/check_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="20.0dip"
-        android:layout_alignParentRight="true"
-        android:layout_centerVertical="true"
-        android:checked="true"
-        android:button="@drawable/custom_checkbox"
-        android:paddingLeft="@dimen/margin_10dp"
-        android:text="All spots" />
-</RelativeLayout>
-
-    <SeekBar
-        android:id="@+id/seekBar"
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:max="20"
-        android:progress="6" />
-    <!--    style="@style/Widget.AppCompat.SeekBar.Discrete"-->
-    <app.com.arresto.arresto_connect.custom_views.MyButton
-        android:id="@+id/save_btn"
-        style="@style/material_button"
-        android:layout_width="136dp"
-        android:layout_height="@dimen/margin_35dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_margin="@dimen/margin_10dp"
-        android:text="@string/lbl_sbmit_st"
-        android:textAllCaps="false"
-        android:textColor="@color/white"
-        app:backgroundTint="@color/button_bg"
-        app:cornerRadius="@dimen/margin_10dp"
-        app:lbl_text="lbl_sbmit_st" />
+        android:layout_marginBottom="@dimen/margin_5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/margin_5dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="@dimen/margin_10dp">
+
+                <TextView
+                    android:id="@+id/spot_heading"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:text="Spot size"
+                    android:textColor="@color/button_bg"
+                    android:textSize="13dp"
+                    android:textStyle="bold" />
+
+                <CheckBox
+                    android:id="@+id/check_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="20.0dip"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:button="@drawable/custom_checkbox"
+                    android:checked="true"
+                    android:paddingLeft="@dimen/margin_10dp"
+                    android:text="All spots" />
+            </RelativeLayout>
+
+            <SeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:max="20"
+                android:progress="6" />
+            <!--    style="@style/Widget.AppCompat.SeekBar.Discrete"-->
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/save_btn"
+                style="@style/material_button"
+                android:layout_width="136dp"
+                android:layout_height="@dimen/margin_35dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="@dimen/margin_10dp"
+                android:text="@string/lbl_sbmit_st"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_10dp"
+                app:lbl_text="lbl_sbmit_st" />
+        </LinearLayout>
+    </ScrollView>
 </LinearLayout>

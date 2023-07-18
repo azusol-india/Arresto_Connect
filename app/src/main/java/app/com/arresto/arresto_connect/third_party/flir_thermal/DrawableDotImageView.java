@@ -64,7 +64,7 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
                 xRatio = (float) width / getWidth();
                 if (intialPoint != null && intialPoint.size() > 0) {
                     for (Point point : intialPoint) {
-                        dots.add(new Dot(point.x / xRatio, point.y / xRatio, point.x, point.y));
+                        dots.add(new Dot(point.x / xRatio, point.y / xRatio, point.x, point.y,spotRadius));
                     }
                 }
 //                    yRatio = (float) bmp.getHeight() / getHeight();
@@ -198,7 +198,7 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
                                 Toast.makeText(getContext(), "You can't create more thermal spot!", Toast.LENGTH_LONG).show();
                             } else {
 //                                dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio));
-                                dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio));
+                                dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio,spotRadius));
                                 invalidate();
                                 Log.w("Dot created ", "points"+points);
                                 Log.w("Dot created ", "calculated X: " + event.getX() * xRatio + "  Y: " + event.getY() * xRatio);

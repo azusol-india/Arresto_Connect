@@ -160,7 +160,7 @@ android {
             targetSdkVersion targetSdk
             applicationId 'app.com.karam'
             versionCode 57
-            versionName '2.4.6'
+            versionName '2.4.7'
             signingConfig signingConfigs.release1
         }
         maxsafe {
@@ -224,7 +224,7 @@ android {
             targetSdkVersion targetSdk
             applicationId 'app.com.ACT'
             versionCode 15
-            versionName '1.1.4'
+            versionName '1.1.5'
             signingConfig signingConfigs.release9
         }
         Karam_Africa {

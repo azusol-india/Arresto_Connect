@@ -11,11 +11,12 @@ public class Dot {
         this.y = y;
     }
 
-    public Dot(float x, float y, float bitmapX, float bitmapY) {
+    public Dot(float x, float y, float bitmapX, float bitmapY,float radius) {
         this.x = x;
         this.y = y;
         this.bitmapX = bitmapX;
         this.bitmapY = bitmapY;
+        this.radius = radius;
     }
 
     public float getX() {
@@ -60,6 +61,9 @@ public class Dot {
 
     public void setDotName(String dotName) {
         this.dotName = dotName;
+    }
+    public void setRadius(float radius) {
+        this.radius = radius;
     }
 
     public boolean isInside(float x, float y) {

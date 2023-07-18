@@ -191,7 +191,6 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         sensor_tv = view.findViewById(R.id.sensor_tv);
         s_user = view.findViewById(R.id.s_user);
 
-
         infected_img = view.findViewById(R.id.infected_img);
         prdct_nam = product_name.get(current_pos);
         prdct_name_tv.setText(prdct_nam);

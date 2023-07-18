@@ -413,6 +413,7 @@ public class NetworkRequest {
 
     public void getMasterData(String m_id,   String user_id, ObjectListener listener) {
         String url = All_Api.inspection_service + "userID=" + user_id + "&userGroupID=" + Static_values.group_id + "&mdata_id=" + m_id + "&client_id=" + client_id + "&datetime=" + System.currentTimeMillis();
+        Log.d("Satyam", "getMasterData: "+url);
         NetworkRequest networkRequest = new NetworkRequest(mContext);
         networkRequest.make_get_request(url, new NetworkRequest.VolleyResponseListener() {
             @Override

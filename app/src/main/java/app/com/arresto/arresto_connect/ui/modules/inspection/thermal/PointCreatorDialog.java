@@ -119,9 +119,10 @@ public class PointCreatorDialog extends DialogFragment {
                     progrs=1;
                 }
                 seekBar.setThumb(getCurrentThumb(progrs));
-                if (selectedDot != null && !check_btn.isChecked())
-                    selectedDot.radius = progrs;
-                else
+                if (selectedDot != null && !check_btn.isChecked()) {
+                    selectedDot.setRadius(progrs);
+//                    selectedDot.radius = progrs;
+                }else
                     imageView.setRadius(progrs);
                 imageView.invalidate();
             }

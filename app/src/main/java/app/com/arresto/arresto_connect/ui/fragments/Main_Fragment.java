@@ -650,7 +650,6 @@ public class Main_Fragment extends Base_Fragment implements View.OnClickListener
         });
     }
 
-
     private void setList_inspectorData(String newText) {
         if (page_type.equals("addStore") || page_type.equals("myStore") || page_type.equals("project_data")) {
             ArrayList<Component_model> slctcomp_mdels = new ArrayList<>();

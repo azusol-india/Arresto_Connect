@@ -93,6 +93,9 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
     String thermal_id, inspection_id;
     boolean isReplace;
 
+    float scaleX = 1;
+    float scaleY = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -127,13 +130,16 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
             Bitmap flirBitmap = BitmapAndroid.createBitmap(thermalImageFile.getImage()).getBitMap();
             if (flirBitmap != null) {
 //                allImages.add(BitmapAndroid.createBitmap(thermalImageFile.getImage()).getBitMap()); //new Object because it's modified later
-                printLog("flirBitmap X=" + flirBitmap.getWidth() + "Y=" + flirBitmap.getHeight());
+                printLog("flirBitmap X=" + flirBitmap.getWidth() + " Y=" + flirBitmap.getHeight());
                 convertScaleBitmap(thermalImageFile);
                 ArrayList<Point> intialPoints = new ArrayList<>();
                 printLog("thermalImage height ===" + thermalImageFile.getHeight() + "  thermalImage width ===" + thermalImageFile.getWidth());
                 printLog("Image height ===" + thermalImageFile.getImage().getHeight() + "   Image width ===" + thermalImageFile.getImage().getWidth());
                 double h_ratio = (double) thermalImageFile.getImage().getHeight() / (double) thermalImageFile.getHeight();
                 double w_ratio = (double) thermalImageFile.getImage().getWidth() / (double) thermalImageFile.getWidth();
+
+                scaleX = (float) thermalImageFile.getWidth() / flirBitmap.getWidth();
+                scaleY = (float) thermalImageFile.getHeight() / flirBitmap.getHeight();
 
                 printLog("width ratio ===" + w_ratio + "   height ratio ===" + h_ratio);
                 Point hotSpot = thermalImageFile.getStatistics().hotSpot;
@@ -608,8 +614,9 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                    Log.d(TAG, "dot y:"+dot.getIntY());
                    Log.d(TAG, "dotbmp x:"+dot.getIntBitmapX());
                    Log.d(TAG, "dotbmp y:"+dot.getIntBitmapY());
-//                   thermalImageFile.getMeasurements().addCircle(dot.getIntX(),dot.getIntY(), radius);
-                   thermalImageFile.getMeasurements().addCircle(thermalImageFile.getWidth() / 2, thermalImageFile.getHeight() / 2, radius);
+                   Log.d(TAG, "new X:"+dot.getX()*scaleX);
+                   Log.d(TAG, "new Y:"+dot.getY()*scaleY);
+                   thermalImageFile.getMeasurements().addCircle((int)(dot.getIntX()*scaleX),(int)(dot.getIntY()*scaleY), radius);
 //                   thermalImageFile.getMeasurements().addCircle(thermalImageFile.getWidth() / 2, thermalImageFile.getHeight() / 2, radius);
                }
            }
