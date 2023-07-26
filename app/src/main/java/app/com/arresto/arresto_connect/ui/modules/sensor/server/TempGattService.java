@@ -1,5 +1,3 @@
-
-
 package app.com.arresto.arresto_connect.ui.modules.sensor.server;
 
 import static app.com.arresto.arresto_connect.constants.AppUtils.isNetworkAvailable;
@@ -23,6 +21,7 @@ import org.json.JSONTokener;
 import java.util.ArrayList;
 
 import app.com.arresto.arresto_connect.BuildConfig;
+import app.com.arresto.arresto_connect.appcontroller.AppController;
 import app.com.arresto.arresto_connect.constants.AppUtils;
 import app.com.arresto.arresto_connect.data.models.Constant_model;
 import app.com.arresto.arresto_connect.network.All_Api;
@@ -34,9 +33,10 @@ public class TempGattService extends Service {
     ArrayList<DiscoveredBluetoothDevice> allDevices = new ArrayList<>();
     ArrayList<ConnectionClass> connections = new ArrayList<>();
     boolean isGyro;
+    public static final String TAG = AppController.class.getSimpleName();
 
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e("service started ", "running");
+        Log.e(TAG, "onStartCommand running"+intent);
         if (intent.getExtras() != null) {
                 isGyro = intent.getExtras().getBoolean("isGyro", false);
                 boolean needReconnect = intent.getExtras().getBoolean("needReconnect", false);
@@ -51,12 +51,14 @@ public class TempGattService extends Service {
                     addDevice(device, resultReceiver, needReconnect);
                 }
         } else {
+            Log.e(TAG, "onStartCommand running");
             closeAll();
         }
         return START_NOT_STICKY;
     }
 
     private void broadCastCurrentDevices() {
+        Log.e(TAG, "broadCastCurrentDevices");
         Intent intent = new Intent();
         intent.setAction("serviceDevices");
         Bundle args = new Bundle();
@@ -66,7 +68,9 @@ public class TempGattService extends Service {
     }
 
     public void addDevice(@Nullable DiscoveredBluetoothDevice device, ResultReceiver resultReceiver, boolean needReconnect) {
+        Log.d(TAG, "addDevice: "+devices_name);
         if (!devices_name.contains(device.getName())) {
+            Log.d(TAG, "addDevice: ");
             devices_name.add(device.getName());
             allDevices.add(device);
             ConnectionClass connectionClass = new ConnectionClass(device, needReconnect, isGyro, resultReceiver);
@@ -76,6 +80,7 @@ public class TempGattService extends Service {
 
             Log.e("new connection started ", "" + devices_name);
         } else {
+            Log.d(TAG, "addDevice: ");
             ConnectionClass connectionClass = connections.get(devices_name.indexOf(device.getName()));
             connectionClass.updateDevice(device);
             connectionClass.needReconnect = needReconnect;

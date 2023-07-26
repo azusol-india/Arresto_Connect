@@ -31,6 +31,8 @@ import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.location.LocationManager;
 import android.preference.PreferenceManager;
+import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -127,17 +129,18 @@ public class ScannerViewModel extends AndroidViewModel {
 	 * Start scanning for Bluetooth devices.
 	 */
 	public void startScan() {
-		if (scannerStateLiveData.isScanning()) {
-			return;
+		try {
+			if (scannerStateLiveData.isScanning()) {
+				return;
+			}
+			final ScanSettings settings = new ScanSettings.Builder().setScanMode(ScanSettings.SCAN_MODE_LOW_POWER).setReportDelay(100).setUseHardwareBatchingIfSupported(false).build();
+			final BluetoothLeScannerCompat scanner = BluetoothLeScannerCompat.getScanner();
+			scanner.startScan(null, settings, scanCallback);
+			scannerStateLiveData.scanningStarted();
+		}catch (Exception e){
+			Log.d("ScannerViewModel", "startScan: "+e.getMessage());
+//			Toast.makeText(conte,"scanner not available",Toast.LENGTH_SHORT).show();
 		}
-		final ScanSettings settings = new ScanSettings.Builder()
-				.setScanMode(ScanSettings.SCAN_MODE_LOW_POWER)
-				.setReportDelay(100)
-				.setUseHardwareBatchingIfSupported(false)
-				.build();
-		final BluetoothLeScannerCompat scanner = BluetoothLeScannerCompat.getScanner();
-		scanner.startScan(null, settings, scanCallback);
-		scannerStateLiveData.scanningStarted();
 	}
 
 	/**

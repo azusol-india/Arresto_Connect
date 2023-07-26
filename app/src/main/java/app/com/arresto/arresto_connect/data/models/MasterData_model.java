@@ -14,6 +14,7 @@
 package app.com.arresto.arresto_connect.data.models;
 
 import java.text.ParseException;
+import java.util.List;
 
 import app.com.arresto.arresto_connect.ui.activity.BaseActivity;
 
@@ -62,6 +63,7 @@ public class MasterData_model {
     private String fm13_process;
     private String fm13_thickness;
     private String fm13_safe_pressure;
+    private List<String> sensor_ids;
     int not_make_inspected;
 
     public String getPdm_inspection_date() {
@@ -75,6 +77,10 @@ public class MasterData_model {
 
     public void setPdm_inspection_date(String pdm_inspection_date) {
         this.pdm_inspection_date = pdm_inspection_date;
+    }
+
+    public List<String> getSensor_ids() {
+        return sensor_ids;
     }
 
     public String getMdata_material_invoice_date() {

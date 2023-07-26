@@ -40,6 +40,7 @@ import android.view.animation.Animation;
 import android.webkit.MimeTypeMap;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -81,7 +82,9 @@ import app.com.arresto.arresto_connect.constants.CircleImageView;
 import app.com.arresto.arresto_connect.constants.ConstantMethods;
 import app.com.arresto.arresto_connect.constants.LoadFragment;
 import app.com.arresto.arresto_connect.constants.Static_values;
+import app.com.arresto.arresto_connect.custom_views.CustomAdapter;
 import app.com.arresto.arresto_connect.custom_views.DialogSpinner;
+import app.com.arresto.arresto_connect.custom_views.ExpandableHeightGridView;
 import app.com.arresto.arresto_connect.data.models.Dynamic_Var;
 import app.com.arresto.arresto_connect.data.models.GroupUsers;
 import app.com.arresto.arresto_connect.data.models.MasterData_model;
@@ -106,7 +109,8 @@ import app.com.arresto.arresto_connect.ui.modules.periodic_maintainance.Periadic
 import app.com.arresto.arresto_connect.ui.modules.sensor.server.FallCountModel;
 import app.com.arresto.arresto_connect.ui.modules.sensor.ui.SensorInfoFragment;
 
-public class Master_detail_fragment extends Base_Fragment implements View.OnClickListener {
+public class Master_detail_fragment extends Base_Fragment implements View.OnClickListener,
+        CustomAdapter.ListClick {
     View view;
 
     String page_type = "";
@@ -114,23 +118,29 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
     ArrayList<String> image_url, product_name, section_type;
     public static String prdct_nam;
     Site_Model site_model;
-    TextView prdct_name_tv, status_tv, manufacturing_dt_tv, fist_use_tv, due_date_tv, last_inspection_tv;
+    TextView prdct_name_tv, status_tv, manufacturing_dt_tv, fist_use_tv, due_date_tv,
+            last_inspection_tv;
 
     TextView schdule_date, disc_txt, alertBar, inspector_tv0, inspector_tv1, inspector_tv2;
     CircleImageView profil_pic;
 
     TextView contn_btn, schdule_btn, register_btn;
     ImageView ast_img, edit_master_btn, breakdown_btn, indictr_img;
-    RelativeLayout othr_lay, info_btn, prdct_lay, video_btn, sensor_btn, tecnicl_lay, tchncl_data_lay, crtfict_lay, prsntsn_lay, insHistry_lay, mainHistry_lay, inspctn_pram_lay;
-    ImageView prdct_img, insHistry_img, mainHistry_img, inspctn_pram_img, tecnicl_img, tchncl_data_img, crtfict_img, prsntsn_img, othr_img, cl_ic;
+    RelativeLayout othr_lay, info_btn, prdct_lay, video_btn, sensor_btn, tecnicl_lay,
+            tchncl_data_lay, crtfict_lay, prsntsn_lay, insHistry_lay, mainHistry_lay,
+            inspctn_pram_lay;
+    ImageView prdct_img, insHistry_img, mainHistry_img, inspctn_pram_img, tecnicl_img,
+            tchncl_data_img, crtfict_img, prsntsn_img, othr_img, cl_ic;
     int current_pos;
 
     MasterData_model masterData_model;
     Bundle savedInstanceState;
 
     @Override
-    public View FragmentView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View FragmentView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         this.savedInstanceState = savedInstanceState;
+        Log.d("TAG", "FragmentView: 1234567");
         if (view == null) {
             if (getArguments() != null) {
                 page_type = getArguments().getString("page_type", "");
@@ -141,8 +151,6 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             }
             view = inflater.inflate(R.layout.inspection_tree_ast, container, false);
             setdata_for_inspection();
-            if (client_id.equalsIgnoreCase("376"))
-                info_btn.setVisibility(View.GONE);
             get_service_data(section_type.get(current_pos), product_name.get(current_pos));
             return view;
         } else {
@@ -155,9 +163,12 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
     TextView sensor_tv, s_user;
 
     GridLayout detail_grid;
+    ExpandableHeightGridView new_btns;
 
     private void setdata_for_inspection() {
         detail_grid = view.findViewById(R.id.detail_grid);
+        new_btns = view.findViewById(R.id.new_btns);
+        new_btns.setExpanded(true);
         profil_pic = view.findViewById(R.id.profil_pic);
         disc_txt = view.findViewById(R.id.disc_txt);
         alertBar = view.findViewById(R.id.alertBar);
@@ -197,7 +208,46 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         site_model = Static_values.selected_Site_model;
         masterData_model = Static_values.selectedMasterData_model;
         info_btn.setOnClickListener(this);
-//        layoutBottomSheet = view.findViewById(R.id.layoutBottomSheet);
+
+        ArrayList<String> names = new ArrayList<>();
+        ArrayList<Integer> icons = new ArrayList<>();
+
+        names.add(getString(R.string.lbl_ins_histry_st));
+        icons.add(R.drawable.inspection_hist);
+        names.add(getString(R.string.lbl_main_histry_st));
+        icons.add(R.drawable.maintenance_hist);
+        names.add(getString(R.string.lbl_prdct_img_st));
+        icons.add(R.drawable.product_ic);
+        names.add(getString(R.string.lbl_user_manul_st));
+        icons.add(R.drawable.tcncl_spc_ic);
+        names.add(getString(R.string.lbl_technical_data_sheet));
+        icons.add(R.drawable.technicldata_ic);
+        names.add(getString(R.string.lbl_certificate));
+        icons.add(R.drawable.certifict_ic);
+        names.add(getString(R.string.lbl_presentation));
+        icons.add(R.drawable.prsentasn_ic);
+        if (client_id.equals("931")) {
+            detail_grid.removeView(sensor_btn);
+            detail_grid.removeView(video_btn);
+        } else {
+            names.add(getString(R.string.lbl_video));
+            icons.add(R.drawable.video_ic);
+            if (masterData_model.getSensor_ids() != null)
+                for (String sensor : masterData_model.getSensor_ids()) {
+                    names.add(getString(R.string.lbl_sensor) + "ID\n" + sensor);
+                    icons.add(R.drawable.sensor_ic);
+                }
+        }
+
+        if (client_id.equalsIgnoreCase("376")) {
+            detail_grid.removeView(info_btn);
+        } else {
+            names.add(getString(R.string.lbl_dealer_locator));
+            icons.add(R.drawable.client_loc_ic);
+        }
+
+        CustomAdapter adapter = new CustomAdapter(getContext(), names, icons, this::performClick);
+        new_btns.setAdapter(adapter);
 
         if (AppUtils.isTablet(getActivity())) {
             detail_grid.setColumnCount(4);
@@ -208,7 +258,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         edit_master_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                LoadFragment.replace(Add_masterData.newInstance("edit_master", masterData_model), baseActivity, getResString("lbl_edit_master_data"));
+                LoadFragment.replace(Add_masterData.newInstance("edit_master", masterData_model),
+                        baseActivity, getResString("lbl_edit_master_data"));
             }
         });
 
@@ -221,7 +272,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
 
         if (!group_id.equals("9")) {
             ConstantMethods.find_pageVideo(getActivity(), "inspection register asset");
-//            if (masterData_model.getRef_user_id() == null || !masterData_model.getRef_user_id().equals(Static_values.user_id))
+//            if (masterData_model.getRef_user_id() == null || !masterData_model.getRef_user_id()
+//            .equals(Static_values.user_id))
             if ((masterData_model.getRef_user_id() == null || masterData_model.getRef_user_id().equals("") || masterData_model.getRef_user_id().equals("0")))
                 register_btn.setVisibility(View.VISIBLE);
             else register_btn.setVisibility(View.GONE);
@@ -255,8 +307,7 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             } else {
                 if ((group_id.equals("8") || group_id.equals("20")) && client_id.equals("931")) {
                     checkInspectionAvailable();
-                } else
-                    contn_btn.setVisibility(View.GONE);
+                } else contn_btn.setVisibility(View.GONE);
                 if (site_model.getInspected_status() != null && site_model.getApproved_status() != null && site_model.getInspected_status().equalsIgnoreCase("Yes") && site_model.getApproved_status().equalsIgnoreCase("Pending")) {
                     indictr_img.setImageResource(indicatorDrawable[3]);
                     status_tv.setText("Waiting for approval");
@@ -287,9 +338,9 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                         if (masterData_model.getProduct_repair().equals("yes")) {
                             slctd_product_name = product_name.get(current_pos);
                             slctd_product_image = img_url;
-                            LoadFragment.replace(new Periadic_steps(), getActivity(), getResString("lbl_preiodic_txt"));
-                        } else
-                            show_snak(getActivity(), getResString("lbl_asset_na"));
+                            LoadFragment.replace(new Periadic_steps(), getActivity(),
+                                    getResString("lbl_preiodic_txt"));
+                        } else show_snak(getActivity(), getResString("lbl_asset_na"));
                     }
                 });
 
@@ -302,9 +353,9 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                         if (masterData_model.getProduct_repair().equals("yes")) {
                             slctd_product_name = product_name.get(current_pos);
                             slctd_product_image = img_url;
-                            LoadFragment.replace(new Periadic_steps(), getActivity(), getResString("lbl_preiodic_txt"));
-                        } else
-                            show_snak(getActivity(), getResString("lbl_asset_na"));
+                            LoadFragment.replace(new Periadic_steps(), getActivity(),
+                                    getResString("lbl_preiodic_txt"));
+                        } else show_snak(getActivity(), getResString("lbl_asset_na"));
                     }
                 });
 
@@ -338,8 +389,7 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
 
                 if (page_type.equals("inspection") && masterData_model.getRef_inspection().getS_user_id() == null)
                     schdule_btn.setVisibility(View.VISIBLE);
-                else
-                    schdule_btn.setVisibility(View.GONE);
+                else schdule_btn.setVisibility(View.GONE);
 //                }
                 String status = site_model.getApproved_status();
                 if (status != null && (status.equalsIgnoreCase("approved") || status.equalsIgnoreCase("Rejected"))) {
@@ -371,10 +421,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             }
         }
 
-        if (page_type.equals("scheduler"))
-            schdule_btn.setVisibility(View.GONE);
-        else if (page_type.equals("myassets"))
-            register_btn.setVisibility(View.GONE);
+        if (page_type.equals("scheduler")) schdule_btn.setVisibility(View.GONE);
+        else if (page_type.equals("myassets")) register_btn.setVisibility(View.GONE);
         else if (page_type.equals("ASM_project")) {
             register_btn.setVisibility(View.GONE);
             checkInspectionAvailable();
@@ -386,7 +434,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             @Override
             public void onClick(View v) {
                 if (profile_model.getUpro_image() != null && !profile_model.getUpro_image().equals(""))
-                    FullScreenDialog.newInstance((AppCompatActivity) getActivity(), profile_model.getUpro_image());
+                    FullScreenDialog.newInstance((AppCompatActivity) getActivity(),
+                            profile_model.getUpro_image());
             }
         });
 
@@ -434,9 +483,11 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 bundle.putString("page_type", page_type);
                 bundle.putString("is_confirm", masterData_model.getIs_confirmed());
                 bundle.putString("preuse_time", masterData_model.getPreuse_time());
-                Inspection_parameter_fragment inspection_parameter_fragment = new Inspection_parameter_fragment();
+                Inspection_parameter_fragment inspection_parameter_fragment =
+                        new Inspection_parameter_fragment();
                 inspection_parameter_fragment.setArguments(bundle);
-                LoadFragment.replace(inspection_parameter_fragment, getActivity(), getResString("lbl_ins_params_st"));
+                LoadFragment.replace(inspection_parameter_fragment, getActivity(), getResString(
+                        "lbl_ins_params_st"));
             }
         });
 
@@ -446,23 +497,19 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 Bundle bndl = new Bundle();
                 bndl.putString("id", "history_report");
                 bndl.putInt("index", 2);
-                bndl.putString("history_url", All_Api.productInspection_history + product_name.get(current_pos) + "&master_id=" + masterData_model.getMdata_id() + "&client_id=" + client_id);
+                bndl.putString("history_url",
+                        All_Api.productInspection_history + product_name.get(current_pos) +
+                                "&master_id=" + masterData_model.getMdata_id() + "&client_id=" + client_id);
                 Close_projectFragment close_projectFragment1 = new Close_projectFragment();
                 close_projectFragment1.setArguments(bndl);
-                LoadFragment.replace(close_projectFragment1, getActivity(), getResString("lbl_ins_histry_st"));
+                LoadFragment.replace(close_projectFragment1, getActivity(), getResString(
+                        "lbl_ins_histry_st"));
             }
         });
 
         mainHistry_lay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bundle bndl = new Bundle();
-                bndl.putString("id", "pdm_report");
-                bndl.putInt("index", 1);
-                bndl.putString("pdm_url", All_Api.post_pdm_ins_list + client_id + "&master_id=" + masterData_model.getMdata_id());
-                Close_projectFragment close_projectFragment = new Close_projectFragment();
-                close_projectFragment.setArguments(bndl);
-                LoadFragment.replace(close_projectFragment, getActivity(), getResString("lbl_maintenance_report"));
             }
         });
 
@@ -477,10 +524,71 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             }
         });
 //        }
-        if (client_id.equals("931")) {
-            detail_grid.removeView(sensor_btn);
-            detail_grid.removeView(video_btn);
-//            sensor_btn.setVisibility(View.GONE);
+
+    }
+
+    @Override
+    public void performClick(String position) {
+        Bundle bndl = new Bundle();
+        if (position.equals(getString(R.string.lbl_ins_histry_st))) {
+            bndl.putString("id", "history_report");
+            bndl.putInt("index", 2);
+            bndl.putString("history_url",
+                    All_Api.productInspection_history + product_name.get(current_pos) +
+                            "&master_id=" + masterData_model.getMdata_id() + "&client_id=" + client_id);
+            Close_projectFragment close_projectFragment1 = new Close_projectFragment();
+            close_projectFragment1.setArguments(bndl);
+            LoadFragment.replace(close_projectFragment1, getActivity(), getResString(
+                    "lbl_ins_histry_st"));
+        } else if (position.equals(getString(R.string.lbl_main_histry_st))) {
+            bndl.putString("id", "pdm_report");
+            bndl.putInt("index", 1);
+            bndl.putString("pdm_url",
+                    All_Api.post_pdm_ins_list + client_id + "&master_id=" + masterData_model.getMdata_id());
+            Close_projectFragment close_projectFragment = new Close_projectFragment();
+            close_projectFragment.setArguments(bndl);
+            LoadFragment.replace(close_projectFragment, getActivity(), getResString(
+                    "lbl_maintenance_report"));
+        } else if (position.equals(getString(R.string.lbl_prdct_img_st))) {
+            LoadFragment.replace(Gallery_Fragment.newInstance(gallary_url), getActivity(),
+                    getResString("lbl_prdct_img_st"));
+        } else if (position.equals(getString(R.string.lbl_user_manul_st))) {
+            load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(1))), 0,
+                    getResString("lbl_user_manul_st"));
+        } else if (position.equals(getString(R.string.lbl_technical_data_sheet))) {
+            load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(2))), 0,
+                    getResString("lbl_technical_data_sheet"));
+        } else if (position.equals(getString(R.string.lbl_certificate))) {
+            Report_webview report_webview = new Report_webview();
+            Bundle bundle = new Bundle();
+            bundle.putString("url", All_Api.certificateView + product_name.get(current_pos) +
+                    "&type=" + section_type.get(current_pos) + "&serial_id=" + masterData_model.getMdata_serial() + "&batch_no=" + masterData_model.getMdata_batch() + "&manufacture_date=" + masterData_model.getMdata_material_invoice_date() + "&client_id=" + client_id);
+            bundle.putString("type", "certificate");
+            report_webview.setArguments(bundle);
+            LoadFragment.replace(report_webview, getActivity(), getResString("lbl_certificate"));
+        } else if (position.equals(getString(R.string.lbl_presentation))) {
+            load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(4))), 0,
+                    getResString("lbl_presentation"));
+        } else if (position.equals(getString(R.string.lbl_video))) {
+            Report_webview report_webview00 = new Report_webview();
+            Bundle bundle00 = new Bundle();
+            bundle00.putString("url", youtube_url.replace(" ", "%20"));
+            report_webview00.setArguments(bundle00);
+            LoadFragment.replace(report_webview00, getActivity(), "Video");
+
+        } else if (position.equals(getString(R.string.lbl_sensor))) {
+            if (masterData_model.getSensor_id() != null && !masterData_model.getSensor_id().equals("")) {
+                SensorInfoFragment viewFragment = new SensorInfoFragment();
+                Bundle bundle01 = new Bundle();
+                bundle01.putString("sensor_id", masterData_model.getSensor_id());
+                viewFragment.setArguments(bundle01);
+                LoadFragment.replace(viewFragment, getActivity(), "Sensor Info");
+            }
+        } else if (position.equals(getString(R.string.lbl_dealer_locator))) {
+            baseActivity.fetch_dealer_data();
+        } else if (position.equals(getString(R.string.lbl_dec_of_conformity))) {
+            load_full_screen_view(new ArrayList<>(Collections.singletonList(dec_of_conformity)),
+                    0, getResString("lbl_dec_of_conformity"));
         }
     }
 
@@ -495,22 +603,26 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 baseActivity.fetch_dealer_data();
                 break;
             case R.id.prdct_lay:
-                LoadFragment.replace(Gallery_Fragment.newInstance(gallary_url), getActivity(), getResString("lbl_prdct_img_st"));
+                LoadFragment.replace(Gallery_Fragment.newInstance(gallary_url), getActivity(),
+                        getResString("lbl_prdct_img_st"));
                 break;
             case R.id.tecnicl_lay:
-                load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(1))), 0, getResString("lbl_user_manul_st"));
+                load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(1)))
+                        , 0, getResString("lbl_user_manul_st"));
                 break;
             case R.id.tchncl_data_lay:
-                load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(2))), 0, getResString("lbl_technical_data_sheet"));
+                load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(2)))
+                        , 0, getResString("lbl_technical_data_sheet"));
                 break;
             case R.id.crtfict_lay:
                 Report_webview report_webview = new Report_webview();
                 Bundle bundle = new Bundle();
-                bundle.putString("url", All_Api.certificateView + product_name.get(current_pos) + "&type=" + section_type.get(current_pos)
-                        + "&serial_id=" + masterData_model.getMdata_serial() + "&batch_no=" + masterData_model.getMdata_batch() + "&manufacture_date=" + masterData_model.getMdata_material_invoice_date() + "&client_id=" + client_id);
+                bundle.putString("url",
+                        All_Api.certificateView + product_name.get(current_pos) + "&type=" + section_type.get(current_pos) + "&serial_id=" + masterData_model.getMdata_serial() + "&batch_no=" + masterData_model.getMdata_batch() + "&manufacture_date=" + masterData_model.getMdata_material_invoice_date() + "&client_id=" + client_id);
                 bundle.putString("type", "certificate");
                 report_webview.setArguments(bundle);
-                LoadFragment.replace(report_webview, getActivity(), getResString("lbl_certificate"));
+                LoadFragment.replace(report_webview, getActivity(), getResString("lbl_certificate"
+                ));
                 break;
             case R.id.video_btn:
                 Report_webview report_webview00 = new Report_webview();
@@ -521,7 +633,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 break;
 
             case R.id.prsntsn_lay:
-                load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(4))), 0, getResString("lbl_presentation"));
+                load_full_screen_view(new ArrayList<>(Collections.singletonList(file_url.get(4)))
+                        , 0, getResString("lbl_presentation"));
                 break;
             case R.id.othr_lay:
                 load_full_screen_view(new ArrayList<>(Collections.singletonList(dec_of_conformity)), 0, getResString("lbl_dec_of_conformity"));
@@ -551,13 +664,13 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 @Override
                 public void onClick(View v) {
                     if (docsStatus.equals("overdue")) {
-                        baseActivity.show_OkAlert("Document Expiring...", "Your document, " + docsName + " is Expiring. \nPlease contact the administrator and get your updated documents uploaded", null, "Close", null);
+                        baseActivity.show_OkAlert("Document Expiring...",
+                                "Your document, " + docsName + " is Expiring. \nPlease contact " + "the administrator and get your updated documents " + "uploaded", null, "Close", null);
                         return;
                     }
                     if (mPrefrence.getArray_Data(INSPECTED_SITES).contains(unique_id))
                         show_snak(getActivity(), "You have already inspected this Product");
-                    else
-                        check_workdone();
+                    else check_workdone();
                 }
             });
 
@@ -568,11 +681,13 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
 //    public  boolean isDataInDB(){
 //        permitData = Db.getWorkPermit_Dao().getWorkPermit_data(user_id, client_id, unique_id);
 //        detail_table = Db.getInspection_Detail_Dao().getInspection_Detail(user_id, unique_id);
-//        allInspected_asset = Db.getInspection_Asset_dao().getAllInspected_Asset(user_id, unique_id);
-//        signatureTable = Db.getInspectionSignature_Dao().getInspectionSignature(user_id, unique_id, 1);
-//        client_signatureTable = Db.getInspectionSignature_Dao().getInspectionSignature(user_id, unique_id, 0);
+//        allInspected_asset = Db.getInspection_Asset_dao().getAllInspected_Asset(user_id,
+//        unique_id);
+//        signatureTable = Db.getInspectionSignature_Dao().getInspectionSignature(user_id,
+//        unique_id, 1);
+//        client_signatureTable = Db.getInspectionSignature_Dao().getInspectionSignature(user_id,
+//        unique_id, 0);
 //    }
-
 
     public void load_full_screen_view(ArrayList<String> imgurls, int position, String tag) {
         Fullscreenview fullscreenview = new Fullscreenview();
@@ -588,7 +703,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         int mYear = c.get(Calendar.YEAR);
         int mMonth = c.get(Calendar.MONTH);
         int mDay = c.get(Calendar.DAY_OF_MONTH);
-        DatePickerDialog.OnDateSetListener pDateSetListener = new DatePickerDialog.OnDateSetListener() {
+        DatePickerDialog.OnDateSetListener pDateSetListener =
+                new DatePickerDialog.OnDateSetListener() {
             @SuppressLint("HandlerLeak")
             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                 c.set(year, monthOfYear, dayOfMonth);
@@ -597,7 +713,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 params.put("site_id", site_id);
                 params.put("user_id", Static_values.user_id);
                 params.put("group_id", Static_values.group_id);
-                params.put("scheduler_date", new SimpleDateFormat("yyyy-MM-dd").format(c.getTime()));
+                params.put("scheduler_date",
+                        new SimpleDateFormat("yyyy-MM-dd").format(c.getTime()));
                 params.put("master_data_id", master_id);
                 params.put("client_id", client_id);
                 params.put("cgrp_id", role_id);
@@ -613,7 +730,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 });
             }
         };
-        DatePickerDialog dialog = new DatePickerDialog(getActivity(), pDateSetListener, mYear, mMonth, mDay);
+        DatePickerDialog dialog = new DatePickerDialog(getActivity(), pDateSetListener, mYear,
+                mMonth, mDay);
         dialog.getDatePicker().setMinDate(c.getTimeInMillis());
         dialog.show();
     }
@@ -645,20 +763,14 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             }
             indictr_img.setImageResource(indicatorDrawable[inp_stats]);
             if (inp_stats == 0) {
-                if (type.equals("pdm"))
-                    status_tv.setText(getResString("lbl_main_ovdue_st"));
-                else
-                    status_tv.setText(getResString("lbl_ins_ovrdue_st"));
+                if (type.equals("pdm")) status_tv.setText(getResString("lbl_main_ovdue_st"));
+                else status_tv.setText(getResString("lbl_ins_ovrdue_st"));
             } else if (inp_stats == 1) {
-                if (type.equals("pdm"))
-                    status_tv.setText(getResString("lbl_main_due_st"));
-                else
-                    status_tv.setText(getResString("lbl_inspctndue_txt"));
+                if (type.equals("pdm")) status_tv.setText(getResString("lbl_main_due_st"));
+                else status_tv.setText(getResString("lbl_inspctndue_txt"));
             } else {
-                if (type.equals("pdm"))
-                    status_tv.setText("Maintained");
-                else
-                    status_tv.setText(getResString("lbl_inspctd_st"));
+                if (type.equals("pdm")) status_tv.setText("Maintained");
+                else status_tv.setText(getResString("lbl_inspctd_st"));
                 schdule_btn.setVisibility(View.GONE);
 //            contn_btn.setVisibility(View.GONE);
             }
@@ -672,12 +784,15 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         gallary_url = new ArrayList<>();
         file_name = new ArrayList<>();
 
-        String url = All_Api.assetValues + product_type + "&client_id=" + client_id + "&typeCode=" + product_name;
+        String url =
+                All_Api.assetValues + product_type + "&client_id=" + client_id + "&typeCode" +
+                        "=" + product_name;
         url = url.replaceAll(" ", "%20");
         url = url.replaceAll("\\+", "%2B");
         Log.e("email id url", "" + url);
 
-        new NetworkRequest(getActivity()).make_get_request(url, new NetworkRequest.VolleyResponseListener() {
+        new NetworkRequest(getActivity()).make_get_request(url,
+                new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
                 Log.e("error", "" + response);
@@ -755,7 +870,9 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         ImageViewCompat.setImageTintList(mainHistry_img, ColorStateList.valueOf(color));
         ImageViewCompat.setImageTintList(inspctn_pram_img, ColorStateList.valueOf(color));
         ImageViewCompat.setImageTintList(crtfict_img, ColorStateList.valueOf(color));
-        ImageViewCompat.setImageTintList(cl_ic, ColorStateList.valueOf(color));
+        if (!client_id.equalsIgnoreCase("376")) {
+            ImageViewCompat.setImageTintList(cl_ic, ColorStateList.valueOf(color));
+        }
         crtfict_lay.setClickable(true);
 
         if (file_url.size() > 0) {
@@ -828,19 +945,24 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             return;
         }
         AppDatabase database = AppController.getInstance().getDatabase();
-        WorkPermitTable permit_data = database.getWorkPermit_Dao().getWorkPermit_data(user_id, client_id, unique_id);
+        WorkPermitTable permit_data = database.getWorkPermit_Dao().getWorkPermit_data(user_id,
+                client_id, unique_id);
         String today = baseActivity.Date_Format().format(new Date());
         if (masterData_model.getProduct_work_permit().equals("yes") && permit_data != null && !permit_data.getInspectionDate().equals(today)) {
             delete_uploadedsite_data(unique_id, masterData_model.getMdata_id());
-            LoadFragment.replace(new Work_permit_fragment(), getActivity(), getResString("lbl_work_permit"));
+            LoadFragment.replace(new Work_permit_fragment(), getActivity(), getResString(
+                    "lbl_work_permit"));
         } else {
-            Inspection_Detail_Table inspectionDetail = AppController.getInstance().getDatabase().getInspection_Detail_Dao().getInspection_Detail(user_id, unique_id);
+            Inspection_Detail_Table inspectionDetail =
+                    AppController.getInstance().getDatabase().getInspection_Detail_Dao().getInspection_Detail(user_id, unique_id);
             if (inspectionDetail != null) {
                 load_abimg_frag();
-            } else if (permit_data != null || masterData_model.getProduct_work_permit().equals("no")) {
+            } else if (permit_data != null || masterData_model.getProduct_work_permit().equals(
+                    "no")) {
                 load_inspfrag();
             } else {
-                LoadFragment.replace(new Work_permit_fragment(), getActivity(), getResString("lbl_work_permit"));
+                LoadFragment.replace(new Work_permit_fragment(), getActivity(), getResString(
+                        "lbl_work_permit"));
             }
         }
     }
@@ -852,7 +974,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         if (site_model != null && site_model.getClient_name() != null) {
             bundle.putString("client_name", site_model.getClient_name());
             bundle.putString("job_no", site_model.getSite_jobcard());
-            bundle.putString("site", site_model.getSite_address() + " " + site_model.getSite_city() + ", " + site_model.getSite_location());
+            bundle.putString("site",
+                    site_model.getSite_address() + " " + site_model.getSite_city() + ", " + site_model.getSite_location());
             bundle.putString("site_id", site_model.getSiteID_id());
             bundle.putString("sms", site_model.getSite_sms());
             bundle.putString("sub_site_id", site_model.getSite_id());
@@ -913,7 +1036,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                     json = new JSONTokener(response).nextValue();
                     if (json instanceof JSONObject) {
                         JSONObject jsonObject1 = new JSONObject(response);
-                        profile_model = AppUtils.getGson().fromJson(jsonObject1.getString("profile"), Profile_Model.class);
+                        profile_model = AppUtils.getGson().fromJson(jsonObject1.getString(
+                                "profile"), Profile_Model.class);
                         ((ViewGroup) profil_pic.getParent()).setVisibility(View.VISIBLE);
                         inspector_tv0.setText(Html.fromHtml("<font><b>" + profile_model.getUpro_first_name() + " " + profile_model.getUpro_last_name() + "</b></font>"));
                         inspector_tv1.setText(jsonObject1.getString("email"));
@@ -940,26 +1064,28 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
     Senitize_Model senitizeModel;
 
     private void fetch_infectionData() {
-        new NetworkRequest(getActivity()).make_get_request(All_Api.getInfection + client_id + "&uin=" + masterData_model.getMdata_uin(),
+        new NetworkRequest(getActivity()).make_get_request(All_Api.getInfection + client_id +
+                "&uin=" + masterData_model.getMdata_uin(),
                 new NetworkRequest.VolleyResponseListener() {
-                    @Override
-                    public void onResponse(String response) {
-                        Log.e("response ", " is " + response);
-                        try {
-                            JSONObject object = new JSONObject(response);
-                            if (object.getString("status_code").equals("200")) {
-                                senitizeModel = new Gson().fromJson(object.getString("data"), Senitize_Model.class);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+            @Override
+            public void onResponse(String response) {
+                Log.e("response ", " is " + response);
+                try {
+                    JSONObject object = new JSONObject(response);
+                    if (object.getString("status_code").equals("200")) {
+                        senitizeModel = new Gson().fromJson(object.getString("data"),
+                                Senitize_Model.class);
                     }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
 
-                    @Override
-                    public void onError(String message) {
-                        Log.e("onError ", " Register_request " + message);
-                    }
-                });
+            @Override
+            public void onError(String message) {
+                Log.e("onError ", " Register_request " + message);
+            }
+        });
     }
 
     ArrayList<String> file_paths;
@@ -1030,11 +1156,13 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                     post_data(remark_edt.getText().toString());
                     builder.dismiss();
                 } else
-                    Toast.makeText(baseActivity, getResString("lbl_please_add_a_picture"), Toast.LENGTH_LONG).show();
+                    Toast.makeText(baseActivity, getResString("lbl_please_add_a_picture"),
+                            Toast.LENGTH_LONG).show();
             }
         });
         builder.show();
-        builder.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        builder.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,
+                ViewGroup.LayoutParams.WRAP_CONTENT);
     }
 
     private void post_data(String remark) {
@@ -1057,7 +1185,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
 
 //                Uri image_uri = (Uri) file_paths.get(i);
 //                final MimeTypeMap mime = MimeTypeMap.getSingleton();
-//                String extension = mime.getExtensionFromMimeType(baseActivity.getContentResolver().getType(image_uri));
+//                String extension = mime.getExtensionFromMimeType(baseActivity
+//                .getContentResolver().getType(image_uri));
 //                String filetype = null;
 //                if (extension != null) {
 //                    filetype = MimeTypeMap.getSingleton().getMimeTypeFromExtension(extension);
@@ -1072,7 +1201,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         }
         Log.e("data is", "" + params2.toString());
         NetworkRequest network_request = new NetworkRequest(getActivity());
-        network_request.make_contentpost_request(All_Api.postInfection, params2, new NetworkRequest.VolleyResponseListener() {
+        network_request.make_contentpost_request(All_Api.postInfection, params2,
+                new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
                 Object json;
@@ -1105,9 +1235,11 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 FallCountModel sensorInfo = (FallCountModel) obj;
                 if (sensorInfo.getSensor_status().equalsIgnoreCase("connected")) {
                     s_user.setText("Connected with: " + sensorInfo.getName());
-                    ImageViewCompat.setImageTintList(status_ic, ColorStateList.valueOf(getResColor(R.color.app_green)));
+                    ImageViewCompat.setImageTintList(status_ic,
+                            ColorStateList.valueOf(getResColor(R.color.app_green)));
                 } else {
-                    ImageViewCompat.setImageTintList(status_ic, ColorStateList.valueOf(getResColor(R.color.red)));
+                    ImageViewCompat.setImageTintList(status_ic,
+                            ColorStateList.valueOf(getResColor(R.color.red)));
                     s_user.setText("Last connection : " + sensorInfo.getName());
                 }
                 if (anim == null) {
@@ -1188,10 +1320,13 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
     public void getGroupUsers() {
         String url;
         url = All_Api.getAll_Users + client_id + "&user_id=" + user_id;
-//        url = All_Api.getGroup_Users + role_id + "&client_id=" + client_id + "&user_id=" + user_id;
-//        url = All_Api.get_child_users + Static_values.client_id + "&user_id=" + Static_values.user_id;
+//        url = All_Api.getGroup_Users + role_id + "&client_id=" + client_id + "&user_id=" +
+//        user_id;
+//        url = All_Api.get_child_users + Static_values.client_id + "&user_id=" + Static_values
+//        .user_id;
         Log.e("url ", " is  " + url);
-        new NetworkRequest(baseActivity).make_get_request(url, new NetworkRequest.VolleyResponseListener() {
+        new NetworkRequest(baseActivity).make_get_request(url,
+                new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
                 Object json;
@@ -1201,7 +1336,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                         JSONObject jsonObject = new JSONObject(response);
                         String msg_code = jsonObject.getString("status_code");
                         if (msg_code.equals("200")) {
-                            groupUsers = new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(jsonObject.getString("data").toString(), GroupUsers[].class)));
+                            groupUsers =
+                                    new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(jsonObject.getString("data").toString(), GroupUsers[].class)));
                             Collections.sort(groupUsers, new Comparator<GroupUsers>() {
                                 public int compare(GroupUsers obj1, GroupUsers obj2) {
                                     return obj1.getUacc_username().compareToIgnoreCase(obj2.getUacc_username());
@@ -1235,7 +1371,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         MaterialButton submit_btn = breakdownDialogView.findViewById(R.id.sbmt_btn);
         DialogSpinner type_spnr = breakdownDialogView.findViewById(R.id.type_spnr);
         TextView user_spnr = breakdownDialogView.findViewById(R.id.user_spnr);
-        List<String> breakdown_value = Arrays.asList(baseActivity.getResources().getStringArray(R.array.breakdown_value));
+        List<String> breakdown_value =
+                Arrays.asList(baseActivity.getResources().getStringArray(R.array.breakdown_value));
         type_spnr.setItems(breakdown_value, "");
         if (masterData_model.getMdata_breakdown_remark() != null && !masterData_model.getMdata_breakdown_remark().equals("")) {
             rmrk_edt.setText(masterData_model.getMdata_breakdown_remark());
@@ -1250,15 +1387,15 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
         user_spnr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (groupUsers != null && groupUsers.size() > 0)
-                    chooseUser(groupUsers, user_spnr);
+                if (groupUsers != null && groupUsers.size() > 0) chooseUser(groupUsers, user_spnr);
             }
         });
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (type_spnr.getSelectedItem().toString().equals("Select breakdown")) {
-                    Toast.makeText(baseActivity, "Please select a breakdown type.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(baseActivity, "Please select a breakdown type.",
+                            Toast.LENGTH_LONG).show();
                     return;
                 }
                 if (rmrk_edt.getText().toString().isEmpty()) {
@@ -1275,8 +1412,7 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
                 params.put("user_id", user_id);
                 params.put("tag_user", slected_user.getUacc_id());
                 params.put("mdata_id", masterData_model.getMdata_id());
-                if (type_spnr.getSelectedItemPosition() == 1)
-                    params.put("is_breakdown", "1");
+                if (type_spnr.getSelectedItemPosition() == 1) params.put("is_breakdown", "1");
                 else params.put("is_breakdown", "0");
                 params.put("breakdown_remark", rmrk_edt.getText().toString());
                 submit_data(params, rmrk_edt);
@@ -1287,7 +1423,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
 
     private void submit_data(HashMap params, EditText rmrk_edt) {
         NetworkRequest network_request = new NetworkRequest(getActivity());
-        network_request.make_post_request(All_Api.breakdown_machine_api, params, new NetworkRequest.VolleyResponseListener() {
+        network_request.make_post_request(All_Api.breakdown_machine_api, params,
+                new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
                 Log.e("response", "" + response);
@@ -1332,7 +1469,8 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
             Log.e("data length ", " is " + groupUsers.size());
             CustomRecyclerAdapter ad = new CustomRecyclerAdapter(getContext(), groupUsers);
             RecyclerView listView = dialog.findViewById(R.id._list);
-            LinearLayoutManager layoutManager = new LinearLayoutManager(baseActivity, LinearLayoutManager.VERTICAL, false);
+            LinearLayoutManager layoutManager = new LinearLayoutManager(baseActivity,
+                    LinearLayoutManager.VERTICAL, false);
             listView.setLayoutManager(layoutManager);
             listView.setAdapter(ad);
 

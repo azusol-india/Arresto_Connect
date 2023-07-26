@@ -73,6 +73,8 @@ public class ConnectionClass {
     FallCountModel sensorInfo;
     String dv_threshold_data;
     boolean needReconnect, isGyro;
+    public static final String TAG = AppController.class.getSimpleName();
+
     BluetoothManager btm = (BluetoothManager) AppController.getInstance().getSystemService(Context.BLUETOOTH_SERVICE);
 
     public ConnectionClass(DiscoveredBluetoothDevice device, boolean needReconnect, boolean isGyro, ResultReceiver resultReceiver) {
@@ -105,6 +107,7 @@ public class ConnectionClass {
     }
 
     public void hookMode(String is_enable) {
+        Log.d(TAG, "addDevice: "+is_enable);
         BluetoothGattService callSer = mBluetoothGatt.getService(UUID.fromString(SETTING_SERVICE));
         if (callSer == null) {
             printMessage("HOOK_MODE_CHAR Threshold service not found!");
@@ -124,7 +127,6 @@ public class ConnectionClass {
         hookEnabled = is_enable;
         printMessage("enableMode write Threshold Service run");
     }
-
 
     public FallCountModel getSensorInfo() {
         return sensorInfo;
@@ -527,7 +529,6 @@ public class ConnectionClass {
                         String[] device_threshold_value = thresholdItem.split(":");
                         dvthNames.add(device_threshold_value[1]);
                     }
-
                 }
                 dvthNames.remove("T");
                 printMessage("unmatchedThresholds===  " + unmatchedThresholds);
@@ -753,6 +754,4 @@ public class ConnectionClass {
             }
         });
     }
-
-
 }

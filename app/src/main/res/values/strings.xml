@@ -523,7 +523,7 @@
     <string name="lbl_ec_quote">Quick Calculation</string>
     <string name="lbl_project_products">Project Products</string>
     <string name="lbl_drone">Drone Inspection</string>
-    <string name="lbl_sensor">Sensors</string>
+    <string name="lbl_sensor">Sensor</string>
     <string name="lbl_pass">Pass</string>
     <string name="lbl_fail">Fail</string>
     <string name="lbl_product_details">Product Details</string>

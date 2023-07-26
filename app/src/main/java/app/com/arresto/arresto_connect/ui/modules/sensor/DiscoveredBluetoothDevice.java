@@ -18,13 +18,16 @@
  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE
  * USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
+
+*/
+
 
 package app.com.arresto.arresto_connect.ui.modules.sensor;
 
 import android.bluetooth.BluetoothDevice;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -32,6 +35,7 @@ import androidx.annotation.Nullable;
 import java.util.HashSet;
 import java.util.Set;
 
+import app.com.arresto.arresto_connect.appcontroller.AppController;
 import app.com.arresto.arresto_connect.ui.modules.sensor.ble_lib.ScanResult;
 import app.com.arresto.arresto_connect.ui.modules.sensor.server.FallCountModel;
 import app.com.arresto.arresto_connect.ui.modules.sensor.server.OnDeviceConnect;
@@ -47,7 +51,10 @@ public class DiscoveredBluetoothDevice implements Parcelable {
     String deviceMode="";
     private int highestRssi = -130;
     FallCountModel.Firmware firmwareInfo;
+    public static final String TAG = AppController.class.getSimpleName();
+
     public DiscoveredBluetoothDevice(@NonNull final ScanResult scanResult) {
+        Log.d(TAG, "DiscoveredBluetoothDevice:");
         device = scanResult.getDevice();
         update(scanResult);
     }
@@ -276,12 +283,14 @@ public class DiscoveredBluetoothDevice implements Parcelable {
         return newLevel != oldLevel;
     }
 
-    /**
+/**
      * Updates the device values based on the scan result.
      *
      * @param scanResult the new received scan result.
-     */
+*/
+
     public void update(@NonNull final ScanResult scanResult) {
+        Log.d(TAG, "update:");
         lastScanResult = scanResult;
         name = scanResult.getScanRecord() != null ?
                 scanResult.getScanRecord().getDeviceName() : null;
@@ -292,6 +301,7 @@ public class DiscoveredBluetoothDevice implements Parcelable {
     }
 
     public boolean matches(@NonNull final ScanResult scanResult) {
+        Log.d(TAG, "matches:");
         return device.getAddress().equals(scanResult.getDevice().getAddress());
     }
 

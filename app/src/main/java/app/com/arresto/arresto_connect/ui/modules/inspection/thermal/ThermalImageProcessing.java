@@ -8,7 +8,6 @@ import static app.com.arresto.arresto_connect.constants.Static_values.user_id;
 
 import android.annotation.SuppressLint;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -28,6 +27,7 @@ import android.widget.LinearLayout;
 import android.widget.RadioGroup;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -38,6 +38,7 @@ import com.flir.thermalsdk.image.Point;
 import com.flir.thermalsdk.image.Scale;
 import com.flir.thermalsdk.image.ThermalImageFile;
 import com.flir.thermalsdk.image.measurements.MeasurementCircle;
+import com.flir.thermalsdk.image.measurements.MeasurementSpot;
 import com.flir.thermalsdk.log.ThermalLog;
 import com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager;
 
@@ -46,14 +47,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Random;
 
 import app.com.arresto.arresto_connect.BuildConfig;
 import app.com.arresto.arresto_connect.R;
@@ -93,13 +92,14 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
     String thermal_id, inspection_id;
     boolean isReplace;
 
-    float scaleX = 1;
-    float scaleY = 1;
+    double scaleX = 1;
+    double scaleY = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ThermalLog.LogLevel enableLoggingInDebug = BuildConfig.DEBUG ? ThermalLog.LogLevel.DEBUG : ThermalLog.LogLevel.NONE;
+        ThermalLog.LogLevel enableLoggingInDebug = BuildConfig.DEBUG ? ThermalLog.LogLevel.DEBUG
+                : ThermalLog.LogLevel.NONE;
         ThermalSdkAndroid.init(getApplicationContext(), enableLoggingInDebug);
         setupUiViews();
         if (getIntent().getExtras() != null) {
@@ -116,8 +116,7 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                 master_id = dataBundle.getString("master_id", "");
                 unique_id = dataBundle.getString("unique_id", "");
                 uin = dataBundle.getString("uin", "");
-                if (all_subAsset != null)
-                    all_subAsset.add(0, getResString("lbl_pl_slct_msg"));
+                if (all_subAsset != null) all_subAsset.add(0, getResString("lbl_pl_slct_msg"));
             }
             if (dataBundle.containsKey("imagePath")) {
                 thermalImagePath = dataBundle.getString("imagePath");
@@ -129,27 +128,37 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         if (thermalImageFile != null) {
             Bitmap flirBitmap = BitmapAndroid.createBitmap(thermalImageFile.getImage()).getBitMap();
             if (flirBitmap != null) {
-//                allImages.add(BitmapAndroid.createBitmap(thermalImageFile.getImage()).getBitMap()); //new Object because it's modified later
+//                allImages.add(BitmapAndroid.createBitmap(thermalImageFile.getImage()).getBitMap
+//                ()); //new Object because it's modified later
                 printLog("flirBitmap X=" + flirBitmap.getWidth() + " Y=" + flirBitmap.getHeight());
                 convertScaleBitmap(thermalImageFile);
                 ArrayList<Point> intialPoints = new ArrayList<>();
-                printLog("thermalImage height ===" + thermalImageFile.getHeight() + "  thermalImage width ===" + thermalImageFile.getWidth());
-                printLog("Image height ===" + thermalImageFile.getImage().getHeight() + "   Image width ===" + thermalImageFile.getImage().getWidth());
-                double h_ratio = (double) thermalImageFile.getImage().getHeight() / (double) thermalImageFile.getHeight();
-                double w_ratio = (double) thermalImageFile.getImage().getWidth() / (double) thermalImageFile.getWidth();
+                printLog("thermalImage height ===" + thermalImageFile.getHeight() + "  " +
+                        "thermalImage width ===" + thermalImageFile.getWidth());
+                printLog("Image height ===" + thermalImageFile.getImage().getHeight() + "   Image" +
+                        " width ===" + thermalImageFile.getImage().getWidth());
+                double h_ratio =
+                        (double) thermalImageFile.getImage().getHeight() / (double) thermalImageFile.getHeight();
+                double w_ratio =
+                        (double) thermalImageFile.getImage().getWidth() / (double) thermalImageFile.getWidth();
 
-                scaleX = (float) thermalImageFile.getWidth() / flirBitmap.getWidth();
-                scaleY = (float) thermalImageFile.getHeight() / flirBitmap.getHeight();
+                scaleX = h_ratio;
+                scaleY = w_ratio;
 
                 printLog("width ratio ===" + w_ratio + "   height ratio ===" + h_ratio);
                 Point hotSpot = thermalImageFile.getStatistics().hotSpot;
                 Point coldSpot = thermalImageFile.getStatistics().coldSpot;
-                hotSpot = new Point((int) (hotSpot.x * h_ratio), (int) (hotSpot.y * w_ratio));
-                coldSpot = new Point((int) (coldSpot.x * h_ratio), (int) (coldSpot.y * w_ratio));
+                printLog("before_ColdSpot===" + coldSpot);
+                printLog("before_HotSpot===" + hotSpot);
+                hotSpot = new Point((int) (hotSpot.x * w_ratio), (int) (hotSpot.y * h_ratio));
+                coldSpot = new Point((int) (coldSpot.x * w_ratio), (int) (coldSpot.y * h_ratio));
                 intialPoints.add(hotSpot);
                 intialPoints.add(coldSpot);
                 printLog("intialPoints===" + intialPoints);
-                PointCreatorDialog.newInstance(ThermalImageProcessing.this, flirBitmap, intialPoints);
+                printLog("HotSpot===" + hotSpot);
+                printLog("ColdSpot===" + coldSpot);
+                PointCreatorDialog.newInstance(ThermalImageProcessing.this, flirBitmap,
+                        intialPoints);
             }
         }
     }
@@ -157,14 +166,19 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
     private TextView spotValue, emissivity_edt;
     LinearLayout ambient_layer, similar_subasset_layer;
     Recycler_adapter imageAdapter;
-    ArrayList<String> img_ch_txt = new ArrayList<>(Arrays.asList("Thermal Image", "Pointed Image", "Visual Image"));
+    ArrayList<String> img_ch_txt = new ArrayList<>(Arrays.asList("Thermal Image", "Pointed Image"
+            , "Visual Image"));
     RadioGroup radioGroup;
     TextView imege_ch_txt;
     TextView view_ambient_btn, view_similar_btn;
     DialogSpinner ambient_temp_spinr, severity_spinr;
     Switch _switch;
-    DialogSpinner subasset_spnr, temperature_spnr, obser_spinr, excerpt_spnr, result_spnr, subasset1_spnr, subasset2_spnr, temperature1_spnr, temperature2_spnr, obser2_spinr, excerpt2_spnr, result2_spnr;
-    EditText delta_edit, similar_delta_edit, remark_edt, remark2_edt, wind_speed_edt, wind_direction_edt, precipitation_edt, air_temperature_edt, humidity_edt, camera_model_edt;
+    DialogSpinner subasset_spnr, temperature_spnr, obser_spinr, excerpt_spnr, result_spnr,
+            subasset1_spnr, subasset2_spnr, temperature1_spnr, temperature2_spnr, obser2_spinr,
+            excerpt2_spnr, result2_spnr;
+    EditText delta_edit, similar_delta_edit, remark_edt, remark2_edt, wind_speed_edt,
+            wind_direction_edt, precipitation_edt, air_temperature_edt, humidity_edt,
+            camera_model_edt;
 
     private void setupUiViews() {
         _switch = findViewById(R.id.btn_accessible);
@@ -214,7 +228,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         similarSubassetModels = new ArrayList<>();
         fetched_temprature = new ArrayList<>();
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+        recyclerView.setLayoutManager(new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false));
         imageAdapter = new Recycler_adapter(this, allImages);
         recyclerView.setAdapter(imageAdapter);
         recyclerView.addOnPageChangedListener(new RecyclerViewPager.OnPageChangedListener() {
@@ -224,7 +239,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
             }
         });
 
-        _switch.setTrackDrawable(new SwitchTrackTextDrawable(this, R.string.lbl_celsius, R.string.lbl_fahrenheit));
+        _switch.setTrackDrawable(new SwitchTrackTextDrawable(this, R.string.lbl_celsius,
+                R.string.lbl_fahrenheit));
         _switch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -237,7 +253,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                 }
             }
         });
-        severity_array = new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.severity_array)));
+        severity_array =
+                new ArrayList<>(Arrays.asList(getResources().getStringArray(R.array.severity_array)));
         severity_array.add(0, getResString("lbl_pl_slct_msg"));
         severity_spinr.setItems(severity_array, "");
 
@@ -249,7 +266,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         temperature1_spnr.setOnItemSelectedListener(onItemSelectedListener);
         temperature2_spnr.setOnItemSelectedListener(onItemSelectedListener);
 
-        na_adapter = new ArrayAdapter<>(this, R.layout.spiner_tv, new ArrayList<>(Arrays.asList("NA")));
+        na_adapter = new ArrayAdapter<>(this, R.layout.spiner_tv, new ArrayList<>(Arrays.asList(
+                "NA")));
     }
 
     List<String> severity_array;
@@ -259,9 +277,10 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
             String txt = "";
             for (int i = 1; i < fetched_temprature.size(); i++) {
                 Constant_model item = fetched_temprature.get(i);
-                txt = txt + "<br>" + getString(R.string.spot_value_text, item.getName(), convertTemperature(item.getTemp()), (char) 186 + temp_unit);
+                txt = txt + "<br>" + getString(R.string.spot_value_text, item.getName(),
+                        convertTemperature(item.getTemp()), (char) 186 + temp_unit);
             }
-            Spanned txt1=Html.fromHtml(txt);
+            Spanned txt1 = Html.fromHtml(txt);
             spotValue.setText(txt1);
         }
         if (ambient_layer.getVisibility() == View.VISIBLE) {
@@ -289,8 +308,7 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
     }
 
     public void refreshAmbientView() {
-        if (all_subAsset != null)
-            subasset_spnr.setItems(all_subAsset, "");
+        if (all_subAsset != null) subasset_spnr.setItems(all_subAsset, "");
         temperature_spnr.setItems(fetched_temprature, "");
         obser_spinr.setAdapter(na_adapter);
         excerpt_spnr.setAdapter(na_adapter);
@@ -313,14 +331,16 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         remark2_edt.setText("");
     }
 
-    AdapterView.OnItemSelectedListener onItemSelectedListener = new AdapterView.OnItemSelectedListener() {
+    AdapterView.OnItemSelectedListener onItemSelectedListener =
+            new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             switch (parent.getId()) {
                 case R.id.subasset_spnr:
                     if (position > 0 && recentAmbientObject != null) {
                         recentAmbientObject.setSubAssetName(all_subAsset.get(position));
-                        fetchSubassetData(recentAmbientObject, obser_spinr, excerpt_spnr, result_spnr);
+                        fetchSubassetData(recentAmbientObject, obser_spinr, excerpt_spnr,
+                                result_spnr);
                     }
                     break;
                 case R.id.subasset1_spnr:
@@ -331,7 +351,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                 case R.id.subasset2_spnr:
                     if (position > 0 && recentSimilarObject != null) {
                         recentSimilarObject.setSubAsset2Name(all_subAsset.get(position));
-                        fetchSubassetData(recentSimilarObject, obser2_spinr, excerpt2_spnr, result2_spnr);
+                        fetchSubassetData(recentSimilarObject, obser2_spinr, excerpt2_spnr,
+                                result2_spnr);
                     }
                     break;
                 case R.id.ambient_temp_spinr:
@@ -380,7 +401,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
     private String getDeltaT(int selectedPosition, DialogSpinner compareSpinner) {
         String delta_t = "";
         if (selectedPosition > 0 && compareSpinner.getSelectedItemPosition() > 0) {
-            double _t = Math.abs(Double.parseDouble(fetched_temprature.get(selectedPosition).getTemp()) - Double.parseDouble(fetched_temprature.get(compareSpinner.getSelectedItemPosition()).getTemp()));
+            double _t =
+                    Math.abs(Double.parseDouble(fetched_temprature.get(selectedPosition).getTemp()) - Double.parseDouble(fetched_temprature.get(compareSpinner.getSelectedItemPosition()).getTemp()));
             delta_t = "" + round(_t, 2);
         }
         return delta_t;
@@ -395,14 +417,14 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                     show_snak(this, getResString("lbl_field_mndtry"));
                     return;
                 }
-                if (!obser_spinr.getSelectedItem().toString().equalsIgnoreCase(getResString("lbl_ok_st")) && (excerpt_spnr.getSelectedItemPosition() < 1 || result_spnr.getSelectedItemPosition() < 1)) {
+                if (!obser_spinr.getSelectedItem().toString().equalsIgnoreCase(getResString(
+                        "lbl_ok_st")) && (excerpt_spnr.getSelectedItemPosition() < 1 || result_spnr.getSelectedItemPosition() < 1)) {
                     show_snak(this, getResString("lbl_field_mndtry"));
                     return;
                 }
                 recentAmbientObject.setRemark(remark_edt.getText().toString());
                 ThermalSubassetModel newObject = recentAmbientObject.clone();
-                if (newObject == null)
-                    return;
+                if (newObject == null) return;
                 ambientModels.add(newObject);
                 ambient_layer.setVisibility(View.GONE);
                 ((ViewGroup) view_ambient_btn.getParent()).setVisibility(View.VISIBLE);
@@ -433,14 +455,14 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                     show_snak(this, getResString("lbl_field_mndtry"));
                     return;
                 }
-                if (!obser2_spinr.getSelectedItem().toString().equalsIgnoreCase(getResString("lbl_ok_st")) && (excerpt2_spnr.getSelectedItemPosition() < 1 || result2_spnr.getSelectedItemPosition() < 1)) {
+                if (!obser2_spinr.getSelectedItem().toString().equalsIgnoreCase(getResString(
+                        "lbl_ok_st")) && (excerpt2_spnr.getSelectedItemPosition() < 1 || result2_spnr.getSelectedItemPosition() < 1)) {
                     show_snak(this, getResString("lbl_field_mndtry"));
                     return;
                 }
                 recentSimilarObject.setRemark(remark2_edt.getText().toString());
                 ThermalSubassetModel newObject1 = recentSimilarObject.clone();
-                if (newObject1 == null)
-                    return;
+                if (newObject1 == null) return;
                 similarSubassetModels.add(newObject1);
                 similar_subasset_layer.setVisibility(View.GONE);
                 ((ViewGroup) view_similar_btn.getParent()).setVisibility(View.VISIBLE);
@@ -467,9 +489,7 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                 break;
 
             case R.id.cntnu_btn:
-                if (!isEmpty1(wind_speed_edt) && !isEmpty1(wind_direction_edt) && !isEmpty1(precipitation_edt)
-                        && !isEmpty1(air_temperature_edt) && !isEmpty1(humidity_edt) && !isEmpty1(camera_model_edt)
-                        && ambient_temp_spinr.getSelectedItemPosition() > 0 && severity_spinr.getSelectedItemPosition() > 0) {
+                if (!isEmpty1(wind_speed_edt) && !isEmpty1(wind_direction_edt) && !isEmpty1(precipitation_edt) && !isEmpty1(air_temperature_edt) && !isEmpty1(humidity_edt) && !isEmpty1(camera_model_edt) && ambient_temp_spinr.getSelectedItemPosition() > 0 && severity_spinr.getSelectedItemPosition() > 0) {
                     if (ambientModels.size() < 1 || similarSubassetModels.size() < 1) {
                         show_snak(this, "Please select at least single ∆T parameters");
                         return;
@@ -477,36 +497,32 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
 
                     JSONObject finalJson = new JSONObject();
                     try {
-                        finalJson.put("client_id", client_id)
-                                .put("user_id", user_id)
-                                .put("asset_code", asset_code)
-                                .put("master_id", master_id)
-                                .put("uin", uin)
-                                .put("wind_speed", wind_speed_edt.getText().toString())
-                                .put("wind_direction", wind_direction_edt.getText().toString())
-                                .put("precipitation", precipitation_edt.getText().toString())
-                                .put("air_temperature", air_temperature_edt.getText().toString())
-                                .put("humidity", humidity_edt.getText().toString())
-                                .put("camera_model", camera_model_edt.getText().toString())
-                                .put("emissivity", emissivity_edt.getText().toString())
-                                .put("ambient_temperature", new JSONObject(AppUtils.getGson().toJson(ambient_temp_spinr.getSelectedItem())))
-                                .put("severity", severity_spinr.getSelectedItem().toString())
-                                .put("all_temperatures", new JSONArray(AppUtils.getGson().toJson(fetched_temprature)))
-                                .put("ambient_subassets", new JSONArray(AppUtils.getGson().toJson(ambientModels)))
-                                .put("similar_subassets", new JSONArray(AppUtils.getGson().toJson(similarSubassetModels)))
-                                .put("temperature_unit", temp_unit);
+                        finalJson.put("client_id", client_id).put("user_id", user_id).put(
+                                "asset_code", asset_code).put("master_id", master_id).put("uin",
+                                uin).put("wind_speed", wind_speed_edt.getText().toString()).put(
+                                        "wind_direction",
+                                wind_direction_edt.getText().toString()).put("precipitation",
+                                precipitation_edt.getText().toString()).put("air_temperature",
+                                air_temperature_edt.getText().toString()).put("humidity",
+                                humidity_edt.getText().toString()).put("camera_model",
+                                camera_model_edt.getText().toString()).put("emissivity",
+                                emissivity_edt.getText().toString()).put("ambient_temperature",
+                                new JSONObject(AppUtils.getGson().toJson(ambient_temp_spinr.getSelectedItem()))).put("severity", severity_spinr.getSelectedItem().toString()).put("all_temperatures", new JSONArray(AppUtils.getGson().toJson(fetched_temprature))).put("ambient_subassets", new JSONArray(AppUtils.getGson().toJson(ambientModels))).put("similar_subassets", new JSONArray(AppUtils.getGson().toJson(similarSubassetModels))).put("temperature_unit", temp_unit);
 
                         if (thermalImagePath != null && !thermalImagePath.equals("")) {
-                            String fileName = thermalImagePath.substring(thermalImagePath.lastIndexOf('/') + 1);
+                            String fileName =
+                                    thermalImagePath.substring(thermalImagePath.lastIndexOf('/') + 1);
                             String thermal_imagepath = image_dir + fileName;
-                            String actual_imagepath = image_dir + "actual_" + System.currentTimeMillis() + ".jpg";
-                            String marked_imagepath = image_dir + "marked_" + System.currentTimeMillis() + ".jpg";
-                            String scale_imagepath = image_dir + "scale_" + System.currentTimeMillis() + ".jpg";
+                            String actual_imagepath =
+                                    image_dir + "actual_" + System.currentTimeMillis() + ".jpg";
+                            String marked_imagepath =
+                                    image_dir + "marked_" + System.currentTimeMillis() + ".jpg";
+                            String scale_imagepath =
+                                    image_dir + "scale_" + System.currentTimeMillis() + ".jpg";
                             save_Image((Bitmap) allImages.get(0), thermal_imagepath);
                             save_Image((Bitmap) allImages.get(1), marked_imagepath);
                             save_Image((Bitmap) allImages.get(2), actual_imagepath);
-                            if (scalImage != null)
-                                save_Image(scalImage, scale_imagepath);
+                            if (scalImage != null) save_Image(scalImage, scale_imagepath);
                             finalJson.put("actual_image", actual_imagepath);
                             finalJson.put("thermal_image", thermal_imagepath);
                             finalJson.put("marked_image", marked_imagepath);
@@ -514,7 +530,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                         }
 
                         if (thermal_id == null || thermal_id.equals("")) {
-                            ThermalAsset_Table.ThermalAsset_Dao thermalAsset_dao = AppController.getInstance().getDatabase().getThermalAsset_dao();
+                            ThermalAsset_Table.ThermalAsset_Dao thermalAsset_dao =
+                                    AppController.getInstance().getDatabase().getThermalAsset_dao();
                             ThermalAsset_Table thermal_table = new ThermalAsset_Table();
                             thermal_table.setUser_id(user_id);
                             thermal_table.setUnique_id(unique_id);
@@ -538,22 +555,30 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         }
     }
 
-    private void updateThermal(JSONObject finalJson) {
+    private void updateThermal(JSONObject finalJson) {//todo image
         String url;
         if (isReplace) {
             url = All_Api.postThermal_service;
             try {
                 finalJson.put("return_id", inspection_id);
-                finalJson.put("actual_image", "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString("actual_image")));
-                finalJson.put("thermal_image", "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString("thermal_image")));
-                finalJson.put("marked_image", "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString("marked_image")));
-                finalJson.put("scale_image", "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString("scale_image")));
+                finalJson.put("actual_image",
+                        "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString(
+                                "actual_image")));
+                finalJson.put("thermal_image",
+                        "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString(
+                                "thermal_image")));
+                finalJson.put("marked_image",
+                        "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString(
+                                "marked_image")));
+                finalJson.put("scale_image",
+                        "data:image/jpg;base64," + AppUtils.Image_toBase64(finalJson.getString(
+                                "scale_image")));
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        } else
-            url = All_Api.updateThermal_data;
-        new NetworkRequest(this).make_contentpost_request(url, finalJson, new NetworkRequest.VolleyResponseListener() {
+        } else url = All_Api.updateThermal_data;
+        new NetworkRequest(this).make_contentpost_request(url, finalJson,
+                new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
                 try {
@@ -576,7 +601,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
 
     public void setUpTempraturePoints(ArrayList<Dot> points) {
         synchronized (recyclerView) {
-            Bitmap visualBitmap = BitmapAndroid.createBitmap(thermalImageFile.getFusion().getPhoto()).getBitMap();
+            Bitmap visualBitmap =
+                    BitmapAndroid.createBitmap(thermalImageFile.getFusion().getPhoto()).getBitMap();
             allImages.add(visualBitmap);
             imageAdapter.notifyData(allImages);
             radioGroup.check(radioGroup.getChildAt(0).getId());
@@ -592,44 +618,46 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         temp_model.setTemp("");
         fetched_temprature.add(temp_model);
 
-        if (!thermalImageFile.getMeasurements().getCircles().isEmpty())
+        if (!thermalImageFile.getMeasurements().getCircles().isEmpty()) {
+            Toast.makeText(this, "true", Toast.LENGTH_SHORT).show();
+            Log.d(TAG, "showImageData: allready circles");
             thermalImageFile.getMeasurements().getCircles().addAll(thermalImageFile.getMeasurements().getCircles());
+        }
         camera_model_edt.setText("" + thermalImageFile.getCameraInformation().model);
         float xRatio = (float) thermalImageFile.getWidth() / ((Bitmap) allImages.get(0)).getWidth();
-       try {
-           if (points != null && points.size() > 0) {
-               for (Dot dot : points) {
-                   int radius = (int) (xRatio * dot.getRadius());
-                   Log.d(TAG, "image width:"+thermalImageFile.getWidth());
-                   Log.d(TAG, "image height:"+thermalImageFile.getHeight());
-                   Log.d(TAG, "image x/2:"+thermalImageFile.getWidth()/2);
-                   Log.d(TAG, "image y/2:"+thermalImageFile.getHeight()/2);
-                   Log.d(TAG, "image x/3:"+thermalImageFile.getWidth()/3);
-                   Log.d(TAG, "image y/3:"+thermalImageFile.getHeight()/3);
-                   Log.d(TAG, "image x/4:"+thermalImageFile.getWidth()/4);
-                   Log.d(TAG, "image y/4:"+thermalImageFile.getHeight()/4);
-                   Log.d(TAG, "image x/100:"+thermalImageFile.getWidth()/100);
-                   Log.d(TAG, "image y/100:"+thermalImageFile.getHeight()/100);
-                   Log.d(TAG, "dot x:"+dot.getIntX());
-                   Log.d(TAG, "dot y:"+dot.getIntY());
-                   Log.d(TAG, "dotbmp x:"+dot.getIntBitmapX());
-                   Log.d(TAG, "dotbmp y:"+dot.getIntBitmapY());
-                   Log.d(TAG, "new X:"+dot.getX()*scaleX);
-                   Log.d(TAG, "new Y:"+dot.getY()*scaleY);
-                   thermalImageFile.getMeasurements().addCircle((int)(dot.getIntX()*scaleX),(int)(dot.getIntY()*scaleY), radius);
-//                   thermalImageFile.getMeasurements().addCircle(thermalImageFile.getWidth() / 2, thermalImageFile.getHeight() / 2, radius);
-               }
-           }
-       }catch (Exception e){
-           Log.d(TAG, "addCircles: "+e.getMessage());return;
-       }
+
+        /***
+        Circle Method
+         ****/
+        try {
+            if (points != null && points.size() > 0) {
+                Log.d(TAG, "image width=" + thermalImageFile.getWidth()+"height="+thermalImageFile.getHeight());
+                Log.d(TAG, "scaleX=" + scaleX+"ScaleY="+scaleY);
+                for (Dot dot : points) {
+                    int radius = (int) (xRatio * dot.getRadius());
+                    Log.d(TAG, "____________START POINT___________");
+                    Log.d(TAG, "dot x:" + dot.getX() +" Scaled X:" + dot.getX() / scaleX);
+                    Log.d(TAG, "dot y:" + dot.getY() + " Scaled Y:" + dot.getY() / scaleY);
+                    Log.d(TAG, "Bitmap x:" + dot.getBitmapX() / scaleX+","+ dot.getBitmapX());
+                    Log.d(TAG, "Bitmap y:" + dot.getBitmapY() / scaleY+","+ dot.getBitmapY());
+                    int pointx = (int) (dot.getBitmapX() / scaleX);
+                    int pointy = (int) (dot.getBitmapY() / scaleX);
+                    thermalImageFile.getMeasurements().addCircle(pointx, pointy,radius);
+                    Log.d(TAG, "____________END POINT___________");
+                }
+            }
+        }catch (Exception e){
+            Log.d(TAG, "addCircleswhole: " + e.getMessage());
+        }
         try {
             if (!thermalImageFile.getMeasurements().getCircles().isEmpty()) {
                 List<MeasurementCircle> cilrcles = thermalImageFile.getMeasurements().getCircles();
                 for (int i = 0; i < cilrcles.size(); i++) {
                     MeasurementCircle cilrcle = cilrcles.get(i);
-                    String maxValue = String.valueOf(round(cilrcle.getMaxValue().asCelsius().value, 2));
-                    String minValue = String.valueOf(round(cilrcle.getMinValue().asCelsius().value, 2));
+                    String maxValue =
+                            String.valueOf(round(cilrcle.getMaxValue().asCelsius().value, 2));
+                    String minValue =
+                            String.valueOf(round(cilrcle.getMinValue().asCelsius().value, 2));
                     temp_model = new Constant_model();
                     if (points.get(i).dotName.equals("T1")) {
                         temp_model.setName(points.get(i).dotName + "<sup><small>H</small></sup>");
@@ -650,9 +678,12 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                         fetched_temprature.add(temp_model);
                     }
                 }
-                String emissivity = String.valueOf(round(thermalImageFile.getImageParameters().getEmissivity(), 2));
-                String humidity = String.valueOf(round(thermalImageFile.getImageParameters().getRelativeHumidity(), 2));
-                String air_temp = String.valueOf(round(thermalImageFile.getImageParameters().getAtmosphericTemperature().asCelsius().value, 2));
+                String emissivity =
+                        String.valueOf(round(thermalImageFile.getImageParameters().getEmissivity(), 2));
+                String humidity =
+                        String.valueOf(round(thermalImageFile.getImageParameters().getRelativeHumidity(), 2));
+                String air_temp =
+                        String.valueOf(round(thermalImageFile.getImageParameters().getAtmosphericTemperature().asCelsius().value, 2));
 //            emissivit_edt.setText(getString(R.string.lbl_emissivity, emissivity));
                 emissivity_edt.setText(emissivity);
                 humidity_edt.setText(humidity);
@@ -662,10 +693,83 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
             refreshTemperature();
             refreshAmbientView();
             refreshSimilarView();
-        }catch (Exception e){
-            Log.d(TAG, "fetch circles: "+e.getMessage());
+        } catch (Exception e) {
+            Log.d(TAG, "fetch circles: " + e.getMessage());
         }
 
+    /*    // Spot Method
+        try {
+            if (points != null && points.size() > 0) {
+                Log.d(TAG, "image width=" + thermalImageFile.getWidth()+"height="+thermalImageFile.getHeight());
+                Log.d(TAG, "scaleX=" + scaleX+"ScaleY="+scaleY);
+                for (Dot dot : points) {
+                    int radius = (int) (xRatio * dot.getRadius());
+                    Log.d(TAG, "START POINT___________");
+                    Log.d(TAG, "dot x:" + dot.getX() +" Scaled X:" + dot.getX() / scaleX);
+                    Log.d(TAG, "dot y:" + dot.getY() + " Scaled Y:" + dot.getY() / scaleY);
+                    Log.d(TAG, "Bitmap x:" + dot.getBitmapX() / scaleX+","+ dot.getBitmapX());
+                    Log.d(TAG, "Bitmap y:" + dot.getBitmapY() / scaleY+","+ dot.getBitmapY());
+                    int pointx = (int) (dot.getBitmapX() / scaleX);
+                    int pointy = (int) (dot.getBitmapY() / scaleX);
+                    thermalImageFile.getMeasurements().addSpot(pointx, pointy);
+                    Log.d(TAG, "____________END POINT___________");
+//                    thermalImageFile.getMeasurements().addSpot(dot.getIntX(), dot.getIntY());
+                }
+            }
+            for (MeasurementSpot spot : thermalImageFile.getMeasurements().getSpots()) {
+                Log.d(TAG, "spots temp: " + spot.getValue().asCelsius());
+            }
+        } catch (Exception e) {
+            Log.d(TAG, "addSpot: " + e.getMessage());
+        }
+        try {
+            if (!thermalImageFile.getMeasurements().getSpots().isEmpty()) {
+                List<MeasurementSpot> spots = thermalImageFile.getMeasurements().getSpots();
+                for (int i = 0; i < spots.size(); i++) {
+                    MeasurementSpot measurementSpot = spots.get(i);
+                    String maxValue =
+                            String.valueOf(round(measurementSpot.getValue().asCelsius().value, 2));
+                    String minValue =
+                            String.valueOf(round(measurementSpot.getValue().asCelsius().value, 2));
+                    temp_model = new Constant_model();
+                    if (points.get(i).dotName.equals("T1")) {
+                        temp_model.setName(points.get(i).dotName + "<sup><small>H</small></sup>");
+                        temp_model.setTemp(maxValue);
+                        fetched_temprature.add(temp_model);
+                    } else if (points.get(i).dotName.equals("T2")) {
+                        temp_model.setName(points.get(i).dotName + "<sup><small>C</small></sup>");
+                        temp_model.setTemp(minValue);
+                        fetched_temprature.add(temp_model);
+                    } else {
+                        temp_model.setName(points.get(i).dotName + "<sup><small>Max</small></sup>");
+                        temp_model.setTemp(maxValue);
+                        fetched_temprature.add(temp_model);
+//
+//                        temp_model = new Constant_model();
+//                        temp_model.setName(points.get(i).dotName + "<sup><small>Min</small></sup>");
+//                        temp_model.setTemp(minValue);
+//                        fetched_temprature.add(temp_model);
+                    }
+                }
+                String emissivity =
+                        String.valueOf(round(thermalImageFile.getImageParameters().getEmissivity(), 2));
+                String humidity =
+                        String.valueOf(round(thermalImageFile.getImageParameters().getRelativeHumidity(), 2));
+                String air_temp =
+                        String.valueOf(round(thermalImageFile.getImageParameters().getAtmosphericTemperature().asCelsius().value, 2));
+//            emissivit_edt.setText(getString(R.string.lbl_emissivity, emissivity));
+                emissivity_edt.setText(emissivity);
+                humidity_edt.setText(humidity);
+                air_temperature_edt.setText(air_temp);
+            }
+            ambient_temp_spinr.setItems(fetched_temprature, "");
+            refreshTemperature();
+            refreshAmbientView();
+            refreshSimilarView();
+        } catch (Exception e) {
+            Log.d(TAG, "fetch circles: " + e.getMessage());
+        }
+*/
     }
 
     public static double round(double value, int places) {
@@ -700,13 +804,17 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
 
 
     ArrayList<ThermalSubassetModel> ambientModels, similarSubassetModels;
-    ArrayList<String> action_taken = new ArrayList<>(Arrays.asList(getResString("lbl_pl_slct_msg"), getResString("lbl_remove_and_repair"), getResString("lbl_done"), getResString("lbl_ok_st")
-            , getResString("lbl_no_action_taken"), getResString("lbl_remove_and_replace")));
+    ArrayList<String> action_taken =
+            new ArrayList<>(Arrays.asList(getResString("lbl_pl_slct_msg"), getResString(
+                    "lbl_remove_and_repair"), getResString("lbl_done"), getResString("lbl_ok_st")
+                    , getResString("lbl_no_action_taken"), getResString("lbl_remove_and_replace")));
     ArrayAdapter<String> na_adapter;
     ArrayList<String> all_subAsset;
 
     @SuppressLint("HandlerLeak")
-    private void fetchSubassetData(ThermalSubassetModel thermalSubassetModel, DialogSpinner obser_spinr, DialogSpinner excerpt_spnr, DialogSpinner result_spnr) {
+    private void fetchSubassetData(ThermalSubassetModel thermalSubassetModel,
+                                   DialogSpinner obser_spinr, DialogSpinner excerpt_spnr,
+                                   DialogSpinner result_spnr) {
         ArrayList<Constant_model> observations = new ArrayList<>();
         Constant_model constant_model = new Constant_model();
         constant_model.setId("");
@@ -715,7 +823,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         String subAsset = "" + thermalSubassetModel.getSubAssetName();
         if (thermalSubassetModel.getSubAsset2Name() != null)
             subAsset = thermalSubassetModel.getSubAsset2Name();
-        new NetworkRequest(this).make_get_request(All_Api.subasset_service + subAsset + "?client_id=" + client_id, new NetworkRequest.VolleyResponseListener() {
+        new NetworkRequest(this).make_get_request(All_Api.subasset_service + subAsset +
+                "?client_id=" + client_id, new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
                 Object json;
@@ -726,9 +835,11 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                         if (jsonObject.has("status_code")) {
                             if (jsonObject.getString("status_code").equals("200")) {
                                 JSONArray data = jsonObject.getJSONArray("data");
-                                ArrayList<SubAssetModel> subAssetModels = new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(jsonObject.getString("data"), SubAssetModel[].class)));
+                                ArrayList<SubAssetModel> subAssetModels =
+                                        new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(jsonObject.getString("data"), SubAssetModel[].class)));
                                 if (subAssetModels.size() > 0) {
-                                    String[] observation_arr = subAssetModels.get(0).getSubAssetsObservation().split("##");
+                                    String[] observation_arr =
+                                            subAssetModels.get(0).getSubAssetsObservation().split("##");
                                     if (subAssetModels.get(0).getSubAssetsObservation().length() > 0) {
                                         for (String anObservation : observation_arr) {
                                             if (anObservation.contains("#")) {
@@ -742,10 +853,12 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
                                             }
                                         }
                                     }
-                                    setUpObservation(observations, thermalSubassetModel, obser_spinr, excerpt_spnr, result_spnr);
+                                    setUpObservation(observations, thermalSubassetModel,
+                                            obser_spinr, excerpt_spnr, result_spnr);
                                 }
                             } else {
-                                show_snak(ThermalImageProcessing.this, "" + jsonObject.getString("message"));
+                                show_snak(ThermalImageProcessing.this, "" + jsonObject.getString(
+                                        "message"));
                             }
                         }
                     }
@@ -760,8 +873,10 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         });
     }
 
-    public void setUpObservation(ArrayList<Constant_model> all_observations, ThermalSubassetModel thermalSubassetModel, DialogSpinner obser_spinr, DialogSpinner excerpt_spnr
-            , DialogSpinner result_spnr) {
+    public void setUpObservation(ArrayList<Constant_model> all_observations,
+                                 ThermalSubassetModel thermalSubassetModel,
+                                 DialogSpinner obser_spinr, DialogSpinner excerpt_spnr,
+                                 DialogSpinner result_spnr) {
         obser_spinr.setItems(all_observations, "");
         result_spnr.setItems(action_taken, "");
         obser_spinr.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -864,7 +979,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
     //  Edit Code here
 
     private void fetchData(String thermal_id) {
-        String url = All_Api.getThermal_Api + client_id + "&thermal_id=" + thermal_id + "&inspection_id=" + inspection_id;
+        String url = All_Api.getThermal_Api + client_id + "&thermal_id=" + thermal_id +
+                "&inspection_id=" + inspection_id;
         new NetworkRequest(this).make_get_request(url, new NetworkRequest.VolleyResponseListener() {
             @Override
             public void onResponse(String response) {
@@ -906,16 +1022,23 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         camera_model_edt.setText(data.getString("camera_model"));
         emissivity_edt.setText(data.getString("emissivity"));
         severity_spinr.setLastSelected(severity_array.indexOf(data.getString("severity")));
-        fetched_temprature = new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(data.getString("all_temperatures"), Constant_model[].class)));
+        fetched_temprature =
+                new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(data.getString(
+                        "all_temperatures"), Constant_model[].class)));
 
         ambient_temp_spinr.setItems(fetched_temprature, "");
-        Constant_model slectedAmbient = AppUtils.getGson().fromJson(data.getString("ambient_temperature"), Constant_model.class);
+        Constant_model slectedAmbient = AppUtils.getGson().fromJson(data.getString(
+                "ambient_temperature"), Constant_model.class);
         ambient_temp_spinr.setLastSelected(findIndex(fetched_temprature, slectedAmbient.getName()));
 
         if (!data.getString("ambient_subassets").equals(""))
-            ambientModels = new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(data.getString("ambient_subassets"), ThermalSubassetModel[].class)));
+            ambientModels =
+                    new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(data.getString(
+                            "ambient_subassets"), ThermalSubassetModel[].class)));
         if (!data.getString("similar_subassets").equals(""))
-            similarSubassetModels = new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(data.getString("similar_subassets"), ThermalSubassetModel[].class)));
+            similarSubassetModels =
+                    new ArrayList<>(Arrays.asList(AppUtils.getGson().fromJson(data.getString(
+                            "similar_subassets"), ThermalSubassetModel[].class)));
         refreshTemperature();
         refreshAmbientView();
         refreshSimilarView();
@@ -934,7 +1057,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
             public void handleMessage(Message msg) {
                 Log.e("return obj", "" + msg.obj);
                 if (msg.obj != null && (msg.obj.toString()).equals("200")) {
-                    Component_model selected_asset = DataHolder_Model.getInstance().getComponent_models().get(0);
+                    Component_model selected_asset =
+                            DataHolder_Model.getInstance().getComponent_models().get(0);
                     String subAssets_txt = selected_asset.getComponent_sub_assets();
                     if (subAssets_txt != null && !subAssets_txt.equals("0") && !subAssets_txt.equals("")) {
                         final List<String> sub_ast_name = Arrays.asList(subAssets_txt.split("##"));
@@ -972,7 +1096,8 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         Bitmap thermal_bitmap = BitmapAndroid.createBitmap(thermalImageFile.getImage()).getBitMap();
         Scale scale = thermalImageFile.getScale();
         scalImage = BitmapAndroid.createBitmap(scale.getFixedFullRangeScaleImage()).getBitMap();
-        putOverlay(thermal_bitmap, scalImage, thermalImageFile.getStatistics().min.asCelsius().value,
+        putOverlay(thermal_bitmap, scalImage,
+                thermalImageFile.getStatistics().min.asCelsius().value,
                 thermalImageFile.getStatistics().max.asCelsius().value);
         allImages.add(0, thermal_bitmap);
         printLog("scale max= " + thermalImageFile.getScale().getRangeMax().asCelsius());
@@ -988,14 +1113,13 @@ public class ThermalImageProcessing extends BaseActivity implements OnPointCreat
         Paint tvPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         tvPaint.setColor(Color.WHITE);
         tvPaint.setTextSize((int) (12 * scale));
-        canvas.drawText("" + round(maxTemp, 1), 10, top - 15, tvPaint);
-        canvas.drawText("" + round(minTemp, 1), 10, top * 3 + 35, tvPaint);
+        canvas.drawText("sd" + round(maxTemp, 1), 10, top - 15, tvPaint);
+        canvas.drawText("sd" + round(minTemp, 1), 10, top * 3 + 35, tvPaint);
 
     }
 
     public String convertTemperature(String temp) {
-        if (temp.equals("") || !_switch.isChecked())
-            return temp;
+        if (temp.equals("") || !_switch.isChecked()) return temp;
         Double newTemp = Double.parseDouble(temp);
         newTemp = 32 + (newTemp * 9 / 5);
         return "" + round(newTemp, 2);

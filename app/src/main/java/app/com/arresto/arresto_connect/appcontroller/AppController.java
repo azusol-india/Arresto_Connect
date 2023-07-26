@@ -109,7 +109,7 @@ public class AppController extends Application {
                 BluetoothDevice bluetoothDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 bluetoothDevice.setPin(BLE_PIN.getBytes());
                 abortBroadcast();
-                Log.e("TAG", "Auto-entering pin: " + BLE_PIN);
+                Log.e(TAG, "Auto-entering pin: " + BLE_PIN);
             }
         }
     };

@@ -116,7 +116,8 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
         }
     }
 
-    String image_url = "https://karam-bucket.s3.us-west-2.amazonaws.com/productimage/RETRACTABLE-BLOCKS/PCGS12.png";
+//    String image_url = "https://karam-bucket.s3.us-west-2.amazonaws.com/productimage/RETRACTABLE-BLOCKS/PCGS12.png";
+    String image_url = null;
 
     @NonNull
     @Override

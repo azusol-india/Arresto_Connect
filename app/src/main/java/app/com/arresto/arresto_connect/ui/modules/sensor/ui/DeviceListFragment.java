@@ -11,6 +11,7 @@ import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.OnItemClickListener {
+    public static final String TAG = AppController.class.getSimpleName();
+
     View view;
     @BindView(R.id.state_scanning)
     View scanningView;
@@ -112,6 +115,7 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
     @Override
     public void onResume() {
         super.onResume();
+        Log.d(TAG, "onResume:startScan ");
         scannerViewModel.startScan();
     }
 
@@ -257,7 +261,7 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
     public void startService() {
         service = new Intent(baseActivity, TempGattService.class);
         service.putExtra("sendDevice", true);
-        service.putExtra("needReconnect", false);
+        service.putExtra("needReconnect", true);//todo changed false to true
         baseActivity.startService(service);
     }
 

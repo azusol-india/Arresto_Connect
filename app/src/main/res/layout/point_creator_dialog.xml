@@ -12,7 +12,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

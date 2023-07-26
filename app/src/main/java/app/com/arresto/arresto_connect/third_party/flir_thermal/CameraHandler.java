@@ -8,16 +8,17 @@ import androidx.annotation.Nullable;
 import com.flir.thermalsdk.ErrorCode;
 import com.flir.thermalsdk.androidsdk.image.BitmapAndroid;
 import com.flir.thermalsdk.image.ImageBuffer;
+import com.flir.thermalsdk.image.PaletteManager;
 import com.flir.thermalsdk.image.Scale;
 import com.flir.thermalsdk.image.TemperatureUnit;
 import com.flir.thermalsdk.image.ThermalImage;
 import com.flir.thermalsdk.image.fusion.FusionMode;
-import com.flir.thermalsdk.image.palettes.PaletteManager;
 import com.flir.thermalsdk.live.Camera;
 import com.flir.thermalsdk.live.CommunicationInterface;
 import com.flir.thermalsdk.live.ConnectParameters;
 import com.flir.thermalsdk.live.Identity;
 import com.flir.thermalsdk.live.connectivity.ConnectionStatusListener;
+import com.flir.thermalsdk.live.discovery.DiscoveredCamera;
 import com.flir.thermalsdk.live.discovery.DiscoveryEventListener;
 import com.flir.thermalsdk.live.discovery.DiscoveryFactory;
 import com.flir.thermalsdk.live.remote.OnReceived;
@@ -68,14 +69,29 @@ public class CameraHandler {
         DiscoveryFactory.getInstance().scan(
                 new DiscoveryEventListener() {
                     @Override
-                    public void onCameraFound(Identity identity) {
-                        foundIdentities.add(identity);
-                        statusChangeListner.onNewCameraFound(identity);
+                    public void onCameraFound(DiscoveredCamera identity) {
+                        foundIdentities.add(identity.getIdentity());
+                        statusChangeListner.onNewCameraFound(identity.getIdentity());
                     }
+
+//                    @Override
+//                    public void onCameraFound(DiscoveredCamera discoveredCamera) {
+//
+//                    }
 
                     @Override
                     public void onDiscoveryError(CommunicationInterface communicationInterface, ErrorCode error) {
                         // need to implement in a production app
+                    }
+
+                    @Override
+                    public void onCameraLost(Identity identity) {
+                        DiscoveryEventListener.super.onCameraLost(identity);
+                    }
+
+                    @Override
+                    public void onDiscoveryFinished(CommunicationInterface communicationInterface) {
+                        DiscoveryEventListener.super.onDiscoveryFinished(communicationInterface);
                     }
                 }
                 , CommunicationInterface.EMULATOR, CommunicationInterface.USB, CommunicationInterface.INTEGRATED);

@@ -129,6 +129,7 @@ import app.com.arresto.arresto_connect.ui.modules.inspection.Recently_Inspected_
 import app.com.arresto.arresto_connect.ui.modules.kowledge_tree.Karam_infonet_frg;
 import app.com.arresto.arresto_connect.ui.modules.rams.Projects_fragment;
 import app.com.arresto.arresto_connect.ui.modules.safety_management.Safety_Select_Forms;
+
 import app.com.arresto.arresto_connect.ui.modules.sensor.ui.Add_SensorFragment;
 import app.com.arresto.arresto_connect.ui.modules.sensor.ui.DeviceListFragment;
 import app.com.arresto.arresto_connect.ui.modules.training.Training_Home;

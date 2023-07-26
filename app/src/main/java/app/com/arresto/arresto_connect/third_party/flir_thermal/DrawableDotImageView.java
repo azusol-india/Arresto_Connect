@@ -1,8 +1,6 @@
 package app.com.arresto.arresto_connect.third_party.flir_thermal;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Matrix;
@@ -24,8 +22,6 @@ import com.flir.thermalsdk.image.Point;
 
 import java.util.ArrayList;
 
-import app.com.arresto.arresto_connect.constants.AppUtils;
-import app.com.arresto.arresto_connect.ui.activity.HomeActivity;
 import app.com.arresto.arresto_connect.ui.modules.inspection.thermal.PointCreatorDialog;
 
 public class DrawableDotImageView extends AppCompatImageView implements View.OnTouchListener {
@@ -46,28 +42,31 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
         setup();
     }
 
-    public DrawableDotImageView(@NonNull Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DrawableDotImageView(@NonNull Context context, @Nullable AttributeSet attrs,
+                                int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setup();
     }
 
     float xRatio;
-    //    float yRatio;
+    float yRatio;
     PointCreatorDialog pointCreatorDialog;
 
-    public void setBitmapWidth(int width, ArrayList<Point> intialPoint, PointCreatorDialog pointCreatorDialog) {
+    public void setBitmapWidth(int width, int height, ArrayList<Point> intialPoint,
+                               PointCreatorDialog pointCreatorDialog) {
         this.pointCreatorDialog = pointCreatorDialog;
         getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 getViewTreeObserver().removeOnGlobalLayoutListener(this);
                 xRatio = (float) width / getWidth();
+                yRatio = (float) height / getHeight();
                 if (intialPoint != null && intialPoint.size() > 0) {
                     for (Point point : intialPoint) {
-                        dots.add(new Dot(point.x / xRatio, point.y / xRatio, point.x, point.y,spotRadius));
+                        dots.add(new Dot(point.x / xRatio, point.y / yRatio, point.x, point.y,
+                                spotRadius));
                     }
                 }
-//                    yRatio = (float) bmp.getHeight() / getHeight();
             }
         });
     }
@@ -135,7 +134,8 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
             }
             canvas.drawText(dotName, x + 5, y - dot.radius - 5, tvPaint);
             canvas.drawText(dotName, x + 5, y - dot.radius - 5, stkPaint);
-            canvas.drawRect(x - dot.radius, y - dot.radius, x + dot.radius, y + dot.radius, strokePaint);
+            canvas.drawRect(x - dot.radius, y - dot.radius, x + dot.radius, y + dot.radius,
+                    strokePaint);
 //            canvas.drawLine(x, y - dot.radius, x, y + dot.radius, strokePaint);
 //            canvas.drawLine(x - dot.radius, y, x + dot.radius, y, strokePaint);
         }
@@ -174,12 +174,13 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
             case MotionEvent.ACTION_MOVE:
                 handler.removeCallbacks(mLongPressed);
                 if (touchedDot != null) {
-                    if (!touchedDot.getDotName().equals("T1") && !touchedDot.getDotName().equals("T2")) {
+                    if (!touchedDot.getDotName().equals("T1") && !touchedDot.getDotName().equals(
+                            "T2")) {
                         if (isInside(v, event)) {
                             touchedDot.x = event.getX();
                             touchedDot.y = event.getY();
                             touchedDot.bitmapX = event.getX() * xRatio;
-                            touchedDot.bitmapY = event.getY() * xRatio;
+                            touchedDot.bitmapY = event.getY() * yRatio;
                             invalidate();
                         }
                     }
@@ -192,17 +193,22 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
                         touchedDot = null;
                     } else {
                         //todo dot added
-                    float[] points = getPointOfTouchedCordinate((ImageView) v, event);
+                        float[] points = getPointOfTouchedCordinate((ImageView) v, event);
                         if (isInside(v, event)) {
                             if (dots.size() > 7) {
-                                Toast.makeText(getContext(), "You can't create more thermal spot!", Toast.LENGTH_LONG).show();
+                                Toast.makeText(getContext(), "You can't create more thermal " +
+                                        "spot!", Toast.LENGTH_LONG).show();
                             } else {
-//                                dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio));
-                                dots.add(new Dot(event.getX(), event.getY(), event.getX() * xRatio, event.getY() * xRatio,spotRadius));
+//                                dots.add(new Dot(event.getX(), event.getY(), event.getX() *
+//                                xRatio, event.getY() * xRatio,spotRadius));
+                                dots.add(new Dot(event.getX(), event.getY(), event.getX() *
+                                 xRatio, event.getY() * yRatio, spotRadius));
                                 invalidate();
-                                Log.w("Dot created ", "points"+points);
-                                Log.w("Dot created ", "calculated X: " + event.getX() * xRatio + "  Y: " + event.getY() * xRatio);
-                                Log.w("ImageView", "Dot created X: " + event.getX() + " Y: " + event.getY());
+                                Log.w("Dot created ", "points" + points);
+                                Log.w("Dot created ", "calculated X: " + event.getX() * xRatio +
+                                        "  Y: " + event.getY() * yRatio);
+                                Log.w("ImageView",
+                                        "Dot created X: " + event.getX() + " Y: " + event.getY());
                             }
                         }
                     }
@@ -221,9 +227,7 @@ public class DrawableDotImageView extends AppCompatImageView implements View.OnT
 
 
     private boolean isInside(View v, MotionEvent e) {
-        return !(e.getX() - 40 < 0 || e.getY() - 40 < 0
-                || e.getX() + 40 > v.getMeasuredWidth()
-                || e.getY() + 40 > v.getMeasuredHeight());
+        return !(e.getX() - 40 < 0 || e.getY() - 40 < 0 || e.getX() + 40 > v.getMeasuredWidth() || e.getY() + 40 > v.getMeasuredHeight());
     }
 
 

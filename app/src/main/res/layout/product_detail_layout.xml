@@ -432,44 +432,6 @@
             app:text_color="1" />
     </app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>
 
-
-    <!--    <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout-->
-    <!--        android:id="@+id/inspctn_pram_lay"-->
-    <!--        android:layout_width="0dp"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_margin="@dimen/margin_10dp"-->
-    <!--        android:background="@drawable/edittext_bg"-->
-    <!--        app:bg_color="2"-->
-    <!--        app:bg_type="border_bg"-->
-    <!--        app:layout_columnWeight="1"-->
-    <!--        app:layout_rowWeight="1">-->
-
-    <!--        <ImageView-->
-    <!--            android:id="@+id/inspctn_pram_img"-->
-    <!--            android:layout_width="30dp"-->
-    <!--            android:layout_height="30dp"-->
-    <!--            android:layout_centerHorizontal="true"-->
-    <!--            android:layout_margin="10dp"-->
-    <!--            android:src="@drawable/guide_ic" />-->
-
-    <!--        <app.com.arresto.arresto_connect.custom_views.My_TextView-->
-    <!--            android:layout_width="match_parent"-->
-    <!--            android:layout_height="wrap_content"-->
-    <!--            android:layout_below="@+id/inspctn_pram_img"-->
-    <!--            android:layout_centerVertical="true"-->
-    <!--            android:background="@color/app_text"-->
-    <!--            android:gravity="center"-->
-    <!--            android:paddingLeft="5dp"-->
-    <!--            android:paddingRight="5dp"-->
-    <!--            android:text="@string/lbl_ins_params_st"-->
-    <!--            android:textColor="@color/button_bg"-->
-    <!--            app:bg_color="2"-->
-    <!--            app:bg_type="color_bg"-->
-    <!--            app:lbl_text="lbl_ins_params_st"-->
-    <!--            app:text_color="4" />-->
-
-    <!--    </app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>-->
-
     <app.com.arresto.arresto_connect.custom_views.My_RelativeLayout
         android:id="@+id/othr_lay"
         android:layout_width="0dp"
@@ -508,4 +470,5 @@
             app:text_color="1" />
 
     </app.com.arresto.arresto_connect.custom_views.My_RelativeLayout>
+
 </androidx.gridlayout.widget.GridLayout>

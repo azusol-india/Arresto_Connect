@@ -83,7 +83,7 @@ public class PointCreatorDialog extends DialogFragment {
         final DrawableDotImageView imageView = view.findViewById(R.id.imageView);
         final MaterialButton save_btn = view.findViewById(R.id.save_btn);
         if (bitmap != null) {
-            imageView.setBitmapWidth(bitmap.getWidth(), intialPoint, PointCreatorDialog.this);
+            imageView.setBitmapWidth(bitmap.getWidth(),bitmap.getHeight(), intialPoint, PointCreatorDialog.this);
             imageView.setImageBitmap(bitmap);
         }
         spot_heading = view.findViewById(R.id.spot_heading);
