@@ -20,7 +20,7 @@
         android:layout_height="35dp"
         android:layout_marginTop="@dimen/margin_5dp"
         android:layout_gravity="bottom"
-        android:layout_marginLeft="-1dp"
+        android:layout_marginStart="-1dp"
         app:tabBackground="@drawable/tab_color_selector"
         app:tabIndicatorColor="@color/app_error"
         app:tabIndicatorHeight="3dp"

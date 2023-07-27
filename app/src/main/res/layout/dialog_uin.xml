@@ -71,6 +71,8 @@
                 android:background="@drawable/bg_btm_line"
                 android:hint="@string/lbl_entr_uin_st"
                 android:padding="10dp"
+                android:imeOptions="actionDone"
+                android:inputType="textCapCharacters"
                 android:textColor="@color/button_bg"
                 android:textSize="14dp"
                 app:bg_color="2"

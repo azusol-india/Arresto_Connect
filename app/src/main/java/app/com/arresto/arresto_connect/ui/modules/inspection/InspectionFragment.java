@@ -194,6 +194,7 @@ public class InspectionFragment extends Base_Fragment implements OnMapReadyCallb
                         || (server_lat.equals("0") && server_longi.equals("0"))) {
                     send_data2();
                 } else {
+                    Toast.makeText(getContext(),"lat:"+curr_lat+",long:"+curr_lng+"\nDistance meter:"+meterDistanceBetweenPoints(curr_lat, curr_lng, server_lat, server_longi),Toast.LENGTH_SHORT).show();
                     show_snak(getActivity(), "You seem to be out of location.");
                 }
                 break;

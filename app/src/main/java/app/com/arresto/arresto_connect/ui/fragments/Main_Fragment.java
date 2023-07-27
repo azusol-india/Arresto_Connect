@@ -1203,7 +1203,8 @@ public class Main_Fragment extends Base_Fragment implements View.OnClickListener
                     }
                 }
             });
-        } else if (inputtype.equalsIgnoreCase("Barcode")) {
+        }
+        else if (inputtype.equalsIgnoreCase("Barcode")) {
             scan_barcode(new BarcodeListener() {
                 @Override
                 public void onScanned(String scaned_text) {
@@ -1216,7 +1217,8 @@ public class Main_Fragment extends Base_Fragment implements View.OnClickListener
                     get_scaned_data(scaned_text, "");
                 }
             });
-        } else if (inputtype.equalsIgnoreCase("UIN")) {
+        }
+        else if (inputtype.equalsIgnoreCase("UIN")) {
             showUIN_Dialog(baseActivity, new Handler() {
                 @Override
                 public void handleMessage(@NonNull Message msg) {

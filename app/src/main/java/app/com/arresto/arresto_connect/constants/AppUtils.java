@@ -210,7 +210,7 @@ public class AppUtils {
                 if (parcelFileDescriptor != null) {
                     FileDescriptor fileDescriptor = parcelFileDescriptor.getFileDescriptor();
                     FileInputStream inputStream = new FileInputStream(fileDescriptor);
-                    File file = new File(activity.getCacheDir(), "temp_file");
+                    File file = new File(activity.getCacheDir(), "temp_file_" + System.currentTimeMillis() + ".jpg");
                     FileOutputStream outputStream = new FileOutputStream(file);
                     byte[] buffer = new byte[1024];
                     int bytesRead;
@@ -949,7 +949,8 @@ public class AppUtils {
             double t3 = Math.sin(a1) * Math.sin(b1);
             double tt = Math.acos(t1 + t2 + t3);
 
-            return 6366000 * tt;
+            return (6366000 * tt);
+//            return (6366000 * tt)/1000; for km
         } else
             return 0;
     }
