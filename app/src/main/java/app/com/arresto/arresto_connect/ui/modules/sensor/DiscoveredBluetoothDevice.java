@@ -40,7 +40,6 @@ import app.com.arresto.arresto_connect.ui.modules.sensor.ble_lib.ScanResult;
 import app.com.arresto.arresto_connect.ui.modules.sensor.server.FallCountModel;
 import app.com.arresto.arresto_connect.ui.modules.sensor.server.OnDeviceConnect;
 
-
 public class DiscoveredBluetoothDevice implements Parcelable {
     private final BluetoothDevice device;
     private ScanResult lastScanResult;
@@ -51,7 +50,8 @@ public class DiscoveredBluetoothDevice implements Parcelable {
     String deviceMode="";
     private int highestRssi = -130;
     FallCountModel.Firmware firmwareInfo;
-    public static final String TAG = AppController.class.getSimpleName();
+//    public static final String TAG = AppController.class.getSimpleName();
+    public static final String TAG = "DiscoveredBluetoothDevice";
 
     public DiscoveredBluetoothDevice(@NonNull final ScanResult scanResult) {
         Log.d(TAG, "DiscoveredBluetoothDevice:");
@@ -290,7 +290,7 @@ public class DiscoveredBluetoothDevice implements Parcelable {
 */
 
     public void update(@NonNull final ScanResult scanResult) {
-        Log.d(TAG, "update:");
+//        Log.d(TAG, "update:");
         lastScanResult = scanResult;
         name = scanResult.getScanRecord() != null ?
                 scanResult.getScanRecord().getDeviceName() : null;
@@ -301,7 +301,7 @@ public class DiscoveredBluetoothDevice implements Parcelable {
     }
 
     public boolean matches(@NonNull final ScanResult scanResult) {
-        Log.d(TAG, "matches:");
+//        Log.d(TAG, "matches:");
         return device.getAddress().equals(scanResult.getDevice().getAddress());
     }
 

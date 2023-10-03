@@ -969,6 +969,7 @@ public class Master_detail_fragment extends Base_Fragment implements View.OnClic
 
     // For continue Inspection
     public void load_inspfrag() {
+        Log.d("TAG", "load_inspfrag:continue Inspection ");
         InspectionFragment inspectionFragment = new InspectionFragment();
         Bundle bundle = new Bundle();
         if (site_model != null && site_model.getClient_name() != null) {

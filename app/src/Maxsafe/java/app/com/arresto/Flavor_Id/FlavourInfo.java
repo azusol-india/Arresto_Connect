@@ -16,7 +16,9 @@ public interface FlavourInfo {
     double distance_unit = 1.0;
     String unit_name = " KM";
     String date_format = "dd-MM-yyyy";
-    String HOST = "https://arresto.in/connect/";
+    String Base = "https://arresto.in";
+    String HOST = Base+"/connect/";
+    // String HOST = "https://arresto.in/connect/";
     String webData = "<html>" +
 //            "<head>" +
 //            "<style>" +

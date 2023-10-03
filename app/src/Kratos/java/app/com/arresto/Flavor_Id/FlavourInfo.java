@@ -18,7 +18,9 @@ public interface FlavourInfo {
     String unit_name = "miles";
     String date_format = "dd-MM-yyyy hh:mm: a";
     //    String HOST = "https://arresto.in/connect/";
-    String HOST = "https://arresto.in/connectkare/";
+    // String HOST = "https://arresto.in/connectkare/";
+    String Base = "https://arresto.in";
+    String HOST = Base+"/connectkare/";
 
     String webData = "<ol class=decimal>" +
             "<li class=decimal><u><strong>General Introduction</strong></u>" +

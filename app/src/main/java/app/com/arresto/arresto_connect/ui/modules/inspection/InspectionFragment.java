@@ -98,6 +98,7 @@ public class InspectionFragment extends Base_Fragment implements OnMapReadyCallb
 
     @Override
     public View FragmentView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        Log.d("TAG", "FragmentView:InspectionFragment ");
         if (view == null) {
             binding = DataBindingUtil.inflate(inflater, R.layout.inspection_fragment, parent, false);
             view = binding.getRoot();

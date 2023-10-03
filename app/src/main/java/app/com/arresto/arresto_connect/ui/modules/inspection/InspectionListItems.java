@@ -56,6 +56,7 @@ public class InspectionListItems extends Fragment {
     public String inspection_id;
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        Log.d("TAG", "onCreateView:InspectionListItems");
         View view = inflater.inflate(R.layout.inspection_list_items, container, false);
 //        for db
         isSpare = false;

@@ -152,6 +152,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onStart() {
         super.onStart();
+        Log.d("TAG", "onStart:HomeActivity ");
         isStoragePermissionGranted();
         if (!Check_permissions.hasPermissions(this, OTHER_PERMISSIONS)) {
             Check_permissions.request_permissions(this, OTHER_PERMISSIONS);
@@ -182,6 +183,7 @@ public class HomeActivity extends BaseActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         homeActivity = this;
+        Log.d("TAG", "onStart:HomeActivity ");
         getHelpVideoData(null);
         Static_values.downloaded_sites = AppController.getInstance().getDatabase().getSites_data_Dao().getAllSitesId(user_id, client_id);
         addAutoStartup(this);

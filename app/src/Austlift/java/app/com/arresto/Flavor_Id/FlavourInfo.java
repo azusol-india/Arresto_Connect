@@ -16,7 +16,9 @@ public interface FlavourInfo {
     double distance_unit = 1.0;
     String unit_name = " KM";
     String date_format = "dd-MM-yyyy";
-    String HOST = "https://arresto.in/connect/";
+    String Base = "https://arresto.in";
+    String HOST = Base+"/connect/";
+    // String HOST = "https://arresto.in/connect/";
     String webData = "<html>" +
             "<h3 align=center>TERMS OF USE</h3>" +
             "<ol class=decimal>" +
@@ -366,6 +368,8 @@ public interface FlavourInfo {
             "</ol>" +"<br>"+
             "<u><sup>1</sup> developed by Arresto Solutions Pvt. Ltd. </u>" +
             "</html>";
+
+    String webData_spenish = "";
 
     String server_alert ="<html>" +
             "<h3 align=center>&quotAustlift Application Updation&quot</h3>" +

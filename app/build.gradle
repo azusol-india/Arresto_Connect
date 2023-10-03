@@ -27,7 +27,7 @@ android {
                 arguments = ["room.schemaLocation": "$projectDir/schemas".toString()]
             }
         }
-        ndk.abiFilters 'armeabi-v7a'
+        ndk.abiFilters 'armeabi-v7a','arm64-v8a','x86_64'
     }
 //'arm64-v8a','x86_64',
     dataBinding {
@@ -167,32 +167,32 @@ android {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.Maxsafe'
-            versionCode 13
-            versionName '1.3.1'
+            versionCode 14
+            versionName '1.3.2'
             signingConfig signingConfigs.release2
         }
         kratos {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.Kratos'
-            versionCode 10
-            versionName '1.0.9'
+            versionCode 11
+            versionName '1.0.10'
             signingConfig signingConfigs.release3
         }
         austlift {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.Austlift'
-            versionCode 10
-            versionName '1.0.9'
+            versionCode 11
+            versionName '1.0.10'
             signingConfig signingConfigs.release4
         }
         KaramDmcc {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.KaramDmcc'
-            versionCode 10
-            versionName '1.0.9'
+            versionCode 11
+            versionName '1.0.10'
             signingConfig signingConfigs.release5
         }
         BlackDecker {
@@ -239,16 +239,16 @@ android {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.i4t'
-            versionCode 5
-            versionName '0.0.5'
+            versionCode 6
+            versionName '0.0.6'
             signingConfig signingConfigs.release11
         }
         konnect_pro_peru {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.konnect_pro_peru'
-            versionCode 3
-            versionName '0.0.3'
+            versionCode 4
+            versionName '0.0.4'
             signingConfig signingConfigs.release12
         }
         snn {
@@ -263,8 +263,8 @@ android {
             minSdkVersion minSdk
             targetSdkVersion targetSdk
             applicationId 'app.com.KStrong_Asia'
-            versionCode 13
-            versionName '0.1.3'
+            versionCode 14
+            versionName '0.1.4'
             signingConfig signingConfigs.release14
         }
         Dewalt {
@@ -316,9 +316,13 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     implementation 'com.jakewharton:butterknife:10.2.3'
     annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.3'
-    implementation 'no.nordicsemi.android:dfu:2.2.2'
+    implementation 'no.nordicsemi.android:dfu:2.3.0'
+//    implementation 'no.nordicsemi.android:dfu:2.2.2'
     implementation 'com.github.franmontiel:PersistentCookieJar:v1.0.1'
     implementation 'androidx.work:work-runtime:2.7.1'
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3"
+
 
     implementation files('libs/acra.jar')
     implementation files('libs/jxl-2.6.12.jar')

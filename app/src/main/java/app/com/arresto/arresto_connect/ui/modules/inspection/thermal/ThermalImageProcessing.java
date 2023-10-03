@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.flir.thermalsdk.androidsdk.BuildConfig;
 import com.flir.thermalsdk.androidsdk.ThermalSdkAndroid;
 import com.flir.thermalsdk.androidsdk.image.BitmapAndroid;
 import com.flir.thermalsdk.image.ImageFactory;
@@ -54,7 +55,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import app.com.arresto.arresto_connect.BuildConfig;
 import app.com.arresto.arresto_connect.R;
 import app.com.arresto.arresto_connect.appcontroller.AppController;
 import app.com.arresto.arresto_connect.constants.AppUtils;

@@ -96,6 +96,8 @@ public class InspectionAssetFragment extends Base_Fragment implements View.OnCli
 
     @Override
     public View FragmentView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        Log.d("TAG", "Activity FragmentView:InspectionAssetFragment");
+
         if (view == null) {
             view = inflater.inflate(R.layout.inspectionassetfragment, parent, false);
             find_id();

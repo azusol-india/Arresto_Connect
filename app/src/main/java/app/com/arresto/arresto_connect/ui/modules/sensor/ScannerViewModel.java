@@ -110,6 +110,7 @@ public class ScannerViewModel extends AndroidViewModel {
 	 *                     in the advertising packet.
 	 */
 	public void filterByName(final boolean uuidRequired) {
+		Log.d("ScannerViewModel", "filterByName: "+uuidRequired);
 		preferences.edit().putBoolean(PREFS_FILTER_NAME_REQUIRED, uuidRequired).apply();
 		if (devicesLiveData.filterByName(uuidRequired))
 			scannerStateLiveData.recordFound();
@@ -138,7 +139,8 @@ public class ScannerViewModel extends AndroidViewModel {
 			scanner.startScan(null, settings, scanCallback);
 			scannerStateLiveData.scanningStarted();
 		}catch (Exception e){
-			Log.d("ScannerViewModel", "startScan: "+e.getMessage());
+			Log.d("ScannerViewModel", "startScan:excep "+e.getMessage());
+			stopScan();
 //			Toast.makeText(conte,"scanner not available",Toast.LENGTH_SHORT).show();
 		}
 	}

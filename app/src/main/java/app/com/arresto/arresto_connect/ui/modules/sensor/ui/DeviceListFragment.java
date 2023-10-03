@@ -1,6 +1,7 @@
 package app.com.arresto.arresto_connect.ui.modules.sensor.ui;
 
 import static app.com.arresto.arresto_connect.constants.AppUtils.getResString;
+import static app.com.arresto.arresto_connect.ui.modules.sensor.server.SensorConstants.EXTRA_DEVICE;
 
 import android.Manifest;
 import android.bluetooth.BluetoothAdapter;
@@ -26,10 +27,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 
 import app.com.arresto.arresto_connect.R;
 import app.com.arresto.arresto_connect.appcontroller.AppController;
+import app.com.arresto.arresto_connect.constants.LoadFragment;
 import app.com.arresto.arresto_connect.ui.fragments.Base_Fragment;
 import app.com.arresto.arresto_connect.ui.modules.sensor.DiscoveredBluetoothDevice;
 import app.com.arresto.arresto_connect.ui.modules.sensor.ScannerStateLiveData;
@@ -41,7 +45,8 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.OnItemClickListener {
-    public static final String TAG = AppController.class.getSimpleName();
+//    public static final String TAG = AppController.class.getSimpleName();
+    public static final String TAG = "DeviceListFragment";
 
     View view;
     @BindView(R.id.state_scanning)
@@ -62,9 +67,11 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
     RecyclerView recyclerView;
     @BindView(R.id.swipe)
     SwipeRefreshLayout swipe;
+    @BindView(R.id.start_stop_servce)
+    FloatingActionButton stopButton;
 
     ScannerViewModel scannerViewModel;
-    boolean isGyro=false;
+    boolean isGyro=false,scanning=false;
     //    TempGattService mService;
     private static final int REQUEST_ACCESS_FINE_LOCATION = 1022; // random number
 
@@ -107,6 +114,20 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
                     swipe.setRefreshing(false);
                 }
             });
+
+            stopButton.setOnClickListener(v->{
+                if(scanning) {
+                    scanning=false;
+                    stopService();
+                    stopScan();
+                }
+                else{
+                    scanning=true;
+                    scannerViewModel.startScan();
+//                    startService();
+                }
+            });
+
         }
         return view;
     }
@@ -116,7 +137,7 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
     public void onResume() {
         super.onResume();
         Log.d(TAG, "onResume:startScan ");
-        scannerViewModel.startScan();
+//        scannerViewModel.startScan();
     }
 
     @Override
@@ -149,6 +170,7 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
 
     @Override
     public void onItemClick(@NonNull final DiscoveredBluetoothDevice device) {
+//        //todo
 //        DataViewFragment viewFragment = new DataViewFragment();
 //        Bundle bundle = new Bundle();
 //        bundle.putParcelable(EXTRA_DEVICE, device);
@@ -197,44 +219,46 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
     private void startScan(final ScannerStateLiveData state) {
         // First, check the Location permission. This is required on Marshmallow onwards in order
         // to scan for Bluetooth LE devices.
-        if (Utils.isLocationPermissionsGranted(baseActivity)) {
-            noLocationPermissionView.setVisibility(View.GONE);
-            // Bluetooth must be enabled.
-            if (state.isBluetoothEnabled()) {
-                noBluetoothView.setVisibility(View.GONE);
-                scannerViewModel.startScan();
-                scanningView.setVisibility(View.VISIBLE);
-                if (!state.hasRecords()
-                        && (scannerViewModel.getDevices().getDevices() == null
-                        || scannerViewModel.getDevices().getDevices().size() < 1)) {
-                    emptyView.setVisibility(View.VISIBLE);
-                    if (!Utils.isLocationRequired(baseActivity) || Utils.isLocationEnabled(baseActivity)) {
-                        noLocationView.setVisibility(View.INVISIBLE);
+        if(scanning && service !=null) {
+            Log.d(TAG, "startScan: DeviceListFragment");
+            if (Utils.isLocationPermissionsGranted(baseActivity)) {
+                noLocationPermissionView.setVisibility(View.GONE);
+                // Bluetooth must be enabled.
+                if (state.isBluetoothEnabled()) {
+                    noBluetoothView.setVisibility(View.GONE);
+                    scannerViewModel.startScan();
+                    scanningView.setVisibility(View.VISIBLE);
+                    if (!state.hasRecords() && (scannerViewModel.getDevices().getDevices() == null || scannerViewModel.getDevices().getDevices().size() < 1)) {
+                        emptyView.setVisibility(View.VISIBLE);
+                        if (!Utils.isLocationRequired(baseActivity) || Utils.isLocationEnabled(baseActivity)) {
+                            noLocationView.setVisibility(View.INVISIBLE);
+                        } else {
+                            noLocationView.setVisibility(View.VISIBLE);
+                        }
                     } else {
-                        noLocationView.setVisibility(View.VISIBLE);
+                        emptyView.setVisibility(View.GONE);
                     }
                 } else {
+                    noBluetoothView.setVisibility(View.VISIBLE);
+                    scanningView.setVisibility(View.INVISIBLE);
                     emptyView.setVisibility(View.GONE);
+                    clear();
                 }
             } else {
-                noBluetoothView.setVisibility(View.VISIBLE);
+                noLocationPermissionView.setVisibility(View.VISIBLE);
+                noBluetoothView.setVisibility(View.GONE);
                 scanningView.setVisibility(View.INVISIBLE);
                 emptyView.setVisibility(View.GONE);
-                clear();
-            }
-        } else {
-            noLocationPermissionView.setVisibility(View.VISIBLE);
-            noBluetoothView.setVisibility(View.GONE);
-            scanningView.setVisibility(View.INVISIBLE);
-            emptyView.setVisibility(View.GONE);
 
-            final boolean deniedForever = Utils.isLocationPermissionDeniedForever(baseActivity);
-            grantPermissionButton.setVisibility(deniedForever ? View.GONE : View.VISIBLE);
-            permissionSettingsButton.setVisibility(deniedForever ? View.VISIBLE : View.GONE);
+                final boolean deniedForever = Utils.isLocationPermissionDeniedForever(baseActivity);
+                grantPermissionButton.setVisibility(deniedForever ? View.GONE : View.VISIBLE);
+                permissionSettingsButton.setVisibility(deniedForever ? View.VISIBLE : View.GONE);
+            }
         }
     }
 
     private void stopScan() {
+        scanningView.setVisibility(View.GONE);
         scannerViewModel.stopScan();
     }
 
@@ -246,29 +270,31 @@ public class DeviceListFragment extends Base_Fragment implements DevicesAdapter.
     BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent i) {
-            printLog("old devices found intent== " + i);
+            printLog("ui intent== " + i);
             ArrayList<DiscoveredBluetoothDevice> allDevices = i.getExtras().getParcelableArrayList("devices");
             printLog("old devices found " + allDevices);
-//            if (allDevices != null && allDevices.size() > 0) {
-//                emptyView.setVisibility(View.GONE);
-//                scannerViewModel.getDevices().addDevices(allDevices);
-//            }
+            if (allDevices != null && allDevices.size() > 0) {
+                emptyView.setVisibility(View.GONE);
+                scannerViewModel.getDevices().addDevices(allDevices);
+            }
         }
     };
 
     Intent service;
 
     public void startService() {
+        Log.d(TAG, "startService: DeviceList");
         service = new Intent(baseActivity, TempGattService.class);
         service.putExtra("sendDevice", true);
         service.putExtra("needReconnect", true);//todo changed false to true
         baseActivity.startService(service);
+//        startScan(scannerViewModel.getScannerState());
     }
 
     public void stopService() {
         if (service != null) {
             Intent service = new Intent(baseActivity, TempGattService.class); //to stop service put null argument
-            baseActivity.startService(service);
+            baseActivity.stopService(service);
         }
     }
 

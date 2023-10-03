@@ -26,6 +26,7 @@ public class DevicesLiveData extends LiveData<List<DiscoveredBluetoothDevice>> {
     private boolean filterUuidRequired;
     private boolean filterNearbyOnly;
     private boolean filterName;
+    public static final String TAG = "DevicesLiveData";
 
     DevicesLiveData(final boolean filterUuidRequired, final boolean filterNearbyOnly) {
         this.filterUuidRequired = filterUuidRequired;
@@ -57,7 +58,7 @@ public class DevicesLiveData extends LiveData<List<DiscoveredBluetoothDevice>> {
         for (DiscoveredBluetoothDevice device : devices) {
             addNewDevice(device);
         }
-        Log.e("addDevices found ", "" + devices);
+        Log.e(TAG+" addDevices found ", "" + devices);
         applyFilter();
     }
 
@@ -65,12 +66,13 @@ public class DevicesLiveData extends LiveData<List<DiscoveredBluetoothDevice>> {
         if (!devicesName.contains(device.getName())) {
             devices.add(device);
             devicesName.add(device.getName());
-            Log.e("addNewDevice found ", "gfgf===" + devicesName);
+            Log.e(TAG+" addNewDevice found ", "gfgf===" + devicesName);
         }
     }
 
 
     synchronized boolean deviceDiscovered(@NonNull final ScanResult result) {
+        Log.e(TAG+" deviceDiscovered ", "" + devicesName);
         DiscoveredBluetoothDevice device;
         // Check if it's a new device.
         final int index = indexOf(result);
@@ -121,6 +123,8 @@ public class DevicesLiveData extends LiveData<List<DiscoveredBluetoothDevice>> {
         if (deviceName == null)
             return false;
         return deviceName.contains(FILTER_NAME);
+//        return deviceName.equalsIgnoreCase("KARE-30253D");
+//        return true;
     }
 
     /**

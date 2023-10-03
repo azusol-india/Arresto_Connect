@@ -30,6 +30,7 @@ import static android.Manifest.permission.ACCESS_FINE_LOCATION;
 import static android.Manifest.permission.ACCESS_MEDIA_LOCATION;
 import static android.Manifest.permission.ACCESS_NETWORK_STATE;
 import static android.Manifest.permission.ACCESS_WIFI_STATE;
+import static android.Manifest.permission.BLUETOOTH_CONNECT;
 import static android.Manifest.permission.BLUETOOTH_SCAN;
 import static android.Manifest.permission.CAMERA;
 import static android.Manifest.permission.NFC;
@@ -48,7 +49,7 @@ public class Check_permissions {
     public static String[] CAMERA_STORAGE_PERMISSIONS = {WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE, CAMERA};
     public static String[] CAMERA_STORAGE_PERMISSIONS_10 = {ACCESS_MEDIA_LOCATION, CAMERA};
     public static
-    String[] OTHER_PERMISSIONS = {WAKE_LOCK, NFC, RECEIVE_BOOT_COMPLETED,
+    String[] OTHER_PERMISSIONS = {WAKE_LOCK, NFC, RECEIVE_BOOT_COMPLETED,BLUETOOTH_SCAN,BLUETOOTH_CONNECT,
             READ_PHONE_STATE, ACCESS_WIFI_STATE, ACCESS_NETWORK_STATE, SCHEDULE_EXACT_ALARM};
 
     public static String[] LOCATION_PERMISSIONS = {ACCESS_FINE_LOCATION};
@@ -150,7 +151,6 @@ public class Check_permissions {
         }
     }
     */
-
 
     public static void request_LocationPermission(Activity activity) {
         if (ActivityCompat.checkSelfPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {

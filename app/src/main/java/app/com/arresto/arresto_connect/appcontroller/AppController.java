@@ -43,7 +43,7 @@ import app.com.arresto.arresto_connect.network.All_Api;
 import app.com.arresto.arresto_connect.network.ToStringConverterFactory;
 import retrofit2.Retrofit;
 
-@ReportsCrashes(formKey = "", mailTo = "anuj.tyagi@flashonmind.com,varun@flashonmind.com",
+@ReportsCrashes(formKey = "", mailTo = "satyam@arresto.in,varun@flashonmind.com",
         customReportContent = {ReportField.APP_VERSION_NAME, ReportField.ANDROID_VERSION, ReportField.PHONE_MODEL, ReportField.STACK_TRACE, ReportField.LOGCAT},
         mode = ReportingInteractionMode.SILENT)
 public class AppController extends Application {
@@ -100,7 +100,9 @@ public class AppController extends Application {
         getApplicationContext().registerReceiver(broadCastReceiver, intentFilter);
     }
 
-    private String BLE_PIN = "000012";
+//    private String BLE_PIN = "123456";
+    private String BLE_PIN = "000000";
+//    private String BLE_PIN = "000012";
 
     private BroadcastReceiver broadCastReceiver = new BroadcastReceiver() {
         public void onReceive(Context context, Intent intent) {
@@ -108,7 +110,7 @@ public class AppController extends Application {
             if (BluetoothDevice.ACTION_PAIRING_REQUEST.equals(action)) {
                 BluetoothDevice bluetoothDevice = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 bluetoothDevice.setPin(BLE_PIN.getBytes());
-                abortBroadcast();
+//                abortBroadcast();
                 Log.e(TAG, "Auto-entering pin: " + BLE_PIN);
             }
         }

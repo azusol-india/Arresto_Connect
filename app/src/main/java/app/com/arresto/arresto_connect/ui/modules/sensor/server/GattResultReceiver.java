@@ -38,7 +38,7 @@ public class GattResultReceiver<T> extends ResultReceiver {
 //                listner.notifyData(resultData.getString(RESULT_STRING));
                 listner.notifyData(resultData.getSerializable(RESULT_STRING));
             }else if (resultCode == RESULT_STATE) {
-                Log.e("RESULT_BOOT ", " is : " + resultData.getString(RESULT_STRING));
+                Log.e("RESULT_BOOT ", ""+device.getName()+" is : " + resultData.getString(RESULT_STRING));
                 listner.onStateChange(resultData.getString(RESULT_STRING));
             }
             }

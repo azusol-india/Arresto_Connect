@@ -38,7 +38,6 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -80,6 +79,7 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
     BaseActivity activity;
     Intent service;
     boolean isGyro;
+    public static final String TAG = "DevicesAdapter";
 
     @FunctionalInterface
     public interface OnItemClickListener {
@@ -104,11 +104,11 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
         });
     }
 
-//    public void updateAdapter(List<DiscoveredBluetoothDevice> new_devices) {
-//        for (DiscoveredBluetoothDevice device : new_devices) {
-//            device.matches()
-//        }
-//    }
+    public void updateAdapter(List<DiscoveredBluetoothDevice> new_devices) {
+        for (DiscoveredBluetoothDevice device : new_devices) {
+            device.matches(device.getScanResult());
+        }
+    }
 
     public void cancelAllTask() {
         for (AsyncTask task : tasks) {
@@ -212,7 +212,14 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
             holder.dv_mode_tv.setVisibility(View.GONE);
         }
 
+        holder.connect_btn.setOnClickListener(v->{
+            Log.d(TAG, "isConnected:started Service");
+            makeBackGroundGatt(devices.get(holder.getAdapterPosition()), holder);
+        });
+
         if (device.isConnected()) {
+            Log.d(TAG, "isConnected:true "+device.getBatteryPercentage());
+            Log.d(TAG, "sensorMap "+sensorMap.containsKey(deviceName));
             if (device.getBatteryPercentage() != -1) {
                 holder.battery_view.setBatteryLevel(device.getBatteryPercentage());
                 holder.version_tv.setText(device.getVersionName());
@@ -234,13 +241,15 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
                 holder.version_tv.setVisibility(View.GONE);
             }
         } else {
-            device.setConnected(true);
-            makeBackGroundGatt(device, holder);
+            Log.d(TAG, "isConnected:false");
+//            makeBackGroundGatt(device, holder);
+//            device.setConnected(true);
         }
 
     }
 
     public boolean isVersionMatch(FallCountModel model, DiscoveredBluetoothDevice device) {
+        Log.d(TAG, "isVersionMatch: ");
         if (!device.getVersionName().equals("")
                 && model.getFirmware_info().getFirmware_version() != null
                 && !model.getFirmware_info().getFirmware_version().equals("")) {
@@ -286,62 +295,13 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
         return getItemCount() == 0;
     }
 
-    final class ViewHolder extends RecyclerView.ViewHolder {
-        @BindView(R.id.asset_name)
-        TextView asset_name;
-        @BindView(R.id.device_name)
-        TextView deviceName;
-        @BindView(R.id.asset_img)
-        ImageView asset_img;
-
-        @BindView(R.id.address_tv)
-        TextView address_tv;
-        @BindView(R.id.conct_tv)
-        TextView conct_tv;
-
-        @BindView(R.id.battery_view)
-        BatteryView battery_view;
-
-
-        @BindView(R.id.details_btn)
-        MaterialButton details_btn;
-
-        @BindView(R.id.status_btn)
-        MaterialButton status_btn;
-
-        @BindView(R.id.view_btn)
-        MaterialButton view_btn;
-
-        @BindView(R.id.view_history)
-        MaterialButton view_history;
-
-        @BindView(R.id.update_btn)
-        LinearLayout update_btn;
-
-        @BindView(R.id.version_tv)
-        TextView version_tv;
-        @BindView(R.id.dv_mode_tv)
-        TextView dv_mode_tv;
-
-
-        private ViewHolder(@NonNull final View view) {
-            super(view);
-            ButterKnife.bind(this, view);
-            view.findViewById(R.id.device_container).setOnClickListener(v -> {
-                if (onItemClickListener != null) {
-                    onItemClickListener.onItemClick(devices.get(getAdapterPosition()));
-                }
-            });
-
-        }
-
-    }
-
     @SuppressLint({"HandlerLeak", "StaticFieldLeak"})
     public void makeBackGroundGatt(DiscoveredBluetoothDevice device, ViewHolder holder) {
+        Log.d(TAG, "makeBackGroundGatt ="+device);
         tasks.add(new AsyncTask<Void, String, Void>() {
             @Override
             protected Void doInBackground(Void... voids) {
+                Log.d(TAG, "makeBackGroundGatt BG");
                 OnDeviceConnect onDeviceConnect = new OnDeviceConnect() {
                     @Override
                     public void onAssetFetched(FallCountModel fallCountModel) {
@@ -412,12 +372,13 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
 
                     @Override
                     public void onStateChange(String state) {
-                        Log.e("onDeviceBoot ", " is : " + state);
+                        Log.e(TAG, "onDeviceBoot "+" is : " + state);
                         if (state.equals("booting")) {
                             device.setDeviceMode(state);
                         } else {
                             device.setDeviceMode("");
                         }
+                        device.setConnected(true);
                         activity.runOnUiThread(new Runnable() {
                             public void run() {
                                 notifyItemChanged(device.getListPosition());
@@ -546,6 +507,61 @@ public class DevicesAdapter extends RecyclerView.Adapter<DevicesAdapter.ViewHold
             default:
                 return "";
         }
+    }
+
+
+    final class ViewHolder extends RecyclerView.ViewHolder {
+        @BindView(R.id.asset_name)
+        TextView asset_name;
+        @BindView(R.id.device_name)
+        TextView deviceName;
+        @BindView(R.id.asset_img)
+        ImageView asset_img;
+
+        @BindView(R.id.address_tv)
+        TextView address_tv;
+        @BindView(R.id.conct_tv)
+        TextView conct_tv;
+
+        @BindView(R.id.battery_view)
+        BatteryView battery_view;
+
+
+        @BindView(R.id.details_btn)
+        MaterialButton details_btn;
+
+        @BindView(R.id.status_btn)
+        MaterialButton status_btn;
+
+        @BindView(R.id.view_btn)
+        MaterialButton view_btn;
+
+        @BindView(R.id.connect_btn)
+        MaterialButton connect_btn;
+
+        @BindView(R.id.view_history)
+        MaterialButton view_history;
+
+        @BindView(R.id.update_btn)
+        LinearLayout update_btn;
+
+        @BindView(R.id.version_tv)
+        TextView version_tv;
+        @BindView(R.id.dv_mode_tv)
+        TextView dv_mode_tv;
+
+
+        private ViewHolder(@NonNull final View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+            view.findViewById(R.id.device_container).setOnClickListener(v -> {
+                if (onItemClickListener != null) {
+                    onItemClickListener.onItemClick(devices.get(getAdapterPosition()));
+                }
+            });
+
+        }
+
     }
 
 }

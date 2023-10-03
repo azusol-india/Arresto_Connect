@@ -187,6 +187,8 @@ public class CalibrationService extends Service {
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
+
+
     private void broadcastUpdate(final String action, final BluetoothGattCharacteristic characteristic) {
         final Intent intent = new Intent(action);
         ArrayList<Parcelable> parcelableArr = new ArrayList<>();

@@ -690,6 +690,7 @@ public abstract class Base_Fragment extends Fragment {
     }
 
     public void getSensorData(String device_name, ObjectListener objectListener) {
+        Log.e("Base_Fragment", "getSensorData response run");
         if (isNetworkAvailable(baseActivity)) {
             String url = All_Api.getSensorVibrations + client_id + "&sensor_id=" + device_name;
             url = url.replace(" ", "%20");

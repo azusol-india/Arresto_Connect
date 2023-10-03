@@ -33,14 +33,16 @@ public class TempGattService extends Service {
     ArrayList<DiscoveredBluetoothDevice> allDevices = new ArrayList<>();
     ArrayList<ConnectionClass> connections = new ArrayList<>();
     boolean isGyro;
-    public static final String TAG = AppController.class.getSimpleName();
+//    public static final String TAG = AppController.class.getSimpleName();
+    public static final String TAG = "TempGattService";
 
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.e(TAG, "onStartCommand running"+intent);
+        Log.e(TAG, "onStartCommand running="+intent);
         if (intent.getExtras() != null) {
                 isGyro = intent.getExtras().getBoolean("isGyro", false);
                 boolean needReconnect = intent.getExtras().getBoolean("needReconnect", false);
-                if (intent.getExtras().containsKey("sendDevice")) {
+            Log.e(TAG, "onStartCommand needReconnect="+needReconnect+"\nDevice"+intent.getExtras().containsKey("sendDevice"));
+            if (intent.getExtras().containsKey("sendDevice")) {
                     boolean sendDevice = intent.getExtras().getBoolean("sendDevice");
                     if (sendDevice && allDevices.size() > 0)
                         broadCastCurrentDevices();
@@ -59,6 +61,7 @@ public class TempGattService extends Service {
 
     private void broadCastCurrentDevices() {
         Log.e(TAG, "broadCastCurrentDevices");
+        Log.e(TAG, "broadCastCurrentDevices"+allDevices);
         Intent intent = new Intent();
         intent.setAction("serviceDevices");
         Bundle args = new Bundle();
@@ -113,6 +116,7 @@ public class TempGattService extends Service {
 
 
     private void getServerData(String name, ResultReceiver resultReceiver, ConnectionClass connectionClass) {
+        Log.e("Base_Fragment", "getServerData response run");
         if (isNetworkAvailable(this)) {
             String url = All_Api.getSensorVibrations + client_id + "&sensor_id=" + name;
 //            String url = All_Api.getSensorVibrations + client_id + "&sensor_id=KARE-4430A2";

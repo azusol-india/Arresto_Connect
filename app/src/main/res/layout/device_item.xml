@@ -204,6 +204,21 @@
                 app:backgroundTint="@color/button_bg"
                 app:cornerRadius="@dimen/margin_8dp"
                 app:elevation="0dp" />
+            <app.com.arresto.arresto_connect.custom_views.MyButton
+                android:id="@+id/connect_btn"
+                style="@style/material_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:minHeight="@dimen/margin_30dp"
+                android:text="Connect"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/textsize"
+                app:backgroundTint="@color/button_bg"
+                app:cornerRadius="@dimen/margin_8dp"
+                app:elevation="0dp" />
 
             <app.com.arresto.arresto_connect.custom_views.MyButton
                 android:id="@+id/view_history"

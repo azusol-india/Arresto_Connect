@@ -40,6 +40,8 @@ import android.os.Bundle;
 import android.os.ResultReceiver;
 import android.util.Log;
 
+import com.flir.thermalsdk.androidsdk.BuildConfig;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -52,11 +54,7 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.UUID;
-
-import app.com.arresto.arresto_connect.BuildConfig;
 import app.com.arresto.arresto_connect.appcontroller.AppController;
 import app.com.arresto.arresto_connect.constants.Static_values;
 import app.com.arresto.arresto_connect.data.models.Constant_model;
@@ -64,7 +62,7 @@ import app.com.arresto.arresto_connect.network.NetworkRequest;
 import app.com.arresto.arresto_connect.ui.activity.BaseActivity;
 import app.com.arresto.arresto_connect.ui.modules.sensor.DiscoveredBluetoothDevice;
 
-@SuppressLint("MissingPermission")
+//@SuppressLint("MissingPermission")
 public class ConnectionClass {
     Context context;
     DiscoveredBluetoothDevice device;
@@ -143,7 +141,7 @@ public class ConnectionClass {
                 dv_status = "Connected";
                 printMessage("Connected to GATT server.");
                 sendReceiverMessage(RESULT_STATE, RESULT_STRING, "Connected");
-//                postNotificationData(device.getName(), "Connected");
+                postNotificationData(device.getName(), "Connected");//TODO CHANGE THIS IS COMMENTED
                 postSensorData(device.getName());
                 // Attempts to discover services after successful connection.
                 try {
@@ -185,6 +183,7 @@ public class ConnectionClass {
 
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
+            printMessage("onCharacteristicRead Battery level fetch ");
             if (status == BluetoothGatt.GATT_SUCCESS) {
                 if (characteristic.getUuid().toString().equals(BATTERY_CHAR)) {
                     int battery = characteristic.getIntValue(BluetoothGattCharacteristic.FORMAT_UINT8, 0);
@@ -348,11 +347,11 @@ public class ConnectionClass {
         if (device == null) {
             Log.e("connect", "Device not found.  Unable to connect.");
             return false;
-        }
+        }//todo change autoConnect true from false
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            mBluetoothGatt = device.connectGatt(context, false, mGattCallback, TRANSPORT_LE);
+            mBluetoothGatt = device.connectGatt(context, true, mGattCallback, TRANSPORT_LE);
         } else {
-            mBluetoothGatt = device.connectGatt(context, false, mGattCallback);
+            mBluetoothGatt = device.connectGatt(context, true, mGattCallback);
         }
         return true;
     }
